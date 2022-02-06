@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinTweak", "WinTweak\WinTweak.csproj", "{38471CD6-E7D5-4D02-A04D-255A71B80494}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38471CD6-E7D5-4D02-A04D-255A71B80494}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38471CD6-E7D5-4D02-A04D-255A71B80494}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38471CD6-E7D5-4D02-A04D-255A71B80494}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38471CD6-E7D5-4D02-A04D-255A71B80494}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7FB8D040-56DD-4336-AD44-0942F5C66B8D}
+	EndGlobalSection
+EndGlobal
