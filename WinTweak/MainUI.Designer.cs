@@ -30,19 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             this.Banner = new System.Windows.Forms.Panel();
-            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.MinimalizeButton = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.ExitButton = new Guna.UI2.WinForms.Guna2ImageButton();
             this.menuPanel = new System.Windows.Forms.Panel();
+            this.ContainPanel = new System.Windows.Forms.Panel();
+            this.DragWindow = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.Automation_MenuButton = new Guna.UI2.WinForms.Guna2TileButton();
             this.SettingButton = new Guna.UI2.WinForms.Guna2GradientButton();
             this.Applycations_MenuButton = new Guna.UI2.WinForms.Guna2TileButton();
             this.System_MenuButton = new Guna.UI2.WinForms.Guna2TileButton();
             this.Appearance_MenuButton = new Guna.UI2.WinForms.Guna2TileButton();
             this.Home_MenuButton = new Guna.UI2.WinForms.Guna2TileButton();
-            this.ContainPanel = new System.Windows.Forms.Panel();
-            this.DragWindow = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.MinimalizeButton = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.ExitButton = new Guna.UI2.WinForms.Guna2ImageButton();
             this.Banner.SuspendLayout();
             this.menuPanel.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +60,205 @@
             this.Banner.Size = new System.Drawing.Size(954, 30);
             this.Banner.TabIndex = 3;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(34, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(307, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "WinTweak  -  Customize and optimizing your Windows";
+            // 
+            // menuPanel
+            // 
+            this.menuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.menuPanel.Controls.Add(this.Automation_MenuButton);
+            this.menuPanel.Controls.Add(this.SettingButton);
+            this.menuPanel.Controls.Add(this.Applycations_MenuButton);
+            this.menuPanel.Controls.Add(this.System_MenuButton);
+            this.menuPanel.Controls.Add(this.Appearance_MenuButton);
+            this.menuPanel.Controls.Add(this.Home_MenuButton);
+            this.menuPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.menuPanel.Location = new System.Drawing.Point(0, 30);
+            this.menuPanel.Name = "menuPanel";
+            this.menuPanel.Size = new System.Drawing.Size(120, 638);
+            this.menuPanel.TabIndex = 4;
+            // 
+            // ContainPanel
+            // 
+            this.ContainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ContainPanel.Location = new System.Drawing.Point(120, 30);
+            this.ContainPanel.Name = "ContainPanel";
+            this.ContainPanel.Size = new System.Drawing.Size(834, 638);
+            this.ContainPanel.TabIndex = 5;
+            // 
+            // DragWindow
+            // 
+            this.DragWindow.TargetControl = this.Banner;
+            // 
+            // Automation_MenuButton
+            // 
+            this.Automation_MenuButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Automation_MenuButton.Animated = true;
+            this.Automation_MenuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.Automation_MenuButton.CheckedState.Parent = this.Automation_MenuButton;
+            this.Automation_MenuButton.CustomImages.Parent = this.Automation_MenuButton;
+            this.Automation_MenuButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.Automation_MenuButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.Automation_MenuButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.Automation_MenuButton.ForeColor = System.Drawing.Color.White;
+            this.Automation_MenuButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.Automation_MenuButton.HoverState.Parent = this.Automation_MenuButton;
+            this.Automation_MenuButton.Image = global::WinTweak.Properties.Resources.HOME;
+            this.Automation_MenuButton.Location = new System.Drawing.Point(0, 360);
+            this.Automation_MenuButton.Name = "Automation_MenuButton";
+            this.Automation_MenuButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.Automation_MenuButton.ShadowDecoration.Parent = this.Automation_MenuButton;
+            this.Automation_MenuButton.Size = new System.Drawing.Size(120, 90);
+            this.Automation_MenuButton.TabIndex = 7;
+            this.Automation_MenuButton.Text = "AUTOMATION";
+            this.Automation_MenuButton.TextOffset = new System.Drawing.Point(0, 5);
+            this.Automation_MenuButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            this.Automation_MenuButton.Click += new System.EventHandler(this.Automation_MenuButton_Click);
+            // 
+            // SettingButton
+            // 
+            this.SettingButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SettingButton.Animated = true;
+            this.SettingButton.BackColor = System.Drawing.Color.Transparent;
+            this.SettingButton.CheckedState.Parent = this.SettingButton;
+            this.SettingButton.CustomImages.Parent = this.SettingButton;
+            this.SettingButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.SettingButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.SettingButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.SettingButton.ForeColor = System.Drawing.Color.White;
+            this.SettingButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.SettingButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.SettingButton.HoverState.Parent = this.SettingButton;
+            this.SettingButton.Image = global::WinTweak.Properties.Resources.HOME;
+            this.SettingButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.SettingButton.ImageOffset = new System.Drawing.Point(7, 0);
+            this.SettingButton.Location = new System.Drawing.Point(0, 588);
+            this.SettingButton.Margin = new System.Windows.Forms.Padding(0);
+            this.SettingButton.Name = "SettingButton";
+            this.SettingButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.SettingButton.ShadowDecoration.Parent = this.SettingButton;
+            this.SettingButton.Size = new System.Drawing.Size(120, 50);
+            this.SettingButton.TabIndex = 5;
+            this.SettingButton.Text = "SETTING";
+            this.SettingButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.SettingButton.TextOffset = new System.Drawing.Point(-7, 0);
+            this.SettingButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            this.SettingButton.Click += new System.EventHandler(this.SettingButton_Click);
+            // 
+            // Applycations_MenuButton
+            // 
+            this.Applycations_MenuButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Applycations_MenuButton.Animated = true;
+            this.Applycations_MenuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.Applycations_MenuButton.CheckedState.Parent = this.Applycations_MenuButton;
+            this.Applycations_MenuButton.CustomImages.Parent = this.Applycations_MenuButton;
+            this.Applycations_MenuButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.Applycations_MenuButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.Applycations_MenuButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.Applycations_MenuButton.ForeColor = System.Drawing.Color.White;
+            this.Applycations_MenuButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.Applycations_MenuButton.HoverState.Parent = this.Applycations_MenuButton;
+            this.Applycations_MenuButton.Image = global::WinTweak.Properties.Resources.HOME;
+            this.Applycations_MenuButton.Location = new System.Drawing.Point(0, 270);
+            this.Applycations_MenuButton.Name = "Applycations_MenuButton";
+            this.Applycations_MenuButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.Applycations_MenuButton.ShadowDecoration.Parent = this.Applycations_MenuButton;
+            this.Applycations_MenuButton.Size = new System.Drawing.Size(120, 90);
+            this.Applycations_MenuButton.TabIndex = 6;
+            this.Applycations_MenuButton.Text = "APPLYCATIONS";
+            this.Applycations_MenuButton.TextOffset = new System.Drawing.Point(0, 5);
+            this.Applycations_MenuButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            this.Applycations_MenuButton.Click += new System.EventHandler(this.Applycations_MenuButton_Click);
+            // 
+            // System_MenuButton
+            // 
+            this.System_MenuButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.System_MenuButton.Animated = true;
+            this.System_MenuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.System_MenuButton.CheckedState.Parent = this.System_MenuButton;
+            this.System_MenuButton.CustomImages.Parent = this.System_MenuButton;
+            this.System_MenuButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.System_MenuButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.System_MenuButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.System_MenuButton.ForeColor = System.Drawing.Color.White;
+            this.System_MenuButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.System_MenuButton.HoverState.Parent = this.System_MenuButton;
+            this.System_MenuButton.Image = global::WinTweak.Properties.Resources.HOME;
+            this.System_MenuButton.Location = new System.Drawing.Point(0, 180);
+            this.System_MenuButton.Name = "System_MenuButton";
+            this.System_MenuButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.System_MenuButton.ShadowDecoration.Parent = this.System_MenuButton;
+            this.System_MenuButton.Size = new System.Drawing.Size(120, 90);
+            this.System_MenuButton.TabIndex = 5;
+            this.System_MenuButton.Text = "SYSTEM";
+            this.System_MenuButton.TextOffset = new System.Drawing.Point(0, 5);
+            this.System_MenuButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            this.System_MenuButton.Click += new System.EventHandler(this.System_MenuButton_Click);
+            // 
+            // Appearance_MenuButton
+            // 
+            this.Appearance_MenuButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Appearance_MenuButton.Animated = true;
+            this.Appearance_MenuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.Appearance_MenuButton.CheckedState.Parent = this.Appearance_MenuButton;
+            this.Appearance_MenuButton.CustomImages.Parent = this.Appearance_MenuButton;
+            this.Appearance_MenuButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.Appearance_MenuButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.Appearance_MenuButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.Appearance_MenuButton.ForeColor = System.Drawing.Color.White;
+            this.Appearance_MenuButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.Appearance_MenuButton.HoverState.Parent = this.Appearance_MenuButton;
+            this.Appearance_MenuButton.Image = global::WinTweak.Properties.Resources.HOME;
+            this.Appearance_MenuButton.Location = new System.Drawing.Point(0, 90);
+            this.Appearance_MenuButton.Name = "Appearance_MenuButton";
+            this.Appearance_MenuButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.Appearance_MenuButton.ShadowDecoration.Parent = this.Appearance_MenuButton;
+            this.Appearance_MenuButton.Size = new System.Drawing.Size(120, 90);
+            this.Appearance_MenuButton.TabIndex = 4;
+            this.Appearance_MenuButton.Text = "APPEARANCE";
+            this.Appearance_MenuButton.TextOffset = new System.Drawing.Point(0, 5);
+            this.Appearance_MenuButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            this.Appearance_MenuButton.Click += new System.EventHandler(this.Appearance_MenuButton_Click);
+            // 
+            // Home_MenuButton
+            // 
+            this.Home_MenuButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Home_MenuButton.Animated = true;
+            this.Home_MenuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.Home_MenuButton.CheckedState.Parent = this.Home_MenuButton;
+            this.Home_MenuButton.CustomImages.Parent = this.Home_MenuButton;
+            this.Home_MenuButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.Home_MenuButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.Home_MenuButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.Home_MenuButton.ForeColor = System.Drawing.Color.White;
+            this.Home_MenuButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.Home_MenuButton.HoverState.Parent = this.Home_MenuButton;
+            this.Home_MenuButton.Image = global::WinTweak.Properties.Resources.HOME;
+            this.Home_MenuButton.Location = new System.Drawing.Point(0, 0);
+            this.Home_MenuButton.Name = "Home_MenuButton";
+            this.Home_MenuButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.Home_MenuButton.ShadowDecoration.Parent = this.Home_MenuButton;
+            this.Home_MenuButton.Size = new System.Drawing.Size(120, 90);
+            this.Home_MenuButton.TabIndex = 3;
+            this.Home_MenuButton.Text = "HOME";
+            this.Home_MenuButton.TextOffset = new System.Drawing.Point(0, 5);
+            this.Home_MenuButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            this.Home_MenuButton.Click += new System.EventHandler(this.Home_MenuButton_Click);
+            // 
             // guna2ImageButton1
             // 
             this.guna2ImageButton1.BackColor = System.Drawing.Color.Transparent;
@@ -75,17 +274,6 @@
             this.guna2ImageButton1.PressedState.Parent = this.guna2ImageButton1;
             this.guna2ImageButton1.Size = new System.Drawing.Size(30, 30);
             this.guna2ImageButton1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(34, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(307, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "WinTweak  -  Customize and optimizing your Windows";
             // 
             // MinimalizeButton
             // 
@@ -126,188 +314,6 @@
             this.ExitButton.TabIndex = 5;
             this.ExitButton.UseTransparentBackground = true;
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
-            // 
-            // menuPanel
-            // 
-            this.menuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.menuPanel.Controls.Add(this.Automation_MenuButton);
-            this.menuPanel.Controls.Add(this.SettingButton);
-            this.menuPanel.Controls.Add(this.Applycations_MenuButton);
-            this.menuPanel.Controls.Add(this.System_MenuButton);
-            this.menuPanel.Controls.Add(this.Appearance_MenuButton);
-            this.menuPanel.Controls.Add(this.Home_MenuButton);
-            this.menuPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.menuPanel.Location = new System.Drawing.Point(0, 30);
-            this.menuPanel.Name = "menuPanel";
-            this.menuPanel.Size = new System.Drawing.Size(120, 638);
-            this.menuPanel.TabIndex = 4;
-            // 
-            // Automation_MenuButton
-            // 
-            this.Automation_MenuButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Automation_MenuButton.Animated = true;
-            this.Automation_MenuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.Automation_MenuButton.CheckedState.Parent = this.Automation_MenuButton;
-            this.Automation_MenuButton.CustomImages.Parent = this.Automation_MenuButton;
-            this.Automation_MenuButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.Automation_MenuButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.Automation_MenuButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.Automation_MenuButton.ForeColor = System.Drawing.Color.White;
-            this.Automation_MenuButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.Automation_MenuButton.HoverState.Parent = this.Automation_MenuButton;
-            this.Automation_MenuButton.Image = global::WinTweak.Properties.Resources.HOME;
-            this.Automation_MenuButton.Location = new System.Drawing.Point(0, 360);
-            this.Automation_MenuButton.Name = "Automation_MenuButton";
-            this.Automation_MenuButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.Automation_MenuButton.ShadowDecoration.Parent = this.Automation_MenuButton;
-            this.Automation_MenuButton.Size = new System.Drawing.Size(120, 90);
-            this.Automation_MenuButton.TabIndex = 7;
-            this.Automation_MenuButton.Text = "AUTOMATION";
-            this.Automation_MenuButton.TextOffset = new System.Drawing.Point(0, 5);
-            this.Automation_MenuButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-            // 
-            // SettingButton
-            // 
-            this.SettingButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SettingButton.Animated = true;
-            this.SettingButton.BackColor = System.Drawing.Color.Transparent;
-            this.SettingButton.CheckedState.Parent = this.SettingButton;
-            this.SettingButton.CustomImages.Parent = this.SettingButton;
-            this.SettingButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.SettingButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.SettingButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.SettingButton.ForeColor = System.Drawing.Color.White;
-            this.SettingButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.SettingButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.SettingButton.HoverState.Parent = this.SettingButton;
-            this.SettingButton.Image = global::WinTweak.Properties.Resources.HOME;
-            this.SettingButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.SettingButton.ImageOffset = new System.Drawing.Point(7, 0);
-            this.SettingButton.Location = new System.Drawing.Point(0, 588);
-            this.SettingButton.Margin = new System.Windows.Forms.Padding(0);
-            this.SettingButton.Name = "SettingButton";
-            this.SettingButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.SettingButton.ShadowDecoration.Parent = this.SettingButton;
-            this.SettingButton.Size = new System.Drawing.Size(120, 50);
-            this.SettingButton.TabIndex = 5;
-            this.SettingButton.Text = "SETTING";
-            this.SettingButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.SettingButton.TextOffset = new System.Drawing.Point(-7, 0);
-            this.SettingButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-            // 
-            // Applycations_MenuButton
-            // 
-            this.Applycations_MenuButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Applycations_MenuButton.Animated = true;
-            this.Applycations_MenuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.Applycations_MenuButton.CheckedState.Parent = this.Applycations_MenuButton;
-            this.Applycations_MenuButton.CustomImages.Parent = this.Applycations_MenuButton;
-            this.Applycations_MenuButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.Applycations_MenuButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.Applycations_MenuButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.Applycations_MenuButton.ForeColor = System.Drawing.Color.White;
-            this.Applycations_MenuButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.Applycations_MenuButton.HoverState.Parent = this.Applycations_MenuButton;
-            this.Applycations_MenuButton.Image = global::WinTweak.Properties.Resources.HOME;
-            this.Applycations_MenuButton.Location = new System.Drawing.Point(0, 270);
-            this.Applycations_MenuButton.Name = "Applycations_MenuButton";
-            this.Applycations_MenuButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.Applycations_MenuButton.ShadowDecoration.Parent = this.Applycations_MenuButton;
-            this.Applycations_MenuButton.Size = new System.Drawing.Size(120, 90);
-            this.Applycations_MenuButton.TabIndex = 6;
-            this.Applycations_MenuButton.Text = "APPLYCATIONS";
-            this.Applycations_MenuButton.TextOffset = new System.Drawing.Point(0, 5);
-            this.Applycations_MenuButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-            // 
-            // System_MenuButton
-            // 
-            this.System_MenuButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.System_MenuButton.Animated = true;
-            this.System_MenuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.System_MenuButton.CheckedState.Parent = this.System_MenuButton;
-            this.System_MenuButton.CustomImages.Parent = this.System_MenuButton;
-            this.System_MenuButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.System_MenuButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.System_MenuButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.System_MenuButton.ForeColor = System.Drawing.Color.White;
-            this.System_MenuButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.System_MenuButton.HoverState.Parent = this.System_MenuButton;
-            this.System_MenuButton.Image = global::WinTweak.Properties.Resources.HOME;
-            this.System_MenuButton.Location = new System.Drawing.Point(0, 180);
-            this.System_MenuButton.Name = "System_MenuButton";
-            this.System_MenuButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.System_MenuButton.ShadowDecoration.Parent = this.System_MenuButton;
-            this.System_MenuButton.Size = new System.Drawing.Size(120, 90);
-            this.System_MenuButton.TabIndex = 5;
-            this.System_MenuButton.Text = "SYSTEM";
-            this.System_MenuButton.TextOffset = new System.Drawing.Point(0, 5);
-            this.System_MenuButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-            // 
-            // Appearance_MenuButton
-            // 
-            this.Appearance_MenuButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Appearance_MenuButton.Animated = true;
-            this.Appearance_MenuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.Appearance_MenuButton.CheckedState.Parent = this.Appearance_MenuButton;
-            this.Appearance_MenuButton.CustomImages.Parent = this.Appearance_MenuButton;
-            this.Appearance_MenuButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.Appearance_MenuButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.Appearance_MenuButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.Appearance_MenuButton.ForeColor = System.Drawing.Color.White;
-            this.Appearance_MenuButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.Appearance_MenuButton.HoverState.Parent = this.Appearance_MenuButton;
-            this.Appearance_MenuButton.Image = global::WinTweak.Properties.Resources.HOME;
-            this.Appearance_MenuButton.Location = new System.Drawing.Point(0, 90);
-            this.Appearance_MenuButton.Name = "Appearance_MenuButton";
-            this.Appearance_MenuButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.Appearance_MenuButton.ShadowDecoration.Parent = this.Appearance_MenuButton;
-            this.Appearance_MenuButton.Size = new System.Drawing.Size(120, 90);
-            this.Appearance_MenuButton.TabIndex = 4;
-            this.Appearance_MenuButton.Text = "APPEARANCE";
-            this.Appearance_MenuButton.TextOffset = new System.Drawing.Point(0, 5);
-            this.Appearance_MenuButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-            // 
-            // Home_MenuButton
-            // 
-            this.Home_MenuButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Home_MenuButton.Animated = true;
-            this.Home_MenuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.Home_MenuButton.CheckedState.Parent = this.Home_MenuButton;
-            this.Home_MenuButton.CustomImages.Parent = this.Home_MenuButton;
-            this.Home_MenuButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.Home_MenuButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.Home_MenuButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.Home_MenuButton.ForeColor = System.Drawing.Color.White;
-            this.Home_MenuButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.Home_MenuButton.HoverState.Parent = this.Home_MenuButton;
-            this.Home_MenuButton.Image = global::WinTweak.Properties.Resources.HOME;
-            this.Home_MenuButton.Location = new System.Drawing.Point(0, 0);
-            this.Home_MenuButton.Name = "Home_MenuButton";
-            this.Home_MenuButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.Home_MenuButton.ShadowDecoration.Parent = this.Home_MenuButton;
-            this.Home_MenuButton.Size = new System.Drawing.Size(120, 90);
-            this.Home_MenuButton.TabIndex = 3;
-            this.Home_MenuButton.Text = "HOME";
-            this.Home_MenuButton.TextOffset = new System.Drawing.Point(0, 5);
-            this.Home_MenuButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-            // 
-            // ContainPanel
-            // 
-            this.ContainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ContainPanel.Location = new System.Drawing.Point(120, 30);
-            this.ContainPanel.Name = "ContainPanel";
-            this.ContainPanel.Size = new System.Drawing.Size(834, 638);
-            this.ContainPanel.TabIndex = 5;
-            // 
-            // DragWindow
-            // 
-            this.DragWindow.TargetControl = this.Banner;
             // 
             // MainUI
             // 

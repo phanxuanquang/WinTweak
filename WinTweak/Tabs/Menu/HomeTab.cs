@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinTweak.Tabs
+namespace WinTweak
 {
-    public partial class Setting : UserControl
+    public partial class HomeTab : UserControl
     {
-        public Setting()
+        public HomeTab()
         {
             InitializeComponent();
         }

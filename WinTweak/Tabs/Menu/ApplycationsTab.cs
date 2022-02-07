@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace WinTweak
 {
-    public partial class BaseTab : UserControl
+    public partial class ApplycationsTab : UserControl
     {
-        public BaseTab()
+        public ApplycationsTab()
         {
             InitializeComponent();
-            this.Dock = DockStyle.Fill;
         }
     }
 }

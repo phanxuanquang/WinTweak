@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinTweak.Tabs.Menu
+namespace WinTweak
 {
-    public partial class SystemTab : BaseTab
+    public partial class AutomationTab : UserControl
     {
-        public SystemTab()
+        public AutomationTab()
         {
             InitializeComponent();
         }

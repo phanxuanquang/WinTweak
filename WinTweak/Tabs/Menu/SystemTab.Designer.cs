@@ -1,6 +1,6 @@
-﻿namespace WinTweak.Tabs
+﻿namespace WinTweak
 {
-    partial class Setting
+    partial class SystemTab
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,8 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // SystemTab
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.Name = "SystemTab";
+            this.Size = new System.Drawing.Size(834, 638);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

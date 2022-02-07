@@ -15,10 +15,8 @@ namespace WinTweak
         public MainUI()
         {
             InitializeComponent();
-            BaseTab x = new BaseTab();
-            loadTab(x);
         }
-
+        #region Windows State Button
         private void ExitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -28,11 +26,49 @@ namespace WinTweak
         {
             this.WindowState = FormWindowState.Minimized;
         }
+        #endregion
+
+        #region Menu Button
+        private void Home_MenuButton_Click(object sender, EventArgs e)
+        {
+            HomeTab homeTab = new HomeTab();
+            loadTab(homeTab);
+        }
+
+        private void Appearance_MenuButton_Click(object sender, EventArgs e)
+        {
+            AppearanceTab appearanceTab = new AppearanceTab();
+            loadTab(appearanceTab);
+        }
+
+        private void System_MenuButton_Click(object sender, EventArgs e)
+        {
+            SystemTab systemTab = new SystemTab();
+            loadTab(systemTab);
+        }
+
+        private void Applycations_MenuButton_Click(object sender, EventArgs e)
+        {
+            ApplycationsTab applycationsTab = new ApplycationsTab();
+            loadTab(applycationsTab);
+        }
+
+        private void Automation_MenuButton_Click(object sender, EventArgs e)
+        {
+            AutomationTab automationTab = new AutomationTab();
+            loadTab(automationTab);
+        }
+        #endregion
 
         private void loadTab(UserControl tab)
         {
             ContainPanel.Controls.Clear();
             ContainPanel.Controls.Add(tab);
+        }
+        
+        private void SettingButton_Click(object sender, EventArgs e)
+        {
+             
         }
     }
 }
