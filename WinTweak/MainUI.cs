@@ -15,16 +15,12 @@ namespace WinTweak
         public MainUI()
         {
             InitializeComponent();
+            ShadowForm.SetShadowForm(this);
         }
         #region Windows State Button
         private void ExitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void MinimalizeButton_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
         }
         #endregion
 

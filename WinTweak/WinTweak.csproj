@@ -51,17 +51,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Tabs\Menu\AppearanceTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Tabs\Menu\AppearanceTab.Designer.cs">
       <DependentUpon>AppearanceTab.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tabs\Menu\ApplycationsTab.cs">
+    <Compile Include="Tabs\Menu\ApplicationsTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Tabs\Menu\ApplycationsTab.Designer.cs">
-      <DependentUpon>ApplycationsTab.cs</DependentUpon>
+    <Compile Include="Tabs\Menu\ApplicationsTab.Designer.cs">
+      <DependentUpon>ApplicationsTab.cs</DependentUpon>
     </Compile>
     <Compile Include="Tabs\Menu\AutomationTab.cs">
       <SubType>UserControl</SubType>
@@ -95,11 +100,12 @@
     <Compile Include="Tabs\Menu\SystemTab.Designer.cs">
       <DependentUpon>SystemTab.cs</DependentUpon>
     </Compile>
+    <Compile Include="Class\Appearance\Taskbar.cs" />
     <EmbeddedResource Include="Tabs\Menu\AppearanceTab.resx">
       <DependentUpon>AppearanceTab.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tabs\Menu\ApplycationsTab.resx">
-      <DependentUpon>ApplycationsTab.cs</DependentUpon>
+    <EmbeddedResource Include="Tabs\Menu\ApplicationsTab.resx">
+      <DependentUpon>ApplicationsTab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tabs\Menu\AutomationTab.resx">
       <DependentUpon>AutomationTab.cs</DependentUpon>
@@ -115,14 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Tabs\Menu\SystemTab.resx">
       <DependentUpon>SystemTab.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,9 +140,26 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="Resource\Icon\Menu\HOME.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\Icon\Menu\APPEARANCE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\Icon\Menu\SYSTEM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\Icon\Menu\APPLICATION.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\Icon\Menu\AUTOMATION.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\Icon\SETTING.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\Icon\Exit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
