@@ -116,7 +116,7 @@
             this.TaskbarAligin_Right.Text = "Right";
             this.TaskbarAligin_Right.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             this.TaskbarAligin_Right.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.TaskbarAligin_Right.UncheckedState.BorderThickness = 2;
+            this.TaskbarAligin_Right.UncheckedState.BorderThickness = 0;
             this.TaskbarAligin_Right.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.TaskbarAligin_Right.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.TaskbarAligin_Right.UseCompatibleTextRendering = true;
@@ -140,7 +140,7 @@
             this.TaskbarAligin_Center.Text = "Center";
             this.TaskbarAligin_Center.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             this.TaskbarAligin_Center.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.TaskbarAligin_Center.UncheckedState.BorderThickness = 2;
+            this.TaskbarAligin_Center.UncheckedState.BorderThickness = 0;
             this.TaskbarAligin_Center.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.TaskbarAligin_Center.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.TaskbarAligin_Center.UseCompatibleTextRendering = true;
@@ -162,7 +162,7 @@
             this.TaskbarAligin_Left.Text = "Left";
             this.TaskbarAligin_Left.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             this.TaskbarAligin_Left.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.TaskbarAligin_Left.UncheckedState.BorderThickness = 2;
+            this.TaskbarAligin_Left.UncheckedState.BorderThickness = 0;
             this.TaskbarAligin_Left.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.TaskbarAligin_Left.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.TaskbarAligin_Left.UseCompatibleTextRendering = true;
@@ -199,7 +199,7 @@
             this.TaskbarSize_Small.Text = "Small";
             this.TaskbarSize_Small.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             this.TaskbarSize_Small.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.TaskbarSize_Small.UncheckedState.BorderThickness = 2;
+            this.TaskbarSize_Small.UncheckedState.BorderThickness = 0;
             this.TaskbarSize_Small.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.TaskbarSize_Small.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.TaskbarSize_Small.UseCompatibleTextRendering = true;
@@ -221,7 +221,7 @@
             this.TaskbarSize_Medium.Text = "Medium";
             this.TaskbarSize_Medium.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             this.TaskbarSize_Medium.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.TaskbarSize_Medium.UncheckedState.BorderThickness = 2;
+            this.TaskbarSize_Medium.UncheckedState.BorderThickness = 0;
             this.TaskbarSize_Medium.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.TaskbarSize_Medium.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.TaskbarSize_Medium.UseCompatibleTextRendering = true;
@@ -258,7 +258,7 @@
             this.TaskbarState_Transparent.Text = "Transparent";
             this.TaskbarState_Transparent.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             this.TaskbarState_Transparent.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.TaskbarState_Transparent.UncheckedState.BorderThickness = 2;
+            this.TaskbarState_Transparent.UncheckedState.BorderThickness = 0;
             this.TaskbarState_Transparent.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.TaskbarState_Transparent.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.TaskbarState_Transparent.UseCompatibleTextRendering = true;
@@ -280,7 +280,7 @@
             this.TaskbarState_Normal.Text = "Normal";
             this.TaskbarState_Normal.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             this.TaskbarState_Normal.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.TaskbarState_Normal.UncheckedState.BorderThickness = 2;
+            this.TaskbarState_Normal.UncheckedState.BorderThickness = 0;
             this.TaskbarState_Normal.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.TaskbarState_Normal.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.TaskbarState_Normal.UseCompatibleTextRendering = true;
@@ -357,6 +357,7 @@
             // 
             this.SmallSearchIcon.Animated = true;
             this.SmallSearchIcon.AutoSize = true;
+            this.SmallSearchIcon.BackColor = System.Drawing.Color.Transparent;
             this.SmallSearchIcon.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
             this.SmallSearchIcon.Checked = true;
             this.SmallSearchIcon.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -374,7 +375,7 @@
             this.SmallSearchIcon.UncheckedState.BorderRadius = 2;
             this.SmallSearchIcon.UncheckedState.BorderThickness = 0;
             this.SmallSearchIcon.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.SmallSearchIcon.UseVisualStyleBackColor = true;
+            this.SmallSearchIcon.UseVisualStyleBackColor = false;
             // 
             // HideTaskViewIcon
             // 
@@ -529,7 +530,7 @@
             this.guna2RadioButton8.Text = "Large";
             this.guna2RadioButton8.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             this.guna2RadioButton8.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2RadioButton8.UncheckedState.BorderThickness = 2;
+            this.guna2RadioButton8.UncheckedState.BorderThickness = 0;
             this.guna2RadioButton8.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.guna2RadioButton8.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.guna2RadioButton8.UseCompatibleTextRendering = true;
@@ -551,7 +552,7 @@
             this.guna2RadioButton11.Text = "Medium";
             this.guna2RadioButton11.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             this.guna2RadioButton11.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2RadioButton11.UncheckedState.BorderThickness = 2;
+            this.guna2RadioButton11.UncheckedState.BorderThickness = 0;
             this.guna2RadioButton11.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.guna2RadioButton11.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.guna2RadioButton11.UseCompatibleTextRendering = true;
@@ -575,7 +576,7 @@
             this.guna2RadioButton12.Text = "Small";
             this.guna2RadioButton12.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             this.guna2RadioButton12.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2RadioButton12.UncheckedState.BorderThickness = 2;
+            this.guna2RadioButton12.UncheckedState.BorderThickness = 0;
             this.guna2RadioButton12.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.guna2RadioButton12.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.guna2RadioButton12.UseCompatibleTextRendering = true;
@@ -706,7 +707,7 @@
             this.guna2RadioButton10.Text = "Light";
             this.guna2RadioButton10.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             this.guna2RadioButton10.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2RadioButton10.UncheckedState.BorderThickness = 2;
+            this.guna2RadioButton10.UncheckedState.BorderThickness = 0;
             this.guna2RadioButton10.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.guna2RadioButton10.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.guna2RadioButton10.UseCompatibleTextRendering = true;
@@ -728,11 +729,10 @@
             // 
             // colorSample
             // 
-            this.colorSample.BackColor = System.Drawing.Color.Black;
+            this.colorSample.BackColor = System.Drawing.Color.Transparent;
             this.colorSample.BorderColor = System.Drawing.Color.White;
             this.colorSample.BorderRadius = 5;
             this.colorSample.BorderThickness = 2;
-            this.colorSample.Enabled = false;
             this.colorSample.Location = new System.Drawing.Point(17, 76);
             this.colorSample.Name = "colorSample";
             this.colorSample.ShadowDecoration.Parent = this.colorSample;
@@ -755,7 +755,7 @@
             this.AccentColor_Manual.Text = "Manual";
             this.AccentColor_Manual.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             this.AccentColor_Manual.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.AccentColor_Manual.UncheckedState.BorderThickness = 2;
+            this.AccentColor_Manual.UncheckedState.BorderThickness = 0;
             this.AccentColor_Manual.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.AccentColor_Manual.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.AccentColor_Manual.UseCompatibleTextRendering = true;
@@ -780,7 +780,7 @@
             this.AccentColor_Automatic.Text = "Automatic";
             this.AccentColor_Automatic.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             this.AccentColor_Automatic.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.AccentColor_Automatic.UncheckedState.BorderThickness = 2;
+            this.AccentColor_Automatic.UncheckedState.BorderThickness = 0;
             this.AccentColor_Automatic.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.AccentColor_Automatic.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.AccentColor_Automatic.UseCompatibleTextRendering = true;
@@ -815,7 +815,7 @@
             this.guna2RadioButton13.Text = "Disable";
             this.guna2RadioButton13.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             this.guna2RadioButton13.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2RadioButton13.UncheckedState.BorderThickness = 2;
+            this.guna2RadioButton13.UncheckedState.BorderThickness = 0;
             this.guna2RadioButton13.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.guna2RadioButton13.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.guna2RadioButton13.UseCompatibleTextRendering = true;
@@ -839,7 +839,7 @@
             this.guna2RadioButton14.Text = "Enable";
             this.guna2RadioButton14.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             this.guna2RadioButton14.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2RadioButton14.UncheckedState.BorderThickness = 2;
+            this.guna2RadioButton14.UncheckedState.BorderThickness = 0;
             this.guna2RadioButton14.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.guna2RadioButton14.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.guna2RadioButton14.UseCompatibleTextRendering = true;
@@ -850,12 +850,13 @@
             this.ApplyButton.Animated = true;
             this.ApplyButton.BorderColor = System.Drawing.Color.White;
             this.ApplyButton.BorderRadius = 12;
+            this.ApplyButton.BorderThickness = 2;
             this.ApplyButton.CheckedState.Parent = this.ApplyButton;
             this.ApplyButton.CustomImages.Parent = this.ApplyButton;
-            this.ApplyButton.FillColor = System.Drawing.Color.White;
-            this.ApplyButton.FillColor2 = System.Drawing.Color.White;
+            this.ApplyButton.FillColor = System.Drawing.Color.Transparent;
+            this.ApplyButton.FillColor2 = System.Drawing.Color.Transparent;
             this.ApplyButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.ApplyButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.ApplyButton.ForeColor = System.Drawing.Color.White;
             this.ApplyButton.HoverState.Parent = this.ApplyButton;
             this.ApplyButton.Location = new System.Drawing.Point(438, 551);
             this.ApplyButton.Name = "ApplyButton";

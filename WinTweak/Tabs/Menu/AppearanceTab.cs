@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,22 +19,26 @@ namespace WinTweak
         {
             InitializeComponent();
             taskbarActions = new Taskbar();
+
+            var themeColor = WindowsColor.GetAccentColor();
+            colorSample.FillColor = themeColor;
+            ApplyButton.FillColor = ApplyButton.FillColor2 = themeColor;
+            ApplyButton.HoverState.FillColor = ApplyButton.HoverState.FillColor2 = ControlPaint.Light(themeColor);
         }
 
         private void AccentColor_Manual_CheckedChanged(object sender, EventArgs e)
         {
             if (AccentColor_Manual.Checked)
             {
-                colorSample.Enabled = true;
                 ColorDialog pickColorDialog = new ColorDialog();
                 if (pickColorDialog.ShowDialog() == DialogResult.OK) 
                 {
-                    colorSample.BackColor = pickColorDialog.Color;
+                    colorSample.FillColor = pickColorDialog.Color;
                 }
                 else
                 {
-                    AccentColor_Manual.Checked = false;
                     AccentColor_Automatic.Checked = true;
+                    AccentColor_Manual.Checked = false;
                 }
             }
 
@@ -79,25 +84,8 @@ namespace WinTweak
 
         private void DefaultButton_Click(object sender, EventArgs e)
         {
-            //foreach (Control control in this.Controls)
-            //{
-            //    if (control is Guna.UI2.WinForms.Guna2CheckBox)
-            //    {
-            //        Guna.UI2.WinForms.Guna2CheckBox checkBox = (Guna.UI2.WinForms.Guna2CheckBox)control;
-            //        if (!checkBox.Checked)
-            //        {
-            //            checkBox.Checked = true;
-            //        }
-            //    }
-            //}
-            foreach(Guna.UI2.WinForms.Guna2CheckBox checkBox in this.Controls)
-            {
-                if (!checkBox.Checked)
-                {
-                    checkBox.Checked = true;
-                }
-            }
             TaskbarAligin_Center.Checked = TaskbarSize_Small.Checked = TaskbarState_Transparent.Checked = true;
+            Program.CheckAll_CheckBox(this);
         }
     }
 }

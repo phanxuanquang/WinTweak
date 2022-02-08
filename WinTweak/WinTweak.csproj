@@ -101,6 +101,7 @@
       <DependentUpon>SystemTab.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\Appearance\Taskbar.cs" />
+    <Compile Include="WindowsColor.cs" />
     <EmbeddedResource Include="Tabs\Menu\AppearanceTab.resx">
       <DependentUpon>AppearanceTab.cs</DependentUpon>
     </EmbeddedResource>

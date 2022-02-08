@@ -31,20 +31,20 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainUI));
             this.Banner = new System.Windows.Forms.Panel();
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.label1 = new System.Windows.Forms.Label();
             this.ExitButton = new Guna.UI2.WinForms.Guna2ImageButton();
             this.menuPanel = new System.Windows.Forms.Panel();
-            this.ContainPanel = new System.Windows.Forms.Panel();
-            this.DragWindow = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.ShadowForm = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
-            this.Elipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.Automation_MenuButton = new Guna.UI2.WinForms.Guna2TileButton();
             this.SettingButton = new Guna.UI2.WinForms.Guna2GradientButton();
             this.Applications_MenuButton = new Guna.UI2.WinForms.Guna2TileButton();
             this.System_MenuButton = new Guna.UI2.WinForms.Guna2TileButton();
             this.Appearance_MenuButton = new Guna.UI2.WinForms.Guna2TileButton();
             this.Home_MenuButton = new Guna.UI2.WinForms.Guna2TileButton();
-            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.ContainPanel = new System.Windows.Forms.Panel();
+            this.DragWindow = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.ShadowForm = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
+            this.Elipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.Banner.SuspendLayout();
             this.menuPanel.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +60,22 @@
             this.Banner.Name = "Banner";
             this.Banner.Size = new System.Drawing.Size(954, 30);
             this.Banner.TabIndex = 3;
+            // 
+            // guna2ImageButton1
+            // 
+            this.guna2ImageButton1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton1.CheckedState.Parent = this.guna2ImageButton1;
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(17, 17);
+            this.guna2ImageButton1.HoverState.Parent = this.guna2ImageButton1;
+            this.guna2ImageButton1.Image = global::WinTweak.Properties.Resources.HOME;
+            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(17, 17);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(5, 0);
+            this.guna2ImageButton1.Margin = new System.Windows.Forms.Padding(0);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(17, 17);
+            this.guna2ImageButton1.PressedState.Parent = this.guna2ImageButton1;
+            this.guna2ImageButton1.Size = new System.Drawing.Size(30, 30);
+            this.guna2ImageButton1.TabIndex = 0;
             // 
             // label1
             // 
@@ -80,7 +96,7 @@
             this.ExitButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ExitButton.HoverState.ImageSize = new System.Drawing.Size(17, 17);
             this.ExitButton.HoverState.Parent = this.ExitButton;
-            this.ExitButton.Image = global::WinTweak.Properties.Resources.Exit;
+            this.ExitButton.Image = ((System.Drawing.Image)(resources.GetObject("ExitButton.Image")));
             this.ExitButton.ImageSize = new System.Drawing.Size(15, 15);
             this.ExitButton.Location = new System.Drawing.Point(922, 0);
             this.ExitButton.Margin = new System.Windows.Forms.Padding(0);
@@ -107,23 +123,6 @@
             this.menuPanel.Size = new System.Drawing.Size(120, 638);
             this.menuPanel.TabIndex = 4;
             // 
-            // ContainPanel
-            // 
-            this.ContainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ContainPanel.Location = new System.Drawing.Point(120, 30);
-            this.ContainPanel.Name = "ContainPanel";
-            this.ContainPanel.Size = new System.Drawing.Size(834, 638);
-            this.ContainPanel.TabIndex = 5;
-            // 
-            // DragWindow
-            // 
-            this.DragWindow.TargetControl = this.Banner;
-            // 
-            // Elipse
-            // 
-            this.Elipse.BorderRadius = 10;
-            this.Elipse.TargetControl = this;
-            // 
             // Automation_MenuButton
             // 
             this.Automation_MenuButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -136,7 +135,6 @@
             this.Automation_MenuButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.Automation_MenuButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.Automation_MenuButton.ForeColor = System.Drawing.Color.White;
-            this.Automation_MenuButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
             this.Automation_MenuButton.HoverState.Parent = this.Automation_MenuButton;
             this.Automation_MenuButton.Image = global::WinTweak.Properties.Resources.AUTOMATION;
             this.Automation_MenuButton.ImageSize = new System.Drawing.Size(25, 25);
@@ -195,7 +193,6 @@
             this.Applications_MenuButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.Applications_MenuButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.Applications_MenuButton.ForeColor = System.Drawing.Color.White;
-            this.Applications_MenuButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
             this.Applications_MenuButton.HoverState.Parent = this.Applications_MenuButton;
             this.Applications_MenuButton.Image = global::WinTweak.Properties.Resources.APPLICATION;
             this.Applications_MenuButton.ImageSize = new System.Drawing.Size(25, 25);
@@ -222,7 +219,6 @@
             this.System_MenuButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.System_MenuButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.System_MenuButton.ForeColor = System.Drawing.Color.White;
-            this.System_MenuButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
             this.System_MenuButton.HoverState.Parent = this.System_MenuButton;
             this.System_MenuButton.Image = ((System.Drawing.Image)(resources.GetObject("System_MenuButton.Image")));
             this.System_MenuButton.ImageSize = new System.Drawing.Size(25, 25);
@@ -249,7 +245,6 @@
             this.Appearance_MenuButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.Appearance_MenuButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.Appearance_MenuButton.ForeColor = System.Drawing.Color.White;
-            this.Appearance_MenuButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
             this.Appearance_MenuButton.HoverState.Parent = this.Appearance_MenuButton;
             this.Appearance_MenuButton.Image = ((System.Drawing.Image)(resources.GetObject("Appearance_MenuButton.Image")));
             this.Appearance_MenuButton.ImageSize = new System.Drawing.Size(25, 25);
@@ -276,7 +271,6 @@
             this.Home_MenuButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.Home_MenuButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.Home_MenuButton.ForeColor = System.Drawing.Color.White;
-            this.Home_MenuButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
             this.Home_MenuButton.HoverState.Parent = this.Home_MenuButton;
             this.Home_MenuButton.Image = global::WinTweak.Properties.Resources.HOME;
             this.Home_MenuButton.ImageSize = new System.Drawing.Size(25, 25);
@@ -291,21 +285,22 @@
             this.Home_MenuButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             this.Home_MenuButton.Click += new System.EventHandler(this.Home_MenuButton_Click);
             // 
-            // guna2ImageButton1
+            // ContainPanel
             // 
-            this.guna2ImageButton1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton1.CheckedState.Parent = this.guna2ImageButton1;
-            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(17, 17);
-            this.guna2ImageButton1.HoverState.Parent = this.guna2ImageButton1;
-            this.guna2ImageButton1.Image = global::WinTweak.Properties.Resources.HOME;
-            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(17, 17);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(5, 0);
-            this.guna2ImageButton1.Margin = new System.Windows.Forms.Padding(0);
-            this.guna2ImageButton1.Name = "guna2ImageButton1";
-            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(17, 17);
-            this.guna2ImageButton1.PressedState.Parent = this.guna2ImageButton1;
-            this.guna2ImageButton1.Size = new System.Drawing.Size(30, 30);
-            this.guna2ImageButton1.TabIndex = 0;
+            this.ContainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ContainPanel.Location = new System.Drawing.Point(120, 30);
+            this.ContainPanel.Name = "ContainPanel";
+            this.ContainPanel.Size = new System.Drawing.Size(834, 638);
+            this.ContainPanel.TabIndex = 5;
+            // 
+            // DragWindow
+            // 
+            this.DragWindow.TargetControl = this.Banner;
+            // 
+            // Elipse
+            // 
+            this.Elipse.BorderRadius = 10;
+            this.Elipse.TargetControl = this;
             // 
             // MainUI
             // 
@@ -318,7 +313,7 @@
             this.Controls.Add(this.Banner);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainUI";
-            this.Opacity = 0.99D;
+            this.Opacity = 0.98D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainUI";
             this.Banner.ResumeLayout(false);

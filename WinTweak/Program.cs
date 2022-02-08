@@ -49,5 +49,49 @@ namespace WinTweak
                 runCommand_Advanced("Restart-Computer -Force");
             }
         }
+        public static void CheckAll_CheckBox(Control control)
+        {
+            Guna.UI2.WinForms.Guna2CheckBox checkBox = control as Guna.UI2.WinForms.Guna2CheckBox;
+            if (checkBox == null)
+            {
+                foreach (Control child in control.Controls)
+                {
+                    CheckAll_CheckBox(child);
+                }
+            }
+            else
+            {
+                checkBox.Checked = true;
+            }
+        }
+        public static void ApplyThemeColor_CheckButtons(Control control)
+        {
+            Guna.UI2.WinForms.Guna2CheckBox checkBox = control as Guna.UI2.WinForms.Guna2CheckBox;
+            Guna.UI2.WinForms.Guna2RadioButton radioButton = control as Guna.UI2.WinForms.Guna2RadioButton;
+            
+            if (checkBox == null)
+            {
+                foreach (Control child in control.Controls)
+                {
+                    ApplyThemeColor_CheckButtons(child);
+                }
+            }
+            else
+            {
+                checkBox.CheckedState.FillColor = ControlPaint.Light(WindowsColor.GetAccentColor());
+            }
+
+            if (radioButton == null)
+            {
+                foreach (Control child in control.Controls)
+                {
+                    ApplyThemeColor_CheckButtons(child);
+                }
+            }
+            else
+            {
+                radioButton.CheckedState.FillColor = ControlPaint.Light(WindowsColor.GetAccentColor());
+            }
+        }
     }
 }
