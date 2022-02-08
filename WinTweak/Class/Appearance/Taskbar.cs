@@ -8,50 +8,47 @@ namespace WinTweak
 {
     internal class Taskbar
     {
+        private string commandReg, pathReg, nameReg;
         public enum aligin { left, center, right }
         public enum size { medium, small }
         public enum state { normal, transparent };
 
-        private string commandReg, pathReg, nameReg;
         public aligin Aligin;
         public size Size;
         public state State;
-
         public void ApplyAction(bool SmallSearchIcon_Enable, bool HideTaskViewIcon_Enable, bool TurnOffMeetNow_Enable, bool RemoveCortanaIcon_Enable, bool RemoveBingWeather_Enable)
         {
-            Change_TaskbarAligin(Aligin);
-            Change_TaskbarSize(Size);
-            Change_TaskbarState(State);
+            Change_TaskbarAligin();
+            Change_TaskbarSize();
+            Change_TaskbarState();
 
             SmallSearchIcon(SmallSearchIcon_Enable);
             HideTaskViewIcon(HideTaskViewIcon_Enable);
             TurnOffMeetNow(TurnOffMeetNow_Enable);
             RemoveCortanaIcon(RemoveCortanaIcon_Enable);
             RemoveBingWeather(RemoveBingWeather_Enable);
-
         }
 
-        private void Change_TaskbarAligin(aligin newAligin)
+        private void Change_TaskbarAligin()
         {
             //nothing here
         }
-        private void Change_TaskbarSize(size newSize)
+        private void Change_TaskbarSize()
         {
             commandReg = "Set-ItemProperty";
             pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced";
             nameReg = "TaskbarSmallIcons";
 
-            if (newSize == size.small)
+            if (Size == size.small)
             {
                 Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 1");
-
             }
             else
             {
                 Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 0");
             }
         }
-        private void Change_TaskbarState(state newState)
+        private void Change_TaskbarState()
         {
             //nothing here
         }

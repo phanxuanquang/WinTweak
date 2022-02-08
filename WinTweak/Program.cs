@@ -68,7 +68,7 @@ namespace WinTweak
         {
             Guna.UI2.WinForms.Guna2CheckBox checkBox = control as Guna.UI2.WinForms.Guna2CheckBox;
             Guna.UI2.WinForms.Guna2RadioButton radioButton = control as Guna.UI2.WinForms.Guna2RadioButton;
-            
+
             if (checkBox == null)
             {
                 foreach (Control child in control.Controls)

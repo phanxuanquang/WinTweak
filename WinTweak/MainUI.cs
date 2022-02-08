@@ -13,12 +13,26 @@ namespace WinTweak
 {
     public partial class MainUI : Form
     {
-        private UserPreferenceChangedEventHandler UserPreferenceChanged;
+        UserPreferenceChangedEventHandler UserPreferenceChanged;
+
+        HomeTab homeTab;
+        AppearanceTab appearanceTab;
+        SystemTab systemTab;
+        ApplycationsTab applicationsTab;
+        AutomationTab automationTab;
 
         public MainUI()
         {
             InitializeComponent();
+
+            homeTab = new HomeTab();
+            appearanceTab = new AppearanceTab();    
+            systemTab = new SystemTab();
+            applicationsTab = new ApplycationsTab();   
+            automationTab = new AutomationTab();
+
             ApplyTheme();
+
             UserPreferenceChanged = new UserPreferenceChangedEventHandler(SystemEvents_UserPreferenceChanged);
             SystemEvents.UserPreferenceChanged += UserPreferenceChanged;
             this.Disposed += new EventHandler(MainUI_Disposed);
@@ -47,23 +61,37 @@ namespace WinTweak
             SettingButton.HoverState.FillColor = ControlPaint.Light(WindowsColor.GetAccentColor());
             Program.ApplyThemeColor_CheckButtons(this);
         }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams handleParam = base.CreateParams;
+                handleParam.ExStyle |= 0x02000000;
+                return handleParam;
+            }
+        }
         #endregion
 
         #region Menu Button
         private void loadTab(UserControl tab)
         {
-            ContainPanel.Controls.Clear();
-            ContainPanel.Controls.Add(tab);
+            if (!ContainPanel.Controls.Contains(tab))
+            {
+                ContainPanel.Controls.Add(tab);
+                tab.BringToFront();
+            }
+            else
+            {
+                tab.BringToFront();
+            }
             ApplyTheme();
         }
         private void Home_MenuButton_Click(object sender, EventArgs e)
         {
-            HomeTab homeTab = new HomeTab();
             loadTab(homeTab);
         }
         private void Appearance_MenuButton_Click(object sender, EventArgs e)
         {
-            AppearanceTab appearanceTab = new AppearanceTab();
             loadTab(appearanceTab);
         }
         private void System_MenuButton_Click(object sender, EventArgs e)
@@ -73,12 +101,10 @@ namespace WinTweak
         }
         private void Applycations_MenuButton_Click(object sender, EventArgs e)
         {
-            ApplycationsTab applycationsTab = new ApplycationsTab();
-            loadTab(applycationsTab);
+            loadTab(applicationsTab);
         }
         private void Automation_MenuButton_Click(object sender, EventArgs e)
         {
-            AutomationTab automationTab = new AutomationTab();
             loadTab(automationTab);
         }
         #endregion

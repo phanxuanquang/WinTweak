@@ -311,9 +311,9 @@
             this.Controls.Add(this.ContainPanel);
             this.Controls.Add(this.menuPanel);
             this.Controls.Add(this.Banner);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainUI";
-            this.Opacity = 0.98D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainUI";
             this.Banner.ResumeLayout(false);

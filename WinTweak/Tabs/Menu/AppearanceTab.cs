@@ -13,12 +13,10 @@ namespace WinTweak
 {
     public partial class AppearanceTab : UserControl
     {
-        Taskbar taskbarActions;
         
         public AppearanceTab()
         {
             InitializeComponent();
-            taskbarActions = new Taskbar();
 
             var themeColor = WindowsColor.GetAccentColor();
             colorSample.FillColor = themeColor;
@@ -28,7 +26,7 @@ namespace WinTweak
 
         private void AccentColor_Manual_CheckedChanged(object sender, EventArgs e)
         {
-            if (AccentColor_Manual.Checked)
+            if (PersonalizeAccentColor_Manual.Checked)
             {
                 ColorDialog pickColorDialog = new ColorDialog();
                 if (pickColorDialog.ShowDialog() == DialogResult.OK) 
@@ -37,8 +35,8 @@ namespace WinTweak
                 }
                 else
                 {
-                    AccentColor_Automatic.Checked = true;
-                    AccentColor_Manual.Checked = false;
+                    PersonalizeAccentColor_Automatic.Checked = true;
+                    PersonalizeAccentColor_Manual.Checked = false;
                 }
             }
 
@@ -46,7 +44,11 @@ namespace WinTweak
 
         private void ApplyButton_Click(object sender, EventArgs e)
         {
-            #region Taskbar 
+            
+            Taskbar taskbarActions = new Taskbar();
+            StartMenu startMenuActions = new StartMenu();
+            Personalize personalizeActions = new Personalize();
+
             if (TaskbarAligin_Left.Checked)
             {
                 taskbarActions.Aligin = WinTweak.Taskbar.aligin.left;
@@ -78,14 +80,29 @@ namespace WinTweak
                 taskbarActions.State = WinTweak.Taskbar.state.transparent;
             }
 
-            Task applyChanges = Task.Factory.StartNew(() => taskbarActions.ApplyAction(SmallSearchIcon.Checked, HideTaskViewIcon.Checked, TurnOffMeetNow.Checked, RemoveCortanaIcon.Checked, RemoveBingWeather.Checked));
-            applyChanges.Wait();
+            if (PersonalizeDesktopIconSize_Small.Checked)
+            {
+                personalizeActions.desktopIconSize = WinTweak.Personalize.DesktopIconSize.small;
+            }
+            else if (PersonalizeDesktopIconSize_Medium.Checked)
+            {
+                personalizeActions.desktopIconSize = WinTweak.Personalize.DesktopIconSize.medium;
+            }
+            else
+            {
+                personalizeActions.desktopIconSize = WinTweak.Personalize.DesktopIconSize.large;
+            }
+
+            Task applyChanges_Taskbar = Task.Factory.StartNew(() => taskbarActions.ApplyAction(SmallSearchIcon.Checked, HideTaskViewIcon.Checked, TurnOffMeetNow.Checked, RemoveCortanaIcon.Checked, RemoveBingWeather.Checked));
+            Task applyChanges_StartMenu = Task.Factory.StartNew(() => startMenuActions.ApplyAction(TurnOffAppSuggestions.Checked, TurnOffRecentApps.Checked,ApplyAccentColor.Checked));
+            Task applyChanges_Personalize = Task.Factory.StartNew(() => personalizeActions.ApplyAction(PersonalizeColorMode_Dark.Checked, PersonalizeTransparentEffect_Enable.Checked, PersonalizeDesktopIconArrange_CleanDesktopIcons.Checked));
+
+            Task.WaitAll(applyChanges_Taskbar, applyChanges_StartMenu, applyChanges_Personalize);
 
             Task restartExplorer = Task.Factory.StartNew(() => Program.runCommand_Advanced("stop-process -name explorer –force"));
             restartExplorer.Wait();
 
             MessageBox.Show("Completed. Please restart your computer.");
-            #endregion
         }
 
         private void DefaultButton_Click(object sender, EventArgs e)
