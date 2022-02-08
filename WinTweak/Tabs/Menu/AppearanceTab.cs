@@ -78,7 +78,13 @@ namespace WinTweak
                 taskbarActions.State = WinTweak.Taskbar.state.transparent;
             }
 
-            taskbarActions.ApplyAction(SmallSearchIcon.Checked, HideTaskViewIcon.Checked, TurnOffMeetNow.Checked, RemoveCortanaIcon.Checked, RemoveBingWeather.Checked);
+            Task applyChanges = Task.Factory.StartNew(() => taskbarActions.ApplyAction(SmallSearchIcon.Checked, HideTaskViewIcon.Checked, TurnOffMeetNow.Checked, RemoveCortanaIcon.Checked, RemoveBingWeather.Checked));
+            applyChanges.Wait();
+
+            Task restartExplorer = Task.Factory.StartNew(() => Program.runCommand_Advanced("stop-process -name explorer –force"));
+            restartExplorer.Wait();
+
+            MessageBox.Show("Completed. Please restart your computer.");
             #endregion
         }
 

@@ -25,7 +25,7 @@ namespace WinTweak
 
             p.StartInfo.FileName = "CMD.exe";
             p.StartInfo.Verb = "runas";
-            p.StartInfo.Arguments = String.Format("PowerShell if(Test-Path {0}) { {1} -Path {2} -Name {3} {4} }", path, command, path, name, arguments);
+            p.StartInfo.Arguments = String.Format("/C PowerShell if(Test-Path {0}) {{ {1} -Path {2} -Name {3} {4} }}", path, command, path, name, arguments);
             p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
 
             p.Start();
@@ -36,7 +36,7 @@ namespace WinTweak
 
             p.StartInfo.FileName = "CMD.exe";
             p.StartInfo.Verb = "runas";
-            p.StartInfo.Arguments = "PowerShell " + command;
+            p.StartInfo.Arguments = "/C PowerShell " + command;
             p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
 
             p.Start();
