@@ -42,9 +42,6 @@
             this.HideTaskViewIcon = new Guna.UI2.WinForms.Guna2CheckBox();
             this.RemoveBingWeather = new Guna.UI2.WinForms.Guna2CheckBox();
             this.Personalization = new System.Windows.Forms.GroupBox();
-            this.Personalize_DesktopIconArrange = new System.Windows.Forms.GroupBox();
-            this.PersonalizeDesktopIconArrange_CleanDesktopIcons = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.PersonalizeDesktopIconArrange_Auto = new Guna.UI2.WinForms.Guna2CheckBox();
             this.Personalize_DesktopIconSize = new System.Windows.Forms.GroupBox();
             this.PersonalizeDesktopIconSize_Large = new Guna.UI2.WinForms.Guna2RadioButton();
             this.PersonalizeDesktopIconSize_Medium = new Guna.UI2.WinForms.Guna2RadioButton();
@@ -57,8 +54,8 @@
             this.PersonalizeColorMode_Light = new Guna.UI2.WinForms.Guna2RadioButton();
             this.Personalize_AccentColor = new System.Windows.Forms.GroupBox();
             this.colorSample = new Guna.UI2.WinForms.Guna2Panel();
-            this.PersonalizeAccentColor_Manual = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.PersonalizeAccentColor_Automatic = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.PersonalizeAccentColor_Disable = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.PersonalizeAccentColor_Enable = new Guna.UI2.WinForms.Guna2RadioButton();
             this.Personalize_TransparentEffect = new System.Windows.Forms.GroupBox();
             this.PersonalizeTransparentEffect_Disable = new Guna.UI2.WinForms.Guna2RadioButton();
             this.PersonalizeTransparentEffect_Enable = new Guna.UI2.WinForms.Guna2RadioButton();
@@ -69,11 +66,14 @@
             this.StartMenu = new System.Windows.Forms.GroupBox();
             this.ApplyAccentColor = new Guna.UI2.WinForms.Guna2CheckBox();
             this.tittle = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.PersonalizeDesktopIconArrange_Auto = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.HideFileNameExtensions = new Guna.UI2.WinForms.Guna2CheckBox();
             this.Taskbar_Aligin.SuspendLayout();
             this.Taskbar_Size.SuspendLayout();
             this.Taskbar.SuspendLayout();
             this.Personalization.SuspendLayout();
-            this.Personalize_DesktopIconArrange.SuspendLayout();
             this.Personalize_DesktopIconSize.SuspendLayout();
             this.Personalize_Display.SuspendLayout();
             this.Personalize_ColorMode.SuspendLayout();
@@ -392,7 +392,8 @@
             // 
             this.Personalization.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Personalization.BackColor = System.Drawing.Color.Transparent;
-            this.Personalization.Controls.Add(this.Personalize_DesktopIconArrange);
+            this.Personalization.Controls.Add(this.HideFileNameExtensions);
+            this.Personalization.Controls.Add(this.PersonalizeDesktopIconArrange_Auto);
             this.Personalization.Controls.Add(this.Personalize_DesktopIconSize);
             this.Personalization.Controls.Add(this.Personalize_Display);
             this.Personalization.Controls.Add(this.Personalize_ColorMode);
@@ -407,70 +408,6 @@
             this.Personalization.TabStop = false;
             this.Personalization.Text = "Personalization";
             // 
-            // Personalize_DesktopIconArrange
-            // 
-            this.Personalize_DesktopIconArrange.BackColor = System.Drawing.Color.Transparent;
-            this.Personalize_DesktopIconArrange.Controls.Add(this.PersonalizeDesktopIconArrange_CleanDesktopIcons);
-            this.Personalize_DesktopIconArrange.Controls.Add(this.PersonalizeDesktopIconArrange_Auto);
-            this.Personalize_DesktopIconArrange.ForeColor = System.Drawing.Color.White;
-            this.Personalize_DesktopIconArrange.Location = new System.Drawing.Point(33, 342);
-            this.Personalize_DesktopIconArrange.Margin = new System.Windows.Forms.Padding(0);
-            this.Personalize_DesktopIconArrange.Name = "Personalize_DesktopIconArrange";
-            this.Personalize_DesktopIconArrange.Size = new System.Drawing.Size(260, 64);
-            this.Personalize_DesktopIconArrange.TabIndex = 4;
-            this.Personalize_DesktopIconArrange.TabStop = false;
-            this.Personalize_DesktopIconArrange.Text = "Desktop icon arrange";
-            // 
-            // PersonalizeDesktopIconArrange_CleanDesktopIcons
-            // 
-            this.PersonalizeDesktopIconArrange_CleanDesktopIcons.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PersonalizeDesktopIconArrange_CleanDesktopIcons.Animated = true;
-            this.PersonalizeDesktopIconArrange_CleanDesktopIcons.AutoSize = true;
-            this.PersonalizeDesktopIconArrange_CleanDesktopIcons.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.PersonalizeDesktopIconArrange_CleanDesktopIcons.Checked = true;
-            this.PersonalizeDesktopIconArrange_CleanDesktopIcons.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PersonalizeDesktopIconArrange_CleanDesktopIcons.CheckedState.BorderRadius = 2;
-            this.PersonalizeDesktopIconArrange_CleanDesktopIcons.CheckedState.BorderThickness = 0;
-            this.PersonalizeDesktopIconArrange_CleanDesktopIcons.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.PersonalizeDesktopIconArrange_CleanDesktopIcons.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.PersonalizeDesktopIconArrange_CleanDesktopIcons.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PersonalizeDesktopIconArrange_CleanDesktopIcons.Location = new System.Drawing.Point(131, 27);
-            this.PersonalizeDesktopIconArrange_CleanDesktopIcons.Margin = new System.Windows.Forms.Padding(0);
-            this.PersonalizeDesktopIconArrange_CleanDesktopIcons.Name = "PersonalizeDesktopIconArrange_CleanDesktopIcons";
-            this.PersonalizeDesktopIconArrange_CleanDesktopIcons.Size = new System.Drawing.Size(124, 17);
-            this.PersonalizeDesktopIconArrange_CleanDesktopIcons.TabIndex = 8;
-            this.PersonalizeDesktopIconArrange_CleanDesktopIcons.Text = "Clean Desktop icons";
-            this.PersonalizeDesktopIconArrange_CleanDesktopIcons.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.PersonalizeDesktopIconArrange_CleanDesktopIcons.UncheckedState.BorderRadius = 2;
-            this.PersonalizeDesktopIconArrange_CleanDesktopIcons.UncheckedState.BorderThickness = 0;
-            this.PersonalizeDesktopIconArrange_CleanDesktopIcons.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.PersonalizeDesktopIconArrange_CleanDesktopIcons.UseVisualStyleBackColor = true;
-            // 
-            // PersonalizeDesktopIconArrange_Auto
-            // 
-            this.PersonalizeDesktopIconArrange_Auto.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PersonalizeDesktopIconArrange_Auto.Animated = true;
-            this.PersonalizeDesktopIconArrange_Auto.AutoSize = true;
-            this.PersonalizeDesktopIconArrange_Auto.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.PersonalizeDesktopIconArrange_Auto.Checked = true;
-            this.PersonalizeDesktopIconArrange_Auto.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PersonalizeDesktopIconArrange_Auto.CheckedState.BorderRadius = 2;
-            this.PersonalizeDesktopIconArrange_Auto.CheckedState.BorderThickness = 0;
-            this.PersonalizeDesktopIconArrange_Auto.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.PersonalizeDesktopIconArrange_Auto.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.PersonalizeDesktopIconArrange_Auto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PersonalizeDesktopIconArrange_Auto.Location = new System.Drawing.Point(24, 27);
-            this.PersonalizeDesktopIconArrange_Auto.Margin = new System.Windows.Forms.Padding(0);
-            this.PersonalizeDesktopIconArrange_Auto.Name = "PersonalizeDesktopIconArrange_Auto";
-            this.PersonalizeDesktopIconArrange_Auto.Size = new System.Drawing.Size(93, 17);
-            this.PersonalizeDesktopIconArrange_Auto.TabIndex = 7;
-            this.PersonalizeDesktopIconArrange_Auto.Text = "Auto arranged";
-            this.PersonalizeDesktopIconArrange_Auto.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.PersonalizeDesktopIconArrange_Auto.UncheckedState.BorderRadius = 2;
-            this.PersonalizeDesktopIconArrange_Auto.UncheckedState.BorderThickness = 0;
-            this.PersonalizeDesktopIconArrange_Auto.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.PersonalizeDesktopIconArrange_Auto.UseVisualStyleBackColor = true;
-            // 
             // Personalize_DesktopIconSize
             // 
             this.Personalize_DesktopIconSize.BackColor = System.Drawing.Color.Transparent;
@@ -478,10 +415,10 @@
             this.Personalize_DesktopIconSize.Controls.Add(this.PersonalizeDesktopIconSize_Medium);
             this.Personalize_DesktopIconSize.Controls.Add(this.PersonalizeDesktopIconSize_Small);
             this.Personalize_DesktopIconSize.ForeColor = System.Drawing.Color.White;
-            this.Personalize_DesktopIconSize.Location = new System.Drawing.Point(33, 272);
+            this.Personalize_DesktopIconSize.Location = new System.Drawing.Point(33, 292);
             this.Personalize_DesktopIconSize.Margin = new System.Windows.Forms.Padding(0);
             this.Personalize_DesktopIconSize.Name = "Personalize_DesktopIconSize";
-            this.Personalize_DesktopIconSize.Size = new System.Drawing.Size(260, 64);
+            this.Personalize_DesktopIconSize.Size = new System.Drawing.Size(260, 56);
             this.Personalize_DesktopIconSize.TabIndex = 3;
             this.Personalize_DesktopIconSize.TabStop = false;
             this.Personalize_DesktopIconSize.Text = "Desktop icon size";
@@ -496,7 +433,7 @@
             this.PersonalizeDesktopIconSize_Large.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
             this.PersonalizeDesktopIconSize_Large.CheckedState.InnerColor = System.Drawing.Color.White;
             this.PersonalizeDesktopIconSize_Large.CheckedState.InnerOffset = -4;
-            this.PersonalizeDesktopIconSize_Large.Location = new System.Drawing.Point(179, 26);
+            this.PersonalizeDesktopIconSize_Large.Location = new System.Drawing.Point(179, 22);
             this.PersonalizeDesktopIconSize_Large.Margin = new System.Windows.Forms.Padding(0);
             this.PersonalizeDesktopIconSize_Large.Name = "PersonalizeDesktopIconSize_Large";
             this.PersonalizeDesktopIconSize_Large.Size = new System.Drawing.Size(51, 18);
@@ -520,7 +457,7 @@
             this.PersonalizeDesktopIconSize_Medium.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
             this.PersonalizeDesktopIconSize_Medium.CheckedState.InnerColor = System.Drawing.Color.White;
             this.PersonalizeDesktopIconSize_Medium.CheckedState.InnerOffset = -4;
-            this.PersonalizeDesktopIconSize_Medium.Location = new System.Drawing.Point(98, 26);
+            this.PersonalizeDesktopIconSize_Medium.Location = new System.Drawing.Point(98, 22);
             this.PersonalizeDesktopIconSize_Medium.Margin = new System.Windows.Forms.Padding(0);
             this.PersonalizeDesktopIconSize_Medium.Name = "PersonalizeDesktopIconSize_Medium";
             this.PersonalizeDesktopIconSize_Medium.Size = new System.Drawing.Size(63, 18);
@@ -545,7 +482,7 @@
             this.PersonalizeDesktopIconSize_Small.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
             this.PersonalizeDesktopIconSize_Small.CheckedState.InnerColor = System.Drawing.Color.White;
             this.PersonalizeDesktopIconSize_Small.CheckedState.InnerOffset = -4;
-            this.PersonalizeDesktopIconSize_Small.Location = new System.Drawing.Point(32, 26);
+            this.PersonalizeDesktopIconSize_Small.Location = new System.Drawing.Point(32, 22);
             this.PersonalizeDesktopIconSize_Small.Margin = new System.Windows.Forms.Padding(0);
             this.PersonalizeDesktopIconSize_Small.Name = "PersonalizeDesktopIconSize_Small";
             this.PersonalizeDesktopIconSize_Small.Size = new System.Drawing.Size(51, 18);
@@ -563,13 +500,15 @@
             // Personalize_Display
             // 
             this.Personalize_Display.BackColor = System.Drawing.Color.Transparent;
+            this.Personalize_Display.Controls.Add(this.label2);
+            this.Personalize_Display.Controls.Add(this.label1);
             this.Personalize_Display.Controls.Add(this.Display_ZoomComboBox);
             this.Personalize_Display.Controls.Add(this.Display_ResolutionComboBox);
             this.Personalize_Display.ForeColor = System.Drawing.Color.White;
             this.Personalize_Display.Location = new System.Drawing.Point(33, 190);
             this.Personalize_Display.Margin = new System.Windows.Forms.Padding(0);
             this.Personalize_Display.Name = "Personalize_Display";
-            this.Personalize_Display.Size = new System.Drawing.Size(260, 76);
+            this.Personalize_Display.Size = new System.Drawing.Size(260, 92);
             this.Personalize_Display.TabIndex = 4;
             this.Personalize_Display.TabStop = false;
             this.Personalize_Display.Text = "Display";
@@ -580,7 +519,7 @@
             this.Display_ZoomComboBox.Animated = true;
             this.Display_ZoomComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.Display_ZoomComboBox.BorderColor = System.Drawing.Color.White;
-            this.Display_ZoomComboBox.BorderRadius = 5;
+            this.Display_ZoomComboBox.BorderRadius = 2;
             this.Display_ZoomComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.Display_ZoomComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Display_ZoomComboBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
@@ -592,13 +531,12 @@
             this.Display_ZoomComboBox.HoverState.Parent = this.Display_ZoomComboBox;
             this.Display_ZoomComboBox.ItemHeight = 30;
             this.Display_ZoomComboBox.Items.AddRange(new object[] {
-            "100%",
-            "125%",
-            "150%",
-            "175%",
-            "200%"});
+            "100",
+            "125",
+            "150",
+            "200"});
             this.Display_ZoomComboBox.ItemsAppearance.Parent = this.Display_ZoomComboBox;
-            this.Display_ZoomComboBox.Location = new System.Drawing.Point(148, 22);
+            this.Display_ZoomComboBox.Location = new System.Drawing.Point(148, 33);
             this.Display_ZoomComboBox.Margin = new System.Windows.Forms.Padding(0);
             this.Display_ZoomComboBox.Name = "Display_ZoomComboBox";
             this.Display_ZoomComboBox.ShadowDecoration.Parent = this.Display_ZoomComboBox;
@@ -612,7 +550,7 @@
             this.Display_ResolutionComboBox.Animated = true;
             this.Display_ResolutionComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.Display_ResolutionComboBox.BorderColor = System.Drawing.Color.White;
-            this.Display_ResolutionComboBox.BorderRadius = 5;
+            this.Display_ResolutionComboBox.BorderRadius = 2;
             this.Display_ResolutionComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.Display_ResolutionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Display_ResolutionComboBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
@@ -626,10 +564,10 @@
             this.Display_ResolutionComboBox.Items.AddRange(new object[] {
             "HD",
             "Full HD",
-            "Quad HD",
-            "Ultra HD"});
+            "2K",
+            "4K"});
             this.Display_ResolutionComboBox.ItemsAppearance.Parent = this.Display_ResolutionComboBox;
-            this.Display_ResolutionComboBox.Location = new System.Drawing.Point(18, 22);
+            this.Display_ResolutionComboBox.Location = new System.Drawing.Point(18, 33);
             this.Display_ResolutionComboBox.Margin = new System.Windows.Forms.Padding(0);
             this.Display_ResolutionComboBox.Name = "Display_ResolutionComboBox";
             this.Display_ResolutionComboBox.ShadowDecoration.Parent = this.Display_ResolutionComboBox;
@@ -705,8 +643,8 @@
             // 
             this.Personalize_AccentColor.BackColor = System.Drawing.Color.Transparent;
             this.Personalize_AccentColor.Controls.Add(this.colorSample);
-            this.Personalize_AccentColor.Controls.Add(this.PersonalizeAccentColor_Manual);
-            this.Personalize_AccentColor.Controls.Add(this.PersonalizeAccentColor_Automatic);
+            this.Personalize_AccentColor.Controls.Add(this.PersonalizeAccentColor_Disable);
+            this.Personalize_AccentColor.Controls.Add(this.PersonalizeAccentColor_Enable);
             this.Personalize_AccentColor.ForeColor = System.Drawing.Color.White;
             this.Personalize_AccentColor.Location = new System.Drawing.Point(181, 30);
             this.Personalize_AccentColor.Margin = new System.Windows.Forms.Padding(0);
@@ -732,56 +670,55 @@
             this.colorSample.Size = new System.Drawing.Size(78, 57);
             this.colorSample.TabIndex = 8;
             // 
-            // PersonalizeAccentColor_Manual
+            // PersonalizeAccentColor_Disable
             // 
-            this.PersonalizeAccentColor_Manual.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PersonalizeAccentColor_Manual.Animated = true;
-            this.PersonalizeAccentColor_Manual.AutoSize = true;
-            this.PersonalizeAccentColor_Manual.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.PersonalizeAccentColor_Manual.CheckedState.BorderThickness = 0;
-            this.PersonalizeAccentColor_Manual.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.PersonalizeAccentColor_Manual.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.PersonalizeAccentColor_Manual.CheckedState.InnerOffset = -4;
-            this.PersonalizeAccentColor_Manual.Location = new System.Drawing.Point(17, 51);
-            this.PersonalizeAccentColor_Manual.Margin = new System.Windows.Forms.Padding(0);
-            this.PersonalizeAccentColor_Manual.Name = "PersonalizeAccentColor_Manual";
-            this.PersonalizeAccentColor_Manual.Size = new System.Drawing.Size(59, 18);
-            this.PersonalizeAccentColor_Manual.TabIndex = 2;
-            this.PersonalizeAccentColor_Manual.Text = "Manual";
-            this.PersonalizeAccentColor_Manual.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-            this.PersonalizeAccentColor_Manual.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.PersonalizeAccentColor_Manual.UncheckedState.BorderThickness = 0;
-            this.PersonalizeAccentColor_Manual.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.PersonalizeAccentColor_Manual.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.PersonalizeAccentColor_Manual.UseCompatibleTextRendering = true;
-            this.PersonalizeAccentColor_Manual.UseVisualStyleBackColor = true;
-            this.PersonalizeAccentColor_Manual.CheckedChanged += new System.EventHandler(this.AccentColor_Manual_CheckedChanged);
+            this.PersonalizeAccentColor_Disable.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PersonalizeAccentColor_Disable.Animated = true;
+            this.PersonalizeAccentColor_Disable.AutoSize = true;
+            this.PersonalizeAccentColor_Disable.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.PersonalizeAccentColor_Disable.CheckedState.BorderThickness = 0;
+            this.PersonalizeAccentColor_Disable.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.PersonalizeAccentColor_Disable.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.PersonalizeAccentColor_Disable.CheckedState.InnerOffset = -4;
+            this.PersonalizeAccentColor_Disable.Location = new System.Drawing.Point(17, 51);
+            this.PersonalizeAccentColor_Disable.Margin = new System.Windows.Forms.Padding(0);
+            this.PersonalizeAccentColor_Disable.Name = "PersonalizeAccentColor_Disable";
+            this.PersonalizeAccentColor_Disable.Size = new System.Drawing.Size(60, 18);
+            this.PersonalizeAccentColor_Disable.TabIndex = 2;
+            this.PersonalizeAccentColor_Disable.Text = "Disable";
+            this.PersonalizeAccentColor_Disable.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            this.PersonalizeAccentColor_Disable.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.PersonalizeAccentColor_Disable.UncheckedState.BorderThickness = 0;
+            this.PersonalizeAccentColor_Disable.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.PersonalizeAccentColor_Disable.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.PersonalizeAccentColor_Disable.UseCompatibleTextRendering = true;
+            this.PersonalizeAccentColor_Disable.UseVisualStyleBackColor = true;
             // 
-            // PersonalizeAccentColor_Automatic
+            // PersonalizeAccentColor_Enable
             // 
-            this.PersonalizeAccentColor_Automatic.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PersonalizeAccentColor_Automatic.Animated = true;
-            this.PersonalizeAccentColor_Automatic.AutoSize = true;
-            this.PersonalizeAccentColor_Automatic.Checked = true;
-            this.PersonalizeAccentColor_Automatic.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.PersonalizeAccentColor_Automatic.CheckedState.BorderThickness = 0;
-            this.PersonalizeAccentColor_Automatic.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.PersonalizeAccentColor_Automatic.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.PersonalizeAccentColor_Automatic.CheckedState.InnerOffset = -4;
-            this.PersonalizeAccentColor_Automatic.Location = new System.Drawing.Point(17, 23);
-            this.PersonalizeAccentColor_Automatic.Margin = new System.Windows.Forms.Padding(0);
-            this.PersonalizeAccentColor_Automatic.Name = "PersonalizeAccentColor_Automatic";
-            this.PersonalizeAccentColor_Automatic.Size = new System.Drawing.Size(73, 18);
-            this.PersonalizeAccentColor_Automatic.TabIndex = 0;
-            this.PersonalizeAccentColor_Automatic.TabStop = true;
-            this.PersonalizeAccentColor_Automatic.Text = "Automatic";
-            this.PersonalizeAccentColor_Automatic.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-            this.PersonalizeAccentColor_Automatic.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.PersonalizeAccentColor_Automatic.UncheckedState.BorderThickness = 0;
-            this.PersonalizeAccentColor_Automatic.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.PersonalizeAccentColor_Automatic.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.PersonalizeAccentColor_Automatic.UseCompatibleTextRendering = true;
-            this.PersonalizeAccentColor_Automatic.UseVisualStyleBackColor = true;
+            this.PersonalizeAccentColor_Enable.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PersonalizeAccentColor_Enable.Animated = true;
+            this.PersonalizeAccentColor_Enable.AutoSize = true;
+            this.PersonalizeAccentColor_Enable.Checked = true;
+            this.PersonalizeAccentColor_Enable.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.PersonalizeAccentColor_Enable.CheckedState.BorderThickness = 0;
+            this.PersonalizeAccentColor_Enable.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.PersonalizeAccentColor_Enable.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.PersonalizeAccentColor_Enable.CheckedState.InnerOffset = -4;
+            this.PersonalizeAccentColor_Enable.Location = new System.Drawing.Point(17, 23);
+            this.PersonalizeAccentColor_Enable.Margin = new System.Windows.Forms.Padding(0);
+            this.PersonalizeAccentColor_Enable.Name = "PersonalizeAccentColor_Enable";
+            this.PersonalizeAccentColor_Enable.Size = new System.Drawing.Size(58, 18);
+            this.PersonalizeAccentColor_Enable.TabIndex = 0;
+            this.PersonalizeAccentColor_Enable.TabStop = true;
+            this.PersonalizeAccentColor_Enable.Text = "Enable";
+            this.PersonalizeAccentColor_Enable.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            this.PersonalizeAccentColor_Enable.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.PersonalizeAccentColor_Enable.UncheckedState.BorderThickness = 0;
+            this.PersonalizeAccentColor_Enable.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.PersonalizeAccentColor_Enable.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.PersonalizeAccentColor_Enable.UseCompatibleTextRendering = true;
+            this.PersonalizeAccentColor_Enable.UseVisualStyleBackColor = true;
             // 
             // Personalize_TransparentEffect
             // 
@@ -1005,6 +942,74 @@
             this.tittle.TabIndex = 16;
             this.tittle.Text = "APPEARANCE";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Resolution";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(149, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Scale";
+            // 
+            // PersonalizeDesktopIconArrange_Auto
+            // 
+            this.PersonalizeDesktopIconArrange_Auto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PersonalizeDesktopIconArrange_Auto.Animated = true;
+            this.PersonalizeDesktopIconArrange_Auto.AutoSize = true;
+            this.PersonalizeDesktopIconArrange_Auto.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.PersonalizeDesktopIconArrange_Auto.Checked = true;
+            this.PersonalizeDesktopIconArrange_Auto.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.PersonalizeDesktopIconArrange_Auto.CheckedState.BorderRadius = 2;
+            this.PersonalizeDesktopIconArrange_Auto.CheckedState.BorderThickness = 0;
+            this.PersonalizeDesktopIconArrange_Auto.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.PersonalizeDesktopIconArrange_Auto.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.PersonalizeDesktopIconArrange_Auto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PersonalizeDesktopIconArrange_Auto.Location = new System.Drawing.Point(33, 393);
+            this.PersonalizeDesktopIconArrange_Auto.Margin = new System.Windows.Forms.Padding(0);
+            this.PersonalizeDesktopIconArrange_Auto.Name = "PersonalizeDesktopIconArrange_Auto";
+            this.PersonalizeDesktopIconArrange_Auto.Size = new System.Drawing.Size(190, 17);
+            this.PersonalizeDesktopIconArrange_Auto.TabIndex = 8;
+            this.PersonalizeDesktopIconArrange_Auto.Text = "Arrange Desktop icons automaticly";
+            this.PersonalizeDesktopIconArrange_Auto.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.PersonalizeDesktopIconArrange_Auto.UncheckedState.BorderRadius = 2;
+            this.PersonalizeDesktopIconArrange_Auto.UncheckedState.BorderThickness = 0;
+            this.PersonalizeDesktopIconArrange_Auto.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.PersonalizeDesktopIconArrange_Auto.UseVisualStyleBackColor = true;
+            // 
+            // HideFileNameExtensions
+            // 
+            this.HideFileNameExtensions.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.HideFileNameExtensions.Animated = true;
+            this.HideFileNameExtensions.AutoSize = true;
+            this.HideFileNameExtensions.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.HideFileNameExtensions.Checked = true;
+            this.HideFileNameExtensions.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.HideFileNameExtensions.CheckedState.BorderRadius = 2;
+            this.HideFileNameExtensions.CheckedState.BorderThickness = 0;
+            this.HideFileNameExtensions.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.HideFileNameExtensions.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.HideFileNameExtensions.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.HideFileNameExtensions.Location = new System.Drawing.Point(33, 363);
+            this.HideFileNameExtensions.Margin = new System.Windows.Forms.Padding(0);
+            this.HideFileNameExtensions.Name = "HideFileNameExtensions";
+            this.HideFileNameExtensions.Size = new System.Drawing.Size(146, 17);
+            this.HideFileNameExtensions.TabIndex = 9;
+            this.HideFileNameExtensions.Text = "Hide file name extensions";
+            this.HideFileNameExtensions.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.HideFileNameExtensions.UncheckedState.BorderRadius = 2;
+            this.HideFileNameExtensions.UncheckedState.BorderThickness = 0;
+            this.HideFileNameExtensions.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.HideFileNameExtensions.UseVisualStyleBackColor = true;
+            // 
             // AppearanceTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1026,11 +1031,11 @@
             this.Taskbar.ResumeLayout(false);
             this.Taskbar.PerformLayout();
             this.Personalization.ResumeLayout(false);
-            this.Personalize_DesktopIconArrange.ResumeLayout(false);
-            this.Personalize_DesktopIconArrange.PerformLayout();
+            this.Personalization.PerformLayout();
             this.Personalize_DesktopIconSize.ResumeLayout(false);
             this.Personalize_DesktopIconSize.PerformLayout();
             this.Personalize_Display.ResumeLayout(false);
+            this.Personalize_Display.PerformLayout();
             this.Personalize_ColorMode.ResumeLayout(false);
             this.Personalize_ColorMode.PerformLayout();
             this.Personalize_AccentColor.ResumeLayout(false);
@@ -1058,8 +1063,8 @@
         private Guna.UI2.WinForms.Guna2RadioButton PersonalizeColorMode_Dark;
         private Guna.UI2.WinForms.Guna2RadioButton PersonalizeColorMode_Light;
         private System.Windows.Forms.GroupBox Personalize_AccentColor;
-        private Guna.UI2.WinForms.Guna2RadioButton PersonalizeAccentColor_Manual;
-        private Guna.UI2.WinForms.Guna2RadioButton PersonalizeAccentColor_Automatic;
+        private Guna.UI2.WinForms.Guna2RadioButton PersonalizeAccentColor_Disable;
+        private Guna.UI2.WinForms.Guna2RadioButton PersonalizeAccentColor_Enable;
         private System.Windows.Forms.GroupBox Personalize_TransparentEffect;
         private Guna.UI2.WinForms.Guna2RadioButton PersonalizeTransparentEffect_Disable;
         private Guna.UI2.WinForms.Guna2RadioButton PersonalizeTransparentEffect_Enable;
@@ -1076,9 +1081,6 @@
         private Guna.UI2.WinForms.Guna2RadioButton PersonalizeDesktopIconSize_Large;
         private Guna.UI2.WinForms.Guna2RadioButton PersonalizeDesktopIconSize_Medium;
         private Guna.UI2.WinForms.Guna2RadioButton PersonalizeDesktopIconSize_Small;
-        private System.Windows.Forms.GroupBox Personalize_DesktopIconArrange;
-        private Guna.UI2.WinForms.Guna2CheckBox PersonalizeDesktopIconArrange_Auto;
-        private Guna.UI2.WinForms.Guna2CheckBox PersonalizeDesktopIconArrange_CleanDesktopIcons;
         private Guna.UI2.WinForms.Guna2CheckBox SmallSearchIcon;
         private Guna.UI2.WinForms.Guna2CheckBox RemoveCortanaIcon;
         private System.Windows.Forms.GroupBox StartMenu;
@@ -1086,5 +1088,9 @@
         private System.Windows.Forms.Label tittle;
         private Guna.UI2.WinForms.Guna2CheckBox ApplyAccentColor;
         private Guna.UI2.WinForms.Guna2CheckBox HideMSStoreIcon;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2CheckBox PersonalizeDesktopIconArrange_Auto;
+        private Guna.UI2.WinForms.Guna2CheckBox HideFileNameExtensions;
     }
 }

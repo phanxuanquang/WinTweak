@@ -22,24 +22,8 @@ namespace WinTweak
             colorSample.FillColor = themeColor;
             ApplyButton.FillColor = ApplyButton.FillColor2 = themeColor;
             ApplyButton.HoverState.FillColor = ApplyButton.HoverState.FillColor2 = ControlPaint.Light(themeColor);
-        }
 
-        private void AccentColor_Manual_CheckedChanged(object sender, EventArgs e)
-        {
-            if (PersonalizeAccentColor_Manual.Checked)
-            {
-                ColorDialog pickColorDialog = new ColorDialog();
-                if (pickColorDialog.ShowDialog() == DialogResult.OK) 
-                {
-                    colorSample.FillColor = pickColorDialog.Color;
-                }
-                else
-                {
-                    PersonalizeAccentColor_Automatic.Checked = true;
-                    PersonalizeAccentColor_Manual.Checked = false;
-                }
-            }
-
+            ajustResolutionComboBox();
         }
 
         private void ApplyButton_Click(object sender, EventArgs e)
@@ -62,9 +46,35 @@ namespace WinTweak
                 personalizeActions.desktopIconSize = WinTweak.Personalize.DesktopIconSize.large;
             }
 
+            double scrRatioHW = Screen.PrimaryScreen.Bounds.Height / Screen.PrimaryScreen.Bounds.Width;
+            double tempHeight = 0;
+            switch (Display_ResolutionComboBox.SelectedItem)
+            {
+                case 0:
+                    personalizeActions.width = 1366;
+                    tempHeight = personalizeActions.width * scrRatioHW;
+                    personalizeActions.height = (int)tempHeight; 
+                    break;
+                case 1:
+                    personalizeActions.width = 1920;
+                    tempHeight = personalizeActions.width * scrRatioHW;
+                    personalizeActions.height = (int)tempHeight;
+                    break;
+                case 2:
+                    personalizeActions.width = 2560;
+                    tempHeight = personalizeActions.width * scrRatioHW;
+                    personalizeActions.height = (int)tempHeight;
+                    break;
+                case 3:
+                    personalizeActions.width = 3840;
+                    tempHeight = personalizeActions.width * scrRatioHW;
+                    personalizeActions.height = (int)tempHeight;
+                    break;
+            }
+
             Task applyChanges_Taskbar = Task.Factory.StartNew(() => taskbarActions.ApplyAction(TaskbarAlign_Center.Checked, TaskbarSize_Small.Checked, SmallSearchIcon.Checked, HideTaskViewIcon.Checked, TurnOffMeetNow.Checked, RemoveCortanaIcon.Checked, RemoveBingWeather.Checked, HideMSStoreIcon.Checked));
             Task applyChanges_StartMenu = Task.Factory.StartNew(() => startMenuActions.ApplyAction(TurnOffAppSuggestions.Checked, TurnOffRecentApps.Checked,ApplyAccentColor.Checked));
-            Task applyChanges_Personalize = Task.Factory.StartNew(() => personalizeActions.ApplyAction(PersonalizeColorMode_Dark.Checked, PersonalizeTransparentEffect_Enable.Checked, PersonalizeDesktopIconArrange_CleanDesktopIcons.Checked));
+            Task applyChanges_Personalize = Task.Factory.StartNew(() => personalizeActions.ApplyAction(PersonalizeColorMode_Dark.Checked, PersonalizeTransparentEffect_Enable.Checked, PersonalizeDesktopIconArrange_Auto.Checked, int.Parse(Display_ZoomComboBox.Text), PersonalizeAccentColor_Enable.Checked, HideFileNameExtensions.Checked));
 
             Task.WaitAll(applyChanges_Taskbar, applyChanges_StartMenu, applyChanges_Personalize);
 
@@ -78,6 +88,26 @@ namespace WinTweak
         {
             TaskbarAlign_Center.Checked = TaskbarSize_Small.Checked = true;
             Program.CheckAll_CheckBox(this);
+        }
+
+        private void ajustResolutionComboBox()
+        {
+            if (Screen.PrimaryScreen.Bounds.Width < 1920)
+            {
+                Display_ResolutionComboBox.Items.RemoveAt(1);
+                Display_ResolutionComboBox.Items.RemoveAt(2);
+                Display_ResolutionComboBox.Items.RemoveAt(3);
+            }
+            else if (Screen.PrimaryScreen.Bounds.Width < 2560)
+            {
+                Display_ResolutionComboBox.Items.RemoveAt(2);
+                Display_ResolutionComboBox.Items.RemoveAt(3);
+            }
+            else if (Screen.PrimaryScreen.Bounds.Width < 3840)
+            {
+                Display_ResolutionComboBox.Items.RemoveAt(3);
+            }
+
         }
     }
 }

@@ -12,10 +12,6 @@ namespace WinTweak
         public enum aligin { left, center, right }
         public enum size { medium, small }
         public enum state { normal, transparent };
-
-        public aligin Aligin;
-        public size Size;
-        public state State;
         public void ApplyAction(bool TaskbarAlign_Enable, bool TaskbarSize_Enable, bool SmallSearchIcon_Enable, bool HideTaskViewIcon_Enable, bool TurnOffMeetNow_Enable, bool RemoveCortanaIcon_Enable, bool RemoveBingWeather_Enable, bool HideMSStoreIcon_Enable)
         {
             TaskbarAlign(TaskbarAlign_Enable); 

@@ -12,13 +12,17 @@ namespace WinTweak
         private string commandReg, pathReg, nameReg;
         public enum DesktopIconSize { small, medium, large }
         public DesktopIconSize desktopIconSize;
-        public void ApplyAction(bool DarkMode_Enable, bool TransparentEffect_Enable, bool CleanDesktopIcons_Enable)
+        public void ApplyAction(bool DarkMode_Enable, bool TransparentEffect_Enable, bool PersonalizeDesktopIconArrange_Auto_Enable, int scaleRatio, bool AccentColor_Enable, bool HideFileNameExtensions_Enable)
         {
             Change_DesktopIconSize();
 
             DarkMode_Activate(DarkMode_Enable);
+            AccentColor(AccentColor_Enable);
             TransparentEffect(TransparentEffect_Enable);
-            CleanDesktopIcons(CleanDesktopIcons_Enable);
+            PersonalizeDesktopIconArrange_Auto(PersonalizeDesktopIconArrange_Auto_Enable);
+            HideFileNameExtensions(HideFileNameExtensions_Enable);
+            Set_DesktopResolution();
+            Set_DesktopScale(scaleRatio);
         }
         private void DarkMode_Activate(bool enable)
         {
@@ -35,7 +39,21 @@ namespace WinTweak
                 Program.runCommand(commandReg, pathReg, nameReg, "-Value 1");
             }
         }
+        private void AccentColor(bool enable)
+        {
+            commandReg = "Set-ItemProperty";
+            nameReg = "ColorPrevalence";
+            pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\DWM";
 
+            if (enable)
+            {
+                Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 1");
+            }
+            else
+            {
+                Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 0");
+            }
+        }
         private void TransparentEffect(bool enable)
         {
             commandReg = "Set-ItemProperty";
@@ -81,17 +99,48 @@ namespace WinTweak
                 Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 1075839525");
             }
         }
-        private void CleanDesktopIcons(bool enable)
-        {
-            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            string[] desktopShortCuts = { "A", "B", "C", "D", };
 
-            foreach(string shortcut in desktopShortCuts)
+        public double width;
+        public int height;
+        private void Set_DesktopResolution()
+        {
+            string command = String.Format("Set-DisplayResolution -Width {0} -Height {1} -Force", width, height);
+            Program.runCommand_Advanced(command);
+        }
+        private void Set_DesktopScale(int ratio)
+        {
+            int DPI = 96; // 100%
+            switch (ratio)
             {
-                if(File.Exists(Path.Combine(desktopPath, shortcut)))
-                {
-                    File.Delete(Path.Combine(desktopPath, shortcut));
-                }
+                case 125:
+                    DPI = 120;
+                    break;
+                case 150:
+                    DPI = 144;
+                    break;
+                case 200:
+                    DPI = 192;
+                    break;
+            }
+
+            commandReg = "Set-ItemProperty";
+            pathReg = @"HKCU:\Control Panel\Desktop\WindowMetrics";
+
+            nameReg = "Win8DpiScaling";
+            Program.runCommand(commandReg, pathReg, nameReg, "-Value 1");
+
+            nameReg = "LogPixels";
+            Program.runCommand(commandReg, pathReg, nameReg, "-Value " + DPI.ToString());
+        }
+        private void HideFileNameExtensions(bool enable)
+        {
+            if (enable)
+            {
+                commandReg = "Set-ItemProperty";
+                pathReg = @"HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced";
+                nameReg = "HideFileExt";
+
+                Program.runCommand(commandReg, pathReg, nameReg, "-Value 1");
             }
         }
     }

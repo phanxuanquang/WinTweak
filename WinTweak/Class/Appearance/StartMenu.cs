@@ -53,19 +53,14 @@ namespace WinTweak
         {
             commandReg = "Set-ItemProperty";
             nameReg = "ColorPrevalence";
+            pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize";
 
             if (enable)
             {
-                pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize";
-                Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 1");
-                pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\DWM";
                 Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 1");
             }
             else
             {
-                pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize";
-                Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 0");
-                pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\DWM";
                 Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 0");
             }
         }
