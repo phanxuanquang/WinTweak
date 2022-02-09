@@ -29,16 +29,13 @@
         private void InitializeComponent()
         {
             this.Taskbar_Aligin = new System.Windows.Forms.GroupBox();
-            this.TaskbarAligin_Right = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.TaskbarAligin_Center = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.TaskbarAligin_Left = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.TaskbarAlign_Center = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.TaskbarAlign_Left = new Guna.UI2.WinForms.Guna2RadioButton();
             this.Taskbar_Size = new System.Windows.Forms.GroupBox();
             this.TaskbarSize_Small = new Guna.UI2.WinForms.Guna2RadioButton();
             this.TaskbarSize_Medium = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.Taskbar_State = new System.Windows.Forms.GroupBox();
-            this.TaskbarState_Transparent = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.TaskbarState_Normal = new Guna.UI2.WinForms.Guna2RadioButton();
             this.Taskbar = new System.Windows.Forms.GroupBox();
+            this.HideMSStoreIcon = new Guna.UI2.WinForms.Guna2CheckBox();
             this.TurnOffMeetNow = new Guna.UI2.WinForms.Guna2CheckBox();
             this.RemoveCortanaIcon = new Guna.UI2.WinForms.Guna2CheckBox();
             this.SmallSearchIcon = new Guna.UI2.WinForms.Guna2CheckBox();
@@ -70,11 +67,10 @@
             this.TurnOffAppSuggestions = new Guna.UI2.WinForms.Guna2CheckBox();
             this.TurnOffRecentApps = new Guna.UI2.WinForms.Guna2CheckBox();
             this.StartMenu = new System.Windows.Forms.GroupBox();
-            this.tittle = new System.Windows.Forms.Label();
             this.ApplyAccentColor = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.tittle = new System.Windows.Forms.Label();
             this.Taskbar_Aligin.SuspendLayout();
             this.Taskbar_Size.SuspendLayout();
-            this.Taskbar_State.SuspendLayout();
             this.Taskbar.SuspendLayout();
             this.Personalization.SuspendLayout();
             this.Personalize_DesktopIconArrange.SuspendLayout();
@@ -88,106 +84,83 @@
             // 
             // Taskbar_Aligin
             // 
+            this.Taskbar_Aligin.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.Taskbar_Aligin.BackColor = System.Drawing.Color.Transparent;
-            this.Taskbar_Aligin.Controls.Add(this.TaskbarAligin_Right);
-            this.Taskbar_Aligin.Controls.Add(this.TaskbarAligin_Center);
-            this.Taskbar_Aligin.Controls.Add(this.TaskbarAligin_Left);
+            this.Taskbar_Aligin.Controls.Add(this.TaskbarAlign_Center);
+            this.Taskbar_Aligin.Controls.Add(this.TaskbarAlign_Left);
             this.Taskbar_Aligin.ForeColor = System.Drawing.Color.White;
-            this.Taskbar_Aligin.Location = new System.Drawing.Point(32, 26);
+            this.Taskbar_Aligin.Location = new System.Drawing.Point(167, 30);
             this.Taskbar_Aligin.Margin = new System.Windows.Forms.Padding(0);
             this.Taskbar_Aligin.Name = "Taskbar_Aligin";
-            this.Taskbar_Aligin.Size = new System.Drawing.Size(252, 57);
+            this.Taskbar_Aligin.Size = new System.Drawing.Size(131, 108);
             this.Taskbar_Aligin.TabIndex = 1;
             this.Taskbar_Aligin.TabStop = false;
-            this.Taskbar_Aligin.Text = "Aligin";
+            this.Taskbar_Aligin.Text = "Icon alignment";
             // 
-            // TaskbarAligin_Right
+            // TaskbarAlign_Center
             // 
-            this.TaskbarAligin_Right.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TaskbarAligin_Right.Animated = true;
-            this.TaskbarAligin_Right.AutoSize = true;
-            this.TaskbarAligin_Right.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.TaskbarAligin_Right.CheckedState.BorderThickness = 0;
-            this.TaskbarAligin_Right.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.TaskbarAligin_Right.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.TaskbarAligin_Right.CheckedState.InnerOffset = -4;
-            this.TaskbarAligin_Right.Location = new System.Drawing.Point(173, 23);
-            this.TaskbarAligin_Right.Margin = new System.Windows.Forms.Padding(0);
-            this.TaskbarAligin_Right.Name = "TaskbarAligin_Right";
-            this.TaskbarAligin_Right.Size = new System.Drawing.Size(49, 18);
-            this.TaskbarAligin_Right.TabIndex = 2;
-            this.TaskbarAligin_Right.Text = "Right";
-            this.TaskbarAligin_Right.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-            this.TaskbarAligin_Right.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.TaskbarAligin_Right.UncheckedState.BorderThickness = 0;
-            this.TaskbarAligin_Right.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.TaskbarAligin_Right.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.TaskbarAligin_Right.UseCompatibleTextRendering = true;
-            this.TaskbarAligin_Right.UseVisualStyleBackColor = true;
+            this.TaskbarAlign_Center.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TaskbarAlign_Center.Animated = true;
+            this.TaskbarAlign_Center.AutoSize = true;
+            this.TaskbarAlign_Center.Checked = true;
+            this.TaskbarAlign_Center.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.TaskbarAlign_Center.CheckedState.BorderThickness = 0;
+            this.TaskbarAlign_Center.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.TaskbarAlign_Center.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.TaskbarAlign_Center.CheckedState.InnerOffset = -4;
+            this.TaskbarAlign_Center.Location = new System.Drawing.Point(26, 64);
+            this.TaskbarAlign_Center.Margin = new System.Windows.Forms.Padding(0);
+            this.TaskbarAlign_Center.Name = "TaskbarAlign_Center";
+            this.TaskbarAlign_Center.Size = new System.Drawing.Size(56, 18);
+            this.TaskbarAlign_Center.TabIndex = 1;
+            this.TaskbarAlign_Center.TabStop = true;
+            this.TaskbarAlign_Center.Text = "Center";
+            this.TaskbarAlign_Center.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            this.TaskbarAlign_Center.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.TaskbarAlign_Center.UncheckedState.BorderThickness = 0;
+            this.TaskbarAlign_Center.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.TaskbarAlign_Center.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.TaskbarAlign_Center.UseCompatibleTextRendering = true;
+            this.TaskbarAlign_Center.UseVisualStyleBackColor = true;
             // 
-            // TaskbarAligin_Center
+            // TaskbarAlign_Left
             // 
-            this.TaskbarAligin_Center.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TaskbarAligin_Center.Animated = true;
-            this.TaskbarAligin_Center.AutoSize = true;
-            this.TaskbarAligin_Center.Checked = true;
-            this.TaskbarAligin_Center.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.TaskbarAligin_Center.CheckedState.BorderThickness = 0;
-            this.TaskbarAligin_Center.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.TaskbarAligin_Center.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.TaskbarAligin_Center.CheckedState.InnerOffset = -4;
-            this.TaskbarAligin_Center.Location = new System.Drawing.Point(92, 23);
-            this.TaskbarAligin_Center.Margin = new System.Windows.Forms.Padding(0);
-            this.TaskbarAligin_Center.Name = "TaskbarAligin_Center";
-            this.TaskbarAligin_Center.Size = new System.Drawing.Size(56, 18);
-            this.TaskbarAligin_Center.TabIndex = 1;
-            this.TaskbarAligin_Center.TabStop = true;
-            this.TaskbarAligin_Center.Text = "Center";
-            this.TaskbarAligin_Center.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-            this.TaskbarAligin_Center.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.TaskbarAligin_Center.UncheckedState.BorderThickness = 0;
-            this.TaskbarAligin_Center.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.TaskbarAligin_Center.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.TaskbarAligin_Center.UseCompatibleTextRendering = true;
-            this.TaskbarAligin_Center.UseVisualStyleBackColor = true;
-            // 
-            // TaskbarAligin_Left
-            // 
-            this.TaskbarAligin_Left.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TaskbarAligin_Left.Animated = true;
-            this.TaskbarAligin_Left.AutoSize = true;
-            this.TaskbarAligin_Left.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.TaskbarAligin_Left.CheckedState.BorderThickness = 0;
-            this.TaskbarAligin_Left.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.TaskbarAligin_Left.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.TaskbarAligin_Left.CheckedState.InnerOffset = -4;
-            this.TaskbarAligin_Left.Location = new System.Drawing.Point(26, 23);
-            this.TaskbarAligin_Left.Margin = new System.Windows.Forms.Padding(0);
-            this.TaskbarAligin_Left.Name = "TaskbarAligin_Left";
-            this.TaskbarAligin_Left.Size = new System.Drawing.Size(41, 18);
-            this.TaskbarAligin_Left.TabIndex = 0;
-            this.TaskbarAligin_Left.Text = "Left";
-            this.TaskbarAligin_Left.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-            this.TaskbarAligin_Left.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.TaskbarAligin_Left.UncheckedState.BorderThickness = 0;
-            this.TaskbarAligin_Left.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.TaskbarAligin_Left.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.TaskbarAligin_Left.UseCompatibleTextRendering = true;
-            this.TaskbarAligin_Left.UseVisualStyleBackColor = true;
+            this.TaskbarAlign_Left.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TaskbarAlign_Left.Animated = true;
+            this.TaskbarAlign_Left.AutoSize = true;
+            this.TaskbarAlign_Left.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.TaskbarAlign_Left.CheckedState.BorderThickness = 0;
+            this.TaskbarAlign_Left.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.TaskbarAlign_Left.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.TaskbarAlign_Left.CheckedState.InnerOffset = -4;
+            this.TaskbarAlign_Left.Location = new System.Drawing.Point(26, 31);
+            this.TaskbarAlign_Left.Margin = new System.Windows.Forms.Padding(0);
+            this.TaskbarAlign_Left.Name = "TaskbarAlign_Left";
+            this.TaskbarAlign_Left.Size = new System.Drawing.Size(41, 18);
+            this.TaskbarAlign_Left.TabIndex = 0;
+            this.TaskbarAlign_Left.Text = "Left";
+            this.TaskbarAlign_Left.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            this.TaskbarAlign_Left.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.TaskbarAlign_Left.UncheckedState.BorderThickness = 0;
+            this.TaskbarAlign_Left.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.TaskbarAlign_Left.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.TaskbarAlign_Left.UseCompatibleTextRendering = true;
+            this.TaskbarAlign_Left.UseVisualStyleBackColor = true;
             // 
             // Taskbar_Size
             // 
+            this.Taskbar_Size.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.Taskbar_Size.BackColor = System.Drawing.Color.Transparent;
             this.Taskbar_Size.Controls.Add(this.TaskbarSize_Small);
             this.Taskbar_Size.Controls.Add(this.TaskbarSize_Medium);
             this.Taskbar_Size.ForeColor = System.Drawing.Color.White;
-            this.Taskbar_Size.Location = new System.Drawing.Point(32, 105);
+            this.Taskbar_Size.Location = new System.Drawing.Point(27, 30);
             this.Taskbar_Size.Margin = new System.Windows.Forms.Padding(0);
             this.Taskbar_Size.Name = "Taskbar_Size";
-            this.Taskbar_Size.Size = new System.Drawing.Size(115, 94);
+            this.Taskbar_Size.Size = new System.Drawing.Size(123, 108);
             this.Taskbar_Size.TabIndex = 3;
             this.Taskbar_Size.TabStop = false;
-            this.Taskbar_Size.Text = "Size";
+            this.Taskbar_Size.Text = "Icon size";
             // 
             // TaskbarSize_Small
             // 
@@ -200,7 +173,7 @@
             this.TaskbarSize_Small.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
             this.TaskbarSize_Small.CheckedState.InnerColor = System.Drawing.Color.White;
             this.TaskbarSize_Small.CheckedState.InnerOffset = -4;
-            this.TaskbarSize_Small.Location = new System.Drawing.Point(18, 54);
+            this.TaskbarSize_Small.Location = new System.Drawing.Point(23, 31);
             this.TaskbarSize_Small.Margin = new System.Windows.Forms.Padding(0);
             this.TaskbarSize_Small.Name = "TaskbarSize_Small";
             this.TaskbarSize_Small.Size = new System.Drawing.Size(51, 18);
@@ -225,7 +198,7 @@
             this.TaskbarSize_Medium.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
             this.TaskbarSize_Medium.CheckedState.InnerColor = System.Drawing.Color.White;
             this.TaskbarSize_Medium.CheckedState.InnerOffset = -4;
-            this.TaskbarSize_Medium.Location = new System.Drawing.Point(18, 25);
+            this.TaskbarSize_Medium.Location = new System.Drawing.Point(23, 64);
             this.TaskbarSize_Medium.Margin = new System.Windows.Forms.Padding(0);
             this.TaskbarSize_Medium.Name = "TaskbarSize_Medium";
             this.TaskbarSize_Medium.Size = new System.Drawing.Size(63, 18);
@@ -239,81 +212,17 @@
             this.TaskbarSize_Medium.UseCompatibleTextRendering = true;
             this.TaskbarSize_Medium.UseVisualStyleBackColor = true;
             // 
-            // Taskbar_State
-            // 
-            this.Taskbar_State.BackColor = System.Drawing.Color.Transparent;
-            this.Taskbar_State.Controls.Add(this.TaskbarState_Transparent);
-            this.Taskbar_State.Controls.Add(this.TaskbarState_Normal);
-            this.Taskbar_State.ForeColor = System.Drawing.Color.White;
-            this.Taskbar_State.Location = new System.Drawing.Point(169, 105);
-            this.Taskbar_State.Margin = new System.Windows.Forms.Padding(0);
-            this.Taskbar_State.Name = "Taskbar_State";
-            this.Taskbar_State.Size = new System.Drawing.Size(115, 94);
-            this.Taskbar_State.TabIndex = 4;
-            this.Taskbar_State.TabStop = false;
-            this.Taskbar_State.Text = "State";
-            // 
-            // TaskbarState_Transparent
-            // 
-            this.TaskbarState_Transparent.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TaskbarState_Transparent.Animated = true;
-            this.TaskbarState_Transparent.AutoSize = true;
-            this.TaskbarState_Transparent.Checked = true;
-            this.TaskbarState_Transparent.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.TaskbarState_Transparent.CheckedState.BorderThickness = 0;
-            this.TaskbarState_Transparent.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.TaskbarState_Transparent.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.TaskbarState_Transparent.CheckedState.InnerOffset = -4;
-            this.TaskbarState_Transparent.Location = new System.Drawing.Point(19, 54);
-            this.TaskbarState_Transparent.Margin = new System.Windows.Forms.Padding(0);
-            this.TaskbarState_Transparent.Name = "TaskbarState_Transparent";
-            this.TaskbarState_Transparent.Size = new System.Drawing.Size(83, 18);
-            this.TaskbarState_Transparent.TabIndex = 2;
-            this.TaskbarState_Transparent.TabStop = true;
-            this.TaskbarState_Transparent.Text = "Transparent";
-            this.TaskbarState_Transparent.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-            this.TaskbarState_Transparent.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.TaskbarState_Transparent.UncheckedState.BorderThickness = 0;
-            this.TaskbarState_Transparent.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.TaskbarState_Transparent.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.TaskbarState_Transparent.UseCompatibleTextRendering = true;
-            this.TaskbarState_Transparent.UseVisualStyleBackColor = true;
-            // 
-            // TaskbarState_Normal
-            // 
-            this.TaskbarState_Normal.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TaskbarState_Normal.Animated = true;
-            this.TaskbarState_Normal.AutoSize = true;
-            this.TaskbarState_Normal.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.TaskbarState_Normal.CheckedState.BorderThickness = 0;
-            this.TaskbarState_Normal.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.TaskbarState_Normal.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.TaskbarState_Normal.CheckedState.InnerOffset = -4;
-            this.TaskbarState_Normal.Location = new System.Drawing.Point(19, 25);
-            this.TaskbarState_Normal.Margin = new System.Windows.Forms.Padding(0);
-            this.TaskbarState_Normal.Name = "TaskbarState_Normal";
-            this.TaskbarState_Normal.Size = new System.Drawing.Size(59, 18);
-            this.TaskbarState_Normal.TabIndex = 0;
-            this.TaskbarState_Normal.Text = "Normal";
-            this.TaskbarState_Normal.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-            this.TaskbarState_Normal.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.TaskbarState_Normal.UncheckedState.BorderThickness = 0;
-            this.TaskbarState_Normal.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.TaskbarState_Normal.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.TaskbarState_Normal.UseCompatibleTextRendering = true;
-            this.TaskbarState_Normal.UseVisualStyleBackColor = true;
-            // 
             // Taskbar
             // 
             this.Taskbar.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Taskbar.BackColor = System.Drawing.Color.Transparent;
+            this.Taskbar.Controls.Add(this.HideMSStoreIcon);
             this.Taskbar.Controls.Add(this.TurnOffMeetNow);
             this.Taskbar.Controls.Add(this.RemoveCortanaIcon);
             this.Taskbar.Controls.Add(this.SmallSearchIcon);
             this.Taskbar.Controls.Add(this.HideTaskViewIcon);
             this.Taskbar.Controls.Add(this.RemoveBingWeather);
             this.Taskbar.Controls.Add(this.Taskbar_Aligin);
-            this.Taskbar.Controls.Add(this.Taskbar_State);
             this.Taskbar.Controls.Add(this.Taskbar_Size);
             this.Taskbar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Taskbar.ForeColor = System.Drawing.Color.White;
@@ -321,14 +230,39 @@
             this.Taskbar.Margin = new System.Windows.Forms.Padding(0);
             this.Taskbar.Name = "Taskbar";
             this.Taskbar.Padding = new System.Windows.Forms.Padding(0);
-            this.Taskbar.Size = new System.Drawing.Size(313, 306);
+            this.Taskbar.Size = new System.Drawing.Size(325, 266);
             this.Taskbar.TabIndex = 5;
             this.Taskbar.TabStop = false;
             this.Taskbar.Text = "Taskbar";
             // 
+            // HideMSStoreIcon
+            // 
+            this.HideMSStoreIcon.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.HideMSStoreIcon.Animated = true;
+            this.HideMSStoreIcon.AutoSize = true;
+            this.HideMSStoreIcon.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.HideMSStoreIcon.Checked = true;
+            this.HideMSStoreIcon.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.HideMSStoreIcon.CheckedState.BorderRadius = 2;
+            this.HideMSStoreIcon.CheckedState.BorderThickness = 0;
+            this.HideMSStoreIcon.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.HideMSStoreIcon.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.HideMSStoreIcon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.HideMSStoreIcon.Location = new System.Drawing.Point(27, 159);
+            this.HideMSStoreIcon.Margin = new System.Windows.Forms.Padding(0);
+            this.HideMSStoreIcon.Name = "HideMSStoreIcon";
+            this.HideMSStoreIcon.Size = new System.Drawing.Size(118, 17);
+            this.HideMSStoreIcon.TabIndex = 10;
+            this.HideMSStoreIcon.Text = "Hide MS Store icon";
+            this.HideMSStoreIcon.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.HideMSStoreIcon.UncheckedState.BorderRadius = 2;
+            this.HideMSStoreIcon.UncheckedState.BorderThickness = 0;
+            this.HideMSStoreIcon.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.HideMSStoreIcon.UseVisualStyleBackColor = true;
+            // 
             // TurnOffMeetNow
             // 
-            this.TurnOffMeetNow.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TurnOffMeetNow.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.TurnOffMeetNow.Animated = true;
             this.TurnOffMeetNow.AutoSize = true;
             this.TurnOffMeetNow.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
@@ -340,7 +274,7 @@
             this.TurnOffMeetNow.CheckState = System.Windows.Forms.CheckState.Checked;
             this.TurnOffMeetNow.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TurnOffMeetNow.ForeColor = System.Drawing.Color.White;
-            this.TurnOffMeetNow.Location = new System.Drawing.Point(29, 270);
+            this.TurnOffMeetNow.Location = new System.Drawing.Point(167, 159);
             this.TurnOffMeetNow.Margin = new System.Windows.Forms.Padding(0);
             this.TurnOffMeetNow.Name = "TurnOffMeetNow";
             this.TurnOffMeetNow.Size = new System.Drawing.Size(113, 17);
@@ -354,7 +288,7 @@
             // 
             // RemoveCortanaIcon
             // 
-            this.RemoveCortanaIcon.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.RemoveCortanaIcon.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.RemoveCortanaIcon.Animated = true;
             this.RemoveCortanaIcon.AutoSize = true;
             this.RemoveCortanaIcon.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
@@ -365,12 +299,12 @@
             this.RemoveCortanaIcon.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
             this.RemoveCortanaIcon.CheckState = System.Windows.Forms.CheckState.Checked;
             this.RemoveCortanaIcon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RemoveCortanaIcon.Location = new System.Drawing.Point(166, 214);
+            this.RemoveCortanaIcon.Location = new System.Drawing.Point(27, 227);
             this.RemoveCortanaIcon.Margin = new System.Windows.Forms.Padding(0);
             this.RemoveCortanaIcon.Name = "RemoveCortanaIcon";
-            this.RemoveCortanaIcon.Size = new System.Drawing.Size(129, 17);
+            this.RemoveCortanaIcon.Size = new System.Drawing.Size(111, 17);
             this.RemoveCortanaIcon.TabIndex = 8;
-            this.RemoveCortanaIcon.Text = "Remove Cortana icon";
+            this.RemoveCortanaIcon.Text = "Hide Cortana icon";
             this.RemoveCortanaIcon.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.RemoveCortanaIcon.UncheckedState.BorderRadius = 2;
             this.RemoveCortanaIcon.UncheckedState.BorderThickness = 0;
@@ -379,7 +313,7 @@
             // 
             // SmallSearchIcon
             // 
-            this.SmallSearchIcon.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SmallSearchIcon.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.SmallSearchIcon.Animated = true;
             this.SmallSearchIcon.AutoSize = true;
             this.SmallSearchIcon.BackColor = System.Drawing.Color.Transparent;
@@ -391,7 +325,7 @@
             this.SmallSearchIcon.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
             this.SmallSearchIcon.CheckState = System.Windows.Forms.CheckState.Checked;
             this.SmallSearchIcon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SmallSearchIcon.Location = new System.Drawing.Point(29, 214);
+            this.SmallSearchIcon.Location = new System.Drawing.Point(167, 227);
             this.SmallSearchIcon.Margin = new System.Windows.Forms.Padding(0);
             this.SmallSearchIcon.Name = "SmallSearchIcon";
             this.SmallSearchIcon.Size = new System.Drawing.Size(111, 17);
@@ -405,7 +339,7 @@
             // 
             // HideTaskViewIcon
             // 
-            this.HideTaskViewIcon.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.HideTaskViewIcon.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.HideTaskViewIcon.Animated = true;
             this.HideTaskViewIcon.AutoSize = true;
             this.HideTaskViewIcon.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
@@ -416,7 +350,7 @@
             this.HideTaskViewIcon.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
             this.HideTaskViewIcon.CheckState = System.Windows.Forms.CheckState.Checked;
             this.HideTaskViewIcon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.HideTaskViewIcon.Location = new System.Drawing.Point(29, 242);
+            this.HideTaskViewIcon.Location = new System.Drawing.Point(27, 193);
             this.HideTaskViewIcon.Margin = new System.Windows.Forms.Padding(0);
             this.HideTaskViewIcon.Name = "HideTaskViewIcon";
             this.HideTaskViewIcon.Size = new System.Drawing.Size(123, 17);
@@ -430,7 +364,7 @@
             // 
             // RemoveBingWeather
             // 
-            this.RemoveBingWeather.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.RemoveBingWeather.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.RemoveBingWeather.Animated = true;
             this.RemoveBingWeather.AutoSize = true;
             this.RemoveBingWeather.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
@@ -442,12 +376,12 @@
             this.RemoveBingWeather.CheckState = System.Windows.Forms.CheckState.Checked;
             this.RemoveBingWeather.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RemoveBingWeather.ForeColor = System.Drawing.Color.White;
-            this.RemoveBingWeather.Location = new System.Drawing.Point(166, 242);
+            this.RemoveBingWeather.Location = new System.Drawing.Point(167, 193);
             this.RemoveBingWeather.Margin = new System.Windows.Forms.Padding(0);
             this.RemoveBingWeather.Name = "RemoveBingWeather";
-            this.RemoveBingWeather.Size = new System.Drawing.Size(134, 17);
+            this.RemoveBingWeather.Size = new System.Drawing.Size(142, 17);
             this.RemoveBingWeather.TabIndex = 7;
-            this.RemoveBingWeather.Text = "Remove Bing Weather";
+            this.RemoveBingWeather.Text = "Hide News and Interests";
             this.RemoveBingWeather.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.RemoveBingWeather.UncheckedState.BorderRadius = 2;
             this.RemoveBingWeather.UncheckedState.BorderThickness = 0;
@@ -873,7 +807,7 @@
             this.PersonalizeTransparentEffect_Disable.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
             this.PersonalizeTransparentEffect_Disable.CheckedState.InnerColor = System.Drawing.Color.White;
             this.PersonalizeTransparentEffect_Disable.CheckedState.InnerOffset = -4;
-            this.PersonalizeTransparentEffect_Disable.Location = new System.Drawing.Point(30, 52);
+            this.PersonalizeTransparentEffect_Disable.Location = new System.Drawing.Point(30, 51);
             this.PersonalizeTransparentEffect_Disable.Margin = new System.Windows.Forms.Padding(0);
             this.PersonalizeTransparentEffect_Disable.Name = "PersonalizeTransparentEffect_Disable";
             this.PersonalizeTransparentEffect_Disable.Size = new System.Drawing.Size(60, 18);
@@ -957,7 +891,7 @@
             this.DefaultButton.Margin = new System.Windows.Forms.Padding(0);
             this.DefaultButton.Name = "DefaultButton";
             this.DefaultButton.ShadowDecoration.Parent = this.DefaultButton;
-            this.DefaultButton.Size = new System.Drawing.Size(313, 45);
+            this.DefaultButton.Size = new System.Drawing.Size(325, 45);
             this.DefaultButton.TabIndex = 9;
             this.DefaultButton.Text = "Default";
             this.DefaultButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
@@ -977,7 +911,7 @@
             this.TurnOffAppSuggestions.CheckState = System.Windows.Forms.CheckState.Checked;
             this.TurnOffAppSuggestions.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TurnOffAppSuggestions.ForeColor = System.Drawing.Color.White;
-            this.TurnOffAppSuggestions.Location = new System.Drawing.Point(31, 23);
+            this.TurnOffAppSuggestions.Location = new System.Drawing.Point(29, 35);
             this.TurnOffAppSuggestions.Margin = new System.Windows.Forms.Padding(0);
             this.TurnOffAppSuggestions.Name = "TurnOffAppSuggestions";
             this.TurnOffAppSuggestions.Size = new System.Drawing.Size(146, 17);
@@ -1003,7 +937,7 @@
             this.TurnOffRecentApps.CheckState = System.Windows.Forms.CheckState.Checked;
             this.TurnOffRecentApps.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TurnOffRecentApps.ForeColor = System.Drawing.Color.White;
-            this.TurnOffRecentApps.Location = new System.Drawing.Point(31, 50);
+            this.TurnOffRecentApps.Location = new System.Drawing.Point(29, 65);
             this.TurnOffRecentApps.Margin = new System.Windows.Forms.Padding(0);
             this.TurnOffRecentApps.Name = "TurnOffRecentApps";
             this.TurnOffRecentApps.Size = new System.Drawing.Size(160, 17);
@@ -1023,27 +957,13 @@
             this.StartMenu.Controls.Add(this.TurnOffAppSuggestions);
             this.StartMenu.Controls.Add(this.TurnOffRecentApps);
             this.StartMenu.ForeColor = System.Drawing.Color.White;
-            this.StartMenu.Location = new System.Drawing.Point(70, 405);
+            this.StartMenu.Location = new System.Drawing.Point(70, 379);
             this.StartMenu.Margin = new System.Windows.Forms.Padding(0);
             this.StartMenu.Name = "StartMenu";
-            this.StartMenu.Size = new System.Drawing.Size(313, 112);
+            this.StartMenu.Size = new System.Drawing.Size(325, 138);
             this.StartMenu.TabIndex = 14;
             this.StartMenu.TabStop = false;
             this.StartMenu.Text = "Start Menu";
-            // 
-            // tittle
-            // 
-            this.tittle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tittle.AutoSize = true;
-            this.tittle.Font = new System.Drawing.Font("Segoe UI", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.tittle.ForeColor = System.Drawing.Color.White;
-            this.tittle.Location = new System.Drawing.Point(300, 18);
-            this.tittle.Margin = new System.Windows.Forms.Padding(0);
-            this.tittle.Name = "tittle";
-            this.tittle.Size = new System.Drawing.Size(234, 45);
-            this.tittle.TabIndex = 16;
-            this.tittle.Text = "APPEARANCE";
             // 
             // ApplyAccentColor
             // 
@@ -1059,17 +979,31 @@
             this.ApplyAccentColor.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ApplyAccentColor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ApplyAccentColor.ForeColor = System.Drawing.Color.White;
-            this.ApplyAccentColor.Location = new System.Drawing.Point(31, 77);
+            this.ApplyAccentColor.Location = new System.Drawing.Point(29, 95);
             this.ApplyAccentColor.Margin = new System.Windows.Forms.Padding(0);
             this.ApplyAccentColor.Name = "ApplyAccentColor";
-            this.ApplyAccentColor.Size = new System.Drawing.Size(114, 17);
+            this.ApplyAccentColor.Size = new System.Drawing.Size(248, 17);
             this.ApplyAccentColor.TabIndex = 13;
-            this.ApplyAccentColor.Text = "Apply accent color";
+            this.ApplyAccentColor.Text = "Show accent color on Start Menu and Taskbar";
             this.ApplyAccentColor.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.ApplyAccentColor.UncheckedState.BorderRadius = 2;
             this.ApplyAccentColor.UncheckedState.BorderThickness = 0;
             this.ApplyAccentColor.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.ApplyAccentColor.UseVisualStyleBackColor = true;
+            // 
+            // tittle
+            // 
+            this.tittle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tittle.AutoSize = true;
+            this.tittle.Font = new System.Drawing.Font("Segoe UI", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.tittle.ForeColor = System.Drawing.Color.White;
+            this.tittle.Location = new System.Drawing.Point(300, 18);
+            this.tittle.Margin = new System.Windows.Forms.Padding(0);
+            this.tittle.Name = "tittle";
+            this.tittle.Size = new System.Drawing.Size(234, 45);
+            this.tittle.TabIndex = 16;
+            this.tittle.Text = "APPEARANCE";
             // 
             // AppearanceTab
             // 
@@ -1089,8 +1023,6 @@
             this.Taskbar_Aligin.PerformLayout();
             this.Taskbar_Size.ResumeLayout(false);
             this.Taskbar_Size.PerformLayout();
-            this.Taskbar_State.ResumeLayout(false);
-            this.Taskbar_State.PerformLayout();
             this.Taskbar.ResumeLayout(false);
             this.Taskbar.PerformLayout();
             this.Personalization.ResumeLayout(false);
@@ -1114,15 +1046,11 @@
 
         #endregion
         private System.Windows.Forms.GroupBox Taskbar_Aligin;
-        private Guna.UI2.WinForms.Guna2RadioButton TaskbarAligin_Left;
-        private Guna.UI2.WinForms.Guna2RadioButton TaskbarAligin_Right;
-        private Guna.UI2.WinForms.Guna2RadioButton TaskbarAligin_Center;
+        private Guna.UI2.WinForms.Guna2RadioButton TaskbarAlign_Left;
+        private Guna.UI2.WinForms.Guna2RadioButton TaskbarAlign_Center;
         private System.Windows.Forms.GroupBox Taskbar_Size;
         private Guna.UI2.WinForms.Guna2RadioButton TaskbarSize_Small;
         private Guna.UI2.WinForms.Guna2RadioButton TaskbarSize_Medium;
-        private System.Windows.Forms.GroupBox Taskbar_State;
-        private Guna.UI2.WinForms.Guna2RadioButton TaskbarState_Transparent;
-        private Guna.UI2.WinForms.Guna2RadioButton TaskbarState_Normal;
         private System.Windows.Forms.GroupBox Taskbar;
         private Guna.UI2.WinForms.Guna2CheckBox HideTaskViewIcon;
         private System.Windows.Forms.GroupBox Personalization;
@@ -1157,5 +1085,6 @@
         private Guna.UI2.WinForms.Guna2CheckBox TurnOffMeetNow;
         private System.Windows.Forms.Label tittle;
         private Guna.UI2.WinForms.Guna2CheckBox ApplyAccentColor;
+        private Guna.UI2.WinForms.Guna2CheckBox HideMSStoreIcon;
     }
 }

@@ -31,6 +31,8 @@ namespace WinTweak
             applicationsTab = new ApplycationsTab();   
             automationTab = new AutomationTab();
 
+            loadTab(appearanceTab);
+
             ApplyTheme();
 
             UserPreferenceChanged = new UserPreferenceChangedEventHandler(SystemEvents_UserPreferenceChanged);

@@ -49,37 +49,6 @@ namespace WinTweak
             StartMenu startMenuActions = new StartMenu();
             Personalize personalizeActions = new Personalize();
 
-            if (TaskbarAligin_Left.Checked)
-            {
-                taskbarActions.Aligin = WinTweak.Taskbar.aligin.left;
-            }
-            else if (TaskbarAligin_Center.Checked)
-            {
-                taskbarActions.Aligin = WinTweak.Taskbar.aligin.center;
-            }
-            else
-            {
-                taskbarActions.Aligin = WinTweak.Taskbar.aligin.right;
-            }
-
-            if (TaskbarSize_Medium.Checked)
-            {
-                taskbarActions.Size = WinTweak.Taskbar.size.medium;
-            }
-            else
-            {
-                taskbarActions.Size = WinTweak.Taskbar.size.small;
-            }
-
-            if (TaskbarState_Normal.Checked)
-            {
-                taskbarActions.State = WinTweak.Taskbar.state.normal;
-            }
-            else
-            {
-                taskbarActions.State = WinTweak.Taskbar.state.transparent;
-            }
-
             if (PersonalizeDesktopIconSize_Small.Checked)
             {
                 personalizeActions.desktopIconSize = WinTweak.Personalize.DesktopIconSize.small;
@@ -93,7 +62,7 @@ namespace WinTweak
                 personalizeActions.desktopIconSize = WinTweak.Personalize.DesktopIconSize.large;
             }
 
-            Task applyChanges_Taskbar = Task.Factory.StartNew(() => taskbarActions.ApplyAction(SmallSearchIcon.Checked, HideTaskViewIcon.Checked, TurnOffMeetNow.Checked, RemoveCortanaIcon.Checked, RemoveBingWeather.Checked));
+            Task applyChanges_Taskbar = Task.Factory.StartNew(() => taskbarActions.ApplyAction(TaskbarAlign_Center.Checked, TaskbarSize_Small.Checked, SmallSearchIcon.Checked, HideTaskViewIcon.Checked, TurnOffMeetNow.Checked, RemoveCortanaIcon.Checked, RemoveBingWeather.Checked, HideMSStoreIcon.Checked));
             Task applyChanges_StartMenu = Task.Factory.StartNew(() => startMenuActions.ApplyAction(TurnOffAppSuggestions.Checked, TurnOffRecentApps.Checked,ApplyAccentColor.Checked));
             Task applyChanges_Personalize = Task.Factory.StartNew(() => personalizeActions.ApplyAction(PersonalizeColorMode_Dark.Checked, PersonalizeTransparentEffect_Enable.Checked, PersonalizeDesktopIconArrange_CleanDesktopIcons.Checked));
 
@@ -107,7 +76,7 @@ namespace WinTweak
 
         private void DefaultButton_Click(object sender, EventArgs e)
         {
-            TaskbarAligin_Center.Checked = TaskbarSize_Small.Checked = TaskbarState_Transparent.Checked = true;
+            TaskbarAlign_Center.Checked = TaskbarSize_Small.Checked = true;
             Program.CheckAll_CheckBox(this);
         }
     }
