@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ExitButton = new Guna.UI2.WinForms.Guna2ImageButton();
             this.menuPanel = new System.Windows.Forms.Panel();
+            this.ButtonBadge = new Guna.UI2.WinForms.Guna2Panel();
             this.Automation_MenuButton = new Guna.UI2.WinForms.Guna2TileButton();
             this.SettingButton = new Guna.UI2.WinForms.Guna2GradientButton();
             this.Applications_MenuButton = new Guna.UI2.WinForms.Guna2TileButton();
@@ -111,6 +112,7 @@
             // menuPanel
             // 
             this.menuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.menuPanel.Controls.Add(this.ButtonBadge);
             this.menuPanel.Controls.Add(this.Automation_MenuButton);
             this.menuPanel.Controls.Add(this.SettingButton);
             this.menuPanel.Controls.Add(this.Applications_MenuButton);
@@ -122,6 +124,16 @@
             this.menuPanel.Name = "menuPanel";
             this.menuPanel.Size = new System.Drawing.Size(120, 638);
             this.menuPanel.TabIndex = 4;
+            // 
+            // ButtonBadge
+            // 
+            this.ButtonBadge.AutoRoundedCorners = true;
+            this.ButtonBadge.BorderRadius = 3;
+            this.ButtonBadge.Location = new System.Drawing.Point(-4, -2);
+            this.ButtonBadge.Name = "ButtonBadge";
+            this.ButtonBadge.ShadowDecoration.Parent = this.ButtonBadge;
+            this.ButtonBadge.Size = new System.Drawing.Size(8, 94);
+            this.ButtonBadge.TabIndex = 0;
             // 
             // Automation_MenuButton
             // 
@@ -340,6 +352,7 @@
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
         private Guna.UI2.WinForms.Guna2ShadowForm ShadowForm;
         private Guna.UI2.WinForms.Guna2Elipse Elipse;
+        private Guna.UI2.WinForms.Guna2Panel ButtonBadge;
     }
 }
 

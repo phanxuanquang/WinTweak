@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace WinTweak
         private string commandReg, pathReg, nameReg;
         public enum DesktopIconSize { small, medium, large }
         public DesktopIconSize desktopIconSize;
-        public void ApplyAction(bool DarkMode_Enable, bool TransparentEffect_Enable, bool PersonalizeDesktopIconArrange_Auto_Enable, int scaleRatio, bool AccentColor_Enable, bool HideFileNameExtensions_Enable)
+        public void ApplyAction(bool DarkMode_Enable, bool TransparentEffect_Enable, bool PersonalizeDesktopIconArrange_Auto_Enable, double scaleRatio, bool AccentColor_Enable, bool EnableChangeResolutionScale)
         {
             Change_DesktopIconSize();
 
@@ -20,9 +21,8 @@ namespace WinTweak
             AccentColor(AccentColor_Enable);
             TransparentEffect(TransparentEffect_Enable);
             PersonalizeDesktopIconArrange_Auto(PersonalizeDesktopIconArrange_Auto_Enable);
-            HideFileNameExtensions(HideFileNameExtensions_Enable);
-            Set_DesktopResolution();
-            Set_DesktopScale(scaleRatio);
+            Set_DesktopResolution(EnableChangeResolutionScale);
+            Set_DesktopScale(scaleRatio, EnableChangeResolutionScale);
         }
         private void DarkMode_Activate(bool enable)
         {
@@ -102,46 +102,26 @@ namespace WinTweak
 
         public double width;
         public int height;
-        private void Set_DesktopResolution()
-        {
-            string command = String.Format("Set-DisplayResolution -Width {0} -Height {1} -Force", width, height);
-            Program.runCommand_Advanced(command);
-        }
-        private void Set_DesktopScale(int ratio)
-        {
-            int DPI = 96; // 100%
-            switch (ratio)
-            {
-                case 125:
-                    DPI = 120;
-                    break;
-                case 150:
-                    DPI = 144;
-                    break;
-                case 200:
-                    DPI = 192;
-                    break;
-            }
-
-            commandReg = "Set-ItemProperty";
-            pathReg = @"HKCU:\Control Panel\Desktop\WindowMetrics";
-
-            nameReg = "Win8DpiScaling";
-            Program.runCommand(commandReg, pathReg, nameReg, "-Value 1");
-
-            nameReg = "LogPixels";
-            Program.runCommand(commandReg, pathReg, nameReg, "-Value " + DPI.ToString());
-        }
-        private void HideFileNameExtensions(bool enable)
+        private void Set_DesktopResolution(bool enable)
         {
             if (enable)
             {
-                commandReg = "Set-ItemProperty";
-                pathReg = @"HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced";
-                nameReg = "HideFileExt";
-
-                Program.runCommand(commandReg, pathReg, nameReg, "-Value 1");
+                string command = String.Format("Set-DisplayResolution -Width {0} -Height {1} -Force", width, height);
+                Program.runCommand_Advanced(command);
             }
+        }
+        private void Set_DesktopScale(double ratio, bool enable)
+        {
+                var DPI = ratio / 100 * 96;
+
+                commandReg = "Set-ItemProperty";
+                pathReg = @"HKCU:\Control Panel\Desktop\WindowMetrics";
+
+                nameReg = "Win8DpiScaling";
+                Program.runCommand(commandReg, pathReg, nameReg, "-Value 1");
+
+                nameReg = "LogPixels";
+                Program.runCommand(commandReg, pathReg, nameReg, "-Value " + DPI.ToString());
         }
     }
 }

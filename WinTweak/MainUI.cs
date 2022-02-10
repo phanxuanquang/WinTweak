@@ -31,7 +31,7 @@ namespace WinTweak
             applicationsTab = new ApplycationsTab();   
             automationTab = new AutomationTab();
 
-            loadTab(appearanceTab);
+            loadTab(homeTab);
 
             ApplyTheme();
 
@@ -60,7 +60,7 @@ namespace WinTweak
         {
             ShadowForm.SetShadowForm(this);
             Banner.BackColor = WindowsColor.GetAccentColor();
-            SettingButton.HoverState.FillColor = ControlPaint.Light(WindowsColor.GetAccentColor());
+            SettingButton.HoverState.FillColor = ButtonBadge.FillColor = ControlPaint.Light(WindowsColor.GetAccentColor());
             Program.ApplyThemeColor_CheckButtons(this);
         }
         protected override CreateParams CreateParams
@@ -91,23 +91,27 @@ namespace WinTweak
         private void Home_MenuButton_Click(object sender, EventArgs e)
         {
             loadTab(homeTab);
+            ButtonBadge.Top = Home_MenuButton.Top - 2;
         }
         private void Appearance_MenuButton_Click(object sender, EventArgs e)
         {
             loadTab(appearanceTab);
+            ButtonBadge.Top = Appearance_MenuButton.Top - 2;
         }
         private void System_MenuButton_Click(object sender, EventArgs e)
         {
-            SystemTab systemTab = new SystemTab();
             loadTab(systemTab);
+            ButtonBadge.Top = System_MenuButton.Top - 2;
         }
         private void Applycations_MenuButton_Click(object sender, EventArgs e)
         {
             loadTab(applicationsTab);
+            ButtonBadge.Top = Applications_MenuButton.Top - 2;
         }
         private void Automation_MenuButton_Click(object sender, EventArgs e)
         {
             loadTab(automationTab);
+            ButtonBadge.Top = Automation_MenuButton.Top - 2;
         }
         #endregion
         

@@ -27,6 +27,7 @@ namespace WinTweak
 
         private void TaskbarAlign(bool enable)
         {
+            // Source: https://github.com/mdhiggins/CenterTaskbar
             if (enable)
             {
                 try { System.Diagnostics.Process.Start("CenterTaskbar.exe"); }

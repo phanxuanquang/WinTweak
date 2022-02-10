@@ -23,25 +23,39 @@ namespace WinTweak
         }
         public static void runCommand(string command, string path, string name, string arguments)
         {
-            Process p = new Process();
+            try
+            {
+                Process p = new Process();
 
-            p.StartInfo.FileName = "CMD.exe";
-            p.StartInfo.Verb = "runas";
-            p.StartInfo.Arguments = String.Format("/C PowerShell if(Test-Path {0}) {{ {1} -Path {2} -Name {3} {4} }}", path, command, path, name, arguments);
-            p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.FileName = "CMD.exe";
+                p.StartInfo.Verb = "runas";
+                p.StartInfo.Arguments = String.Format("/C PowerShell if(Test-Path {0}) {{ {1} -Path {2} -Name {3} {4} }}", path, command, path, name, arguments);
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
 
-            p.Start();
+                p.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         public static void runCommand_Advanced(string command)
         {
-            Process p = new Process();
+            try
+            {
+                Process p = new Process();
 
-            p.StartInfo.FileName = "CMD.exe";
-            p.StartInfo.Verb = "runas";
-            p.StartInfo.Arguments = "/C PowerShell " + command;
-            p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.FileName = "CMD.exe";
+                p.StartInfo.Verb = "runas";
+                p.StartInfo.Arguments = "/C PowerShell " + command;
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
 
-            p.Start();
+                p.Start();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         public static void restartComputer()
         {
