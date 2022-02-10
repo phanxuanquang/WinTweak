@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinTweak", "WinTweak\WinTweak.csproj", "{38471CD6-E7D5-4D02-A04D-255A71B80494}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "WinTweak for UI", "WinTweak for UI\WinTweak for UI.vdproj", "{0425179A-209C-4E32-B9B3-9EDB9938808C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{38471CD6-E7D5-4D02-A04D-255A71B80494}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38471CD6-E7D5-4D02-A04D-255A71B80494}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38471CD6-E7D5-4D02-A04D-255A71B80494}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0425179A-209C-4E32-B9B3-9EDB9938808C}.Debug|Any CPU.ActiveCfg = Debug
+		{0425179A-209C-4E32-B9B3-9EDB9938808C}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
