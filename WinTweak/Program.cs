@@ -21,14 +21,12 @@ namespace WinTweak
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainUI());
         }
+        public static Process p = new Process();
         public static void runCommand(string command, string path, string name, string arguments)
         {
             try
             {
-                Process p = new Process();
-
                 p.StartInfo.FileName = "CMD.exe";
-                p.StartInfo.Verb = "runas";
                 p.StartInfo.Arguments = String.Format("/C PowerShell if(Test-Path {0}) {{ {1} -Path {2} -Name {3} {4} }}", path, command, path, name, arguments);
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
 
@@ -43,10 +41,7 @@ namespace WinTweak
         {
             try
             {
-                Process p = new Process();
-
                 p.StartInfo.FileName = "CMD.exe";
-                p.StartInfo.Verb = "runas";
                 p.StartInfo.Arguments = "/C PowerShell " + command;
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
 
@@ -55,14 +50,6 @@ namespace WinTweak
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        public static void restartComputer()
-        {
-            DialogResult dialogResult = MessageBox.Show("To apply these changes, your computer must restart.\n Are you sure to continue?", "Confirmation", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                runCommand_Advanced("Restart-Computer -Force");
             }
         }
         public static void CheckAll_CheckBox(Control control)

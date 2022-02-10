@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -28,103 +29,185 @@ namespace WinTweak
         private void TaskbarAlign(bool enable)
         {
             // Source: https://github.com/mdhiggins/CenterTaskbar
-            if (enable)
+            try
             {
-                try { System.Diagnostics.Process.Start("CenterTaskbar.exe"); }
-                catch { }
+                Process[] runingProcess = Process.GetProcesses();
+                if (enable)
+                {
+                    for (int i = 0; i < runingProcess.Length; i++)
+                    {
+                        if (runingProcess[i].ProcessName == "CenterTaskbar")
+                        {
+                            runingProcess[i].Kill();
+                        }
+                    }
+
+                    try 
+                    {
+                        for (int i = 0; i < runingProcess.Length; i++)
+                        {
+                            if (runingProcess[i].ProcessName == "CenterTaskbar")
+                            {
+                                runingProcess[i].Kill();
+                            }
+                        }
+
+                        System.Diagnostics.Process.Start("CenterTaskbar.exe"); 
+                    }
+                    catch { }
+                }
+                else
+                {
+                    for (int i = 0; i < runingProcess.Length; i++)
+                    {
+                        if (runingProcess[i].ProcessName == "CenterTaskbar")
+                        {
+                            runingProcess[i].Kill();
+                        }
+                    }
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Program.runCommand_Advanced("Stop-Process -Name \"CenterTaskbar\" -Force");
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void TaskbarSize(bool enable)
         {
-            commandReg = "Set-ItemProperty";
-            pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced";
-            nameReg = "TaskbarSmallIcons";
+            try
+            {
+                commandReg = "Set-ItemProperty";
+                pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced";
+                nameReg = "TaskbarSmallIcons";
 
-            if (enable)
-            {
-                Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 1");
+                if (enable)
+                {
+                    Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 1");
+                }
+                else
+                {
+                    Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 0");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 0");
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void SmallSearchIcon(bool enable)
         {
-            if (enable)
+            try
             {
-                commandReg = "Set-ItemProperty";
-                pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search";
-                nameReg = "SearchboxTaskbarMode";
+                if (enable)
+                {
+                    commandReg = "Set-ItemProperty";
+                    pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search";
+                    nameReg = "SearchboxTaskbarMode";
 
-                Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 1");
+                    Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 1");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void HideTaskViewIcon(bool enable)
         {
-            if (enable)
+            try
             {
-                commandReg = "Set-ItemProperty";
-                pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced";
-                nameReg = "ShowTaskViewButton";
+                if (enable)
+                {
+                    commandReg = "Set-ItemProperty";
+                    pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced";
+                    nameReg = "ShowTaskViewButton";
 
-                Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 0");
+                    Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 0");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void TurnOffMeetNow(bool enable)
         {
-            if (enable)
+            try
             {
-                commandReg = "Set-ItemProperty";
-                pathReg = @"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer";
-                nameReg = "HideSCAMeetNow";
+                if (enable)
+                {
+                    commandReg = "Set-ItemProperty";
+                    pathReg = @"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer";
+                    nameReg = "HideSCAMeetNow";
 
-                Program.runCommand(commandReg, pathReg, nameReg, "-Value 1");
+                    Program.runCommand(commandReg, pathReg, nameReg, "-Value 1");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void RemoveCortanaIcon(bool enable)
         {
-            if (enable)
+            try
             {
-                commandReg = "Set-ItemProperty";
-                pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced";
-                nameReg = "ShowCortanaButton";
+                if (enable)
+                {
+                    commandReg = "Set-ItemProperty";
+                    pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced";
+                    nameReg = "ShowCortanaButton";
 
-                Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 0");
+                    Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 0");
 
-                Program.runCommand_Advanced("Get-AppxPackage -allusers Microsoft.549981C3F5F10 | Remove-AppxPackage");
+                    Program.runCommand_Advanced("Get-AppxPackage -allusers Microsoft.549981C3F5F10 | Remove-AppxPackage");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void RemoveBingWeather(bool enable)
         {
-            if (enable)
+            try
             {
-                Program.runCommand_Advanced("Get-AppxPackage *bingweather* | Remove-AppxPackage.");
+                if (enable)
+                {
+                    Program.runCommand_Advanced("Get-AppxPackage *bingweather* | Remove-AppxPackage.");
 
-                commandReg = "Set-ItemProperty";
-                pathReg = @"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Feeds";
+                    commandReg = "Set-ItemProperty";
+                    pathReg = @"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Feeds";
 
-                nameReg = "ShellFeedsTaskbarViewMode";
-                Program.runCommand(commandReg, pathReg, nameReg, "-Value 2");
+                    nameReg = "ShellFeedsTaskbarViewMode";
+                    Program.runCommand(commandReg, pathReg, nameReg, "-Value 2");
 
-                nameReg = "IsFeedsAvailable";
-                Program.runCommand(commandReg, pathReg, nameReg, "-Value 0");
+                    nameReg = "IsFeedsAvailable";
+                    Program.runCommand(commandReg, pathReg, nameReg, "-Value 0");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void HideMSStoreIcon(bool enable)
         {
-            if (enable)
+            try
             {
-                commandReg = "Set-ItemProperty";
-                pathReg = @"HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer";
-                nameReg = "NoPinningStoreToTaskbar";
+                if (enable)
+                {
+                    commandReg = "Set-ItemProperty";
+                    pathReg = @"HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer";
+                    nameReg = "NoPinningStoreToTaskbar";
 
-                Program.runCommand(commandReg, pathReg, nameReg, "-Value 1");
+                    Program.runCommand(commandReg, pathReg, nameReg, "-Value 1");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

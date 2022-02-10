@@ -69,7 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DisplayInfor.cs" />
+    <Compile Include="Models\Home\DisplayInfor.cs" />
     <Compile Include="Models\Home\BatteryInfor.cs" />
     <Compile Include="Models\Appearance\Personalize.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

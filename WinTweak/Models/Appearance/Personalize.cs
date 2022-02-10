@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WinTweak
 {
@@ -22,7 +23,7 @@ namespace WinTweak
             TransparentEffect(TransparentEffect_Enable);
             PersonalizeDesktopIconArrange_Auto(PersonalizeDesktopIconArrange_Auto_Enable);
             Set_DesktopResolution(EnableChangeResolutionScale);
-            Set_DesktopScale(scaleRatio, EnableChangeResolutionScale);
+            //Set_DesktopScale(scaleRatio, EnableChangeResolutionScale);
         }
         private void DarkMode_Activate(bool enable)
         {
@@ -104,14 +105,23 @@ namespace WinTweak
         public int height;
         private void Set_DesktopResolution(bool enable)
         {
-            if (enable)
+            try
             {
-                string command = String.Format("Set-DisplayResolution -Width {0} -Height {1} -Force", width, height);
-                Program.runCommand_Advanced(command);
+                if (enable)
+                {
+                    string command = String.Format("Set-DisplayResolution -Width {0} -Height {1} -Force", width, height);
+                    Program.runCommand_Advanced(command);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void Set_DesktopScale(double ratio, bool enable)
         {
+            try
+            {
                 var DPI = ratio / 100 * 96;
 
                 commandReg = "Set-ItemProperty";
@@ -122,6 +132,11 @@ namespace WinTweak
 
                 nameReg = "LogPixels";
                 Program.runCommand(commandReg, pathReg, nameReg, "-Value " + DPI.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

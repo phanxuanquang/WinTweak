@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Management;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -29,8 +30,11 @@ namespace WinTweak
 
         private void ApplyButton_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult confirmation = MessageBox.Show("These actions need Administrator right to apply changes.\nDo you want to continue?", "CONFIRMATION", MessageBoxButtons.YesNo);
+            if (confirmation == DialogResult.Yes)
             {
+                Program.p.StartInfo.Verb = "runas";
+
                 Taskbar taskbarActions = new Taskbar();
                 StartMenu startMenuActions = new StartMenu();
                 Personalize personalizeActions = new Personalize();
@@ -90,25 +94,35 @@ namespace WinTweak
                         TurnOffRecentApps.Checked,
                         ApplyAccentColor.Checked)
                 );
+                double scaleRatio = double.Parse(Display_ZoomComboBox.Text);
                 Task applyChanges_Personalize = Task.Factory.StartNew(() => personalizeActions.ApplyAction(
                         PersonalizeColorMode_Dark.Checked,
                         PersonalizeTransparentEffect_Enable.Checked,
                         PersonalizeDesktopIconArrange_Auto.Checked,
-                        double.Parse(Display_ZoomComboBox.Text),
+                        scaleRatio,
                         PersonalizeAccentColor_Enable.Checked,
                         EnableChangeResolutionScale.Checked)
                 );
-
                 Task.WaitAll(applyChanges_Taskbar, applyChanges_StartMenu, applyChanges_Personalize);
 
                 Task restartExplorer = Task.Factory.StartNew(() => Program.runCommand_Advanced("stop-process -name explorer –force"));
                 restartExplorer.Wait();
 
-                MessageBox.Show("Completed. Please restart your computer.");
+                Thread.Sleep(1000);
+
+                DialogResult dialogResult = MessageBox.Show("To apply changes completely. You need to restart your computer.\nRestart now?", "Restart computer", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Program.runCommand_Advanced("Restart-Computer -Force");
+                }
+                else
+                {
+                    MessageBox.Show("Remember to restart your computer to apply changes completely.");
+                }
             }
-            catch (Exception ex)
+            else if (confirmation == DialogResult.No)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Cannot apply changes due to the lack of Administrator right.\nPlease try again!");
             }
         }
 

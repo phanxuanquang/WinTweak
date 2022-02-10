@@ -68,6 +68,8 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.ApplyButton = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.SystemInformation_Group.SuspendLayout();
             this.BatteryInformation_Group.SuspendLayout();
             this.DisplayInformation_Group.SuspendLayout();
@@ -103,7 +105,7 @@
             this.SystemInformation_Group.Controls.Add(this.OperatingSystem);
             this.SystemInformation_Group.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.SystemInformation_Group.ForeColor = System.Drawing.Color.White;
-            this.SystemInformation_Group.Location = new System.Drawing.Point(25, 83);
+            this.SystemInformation_Group.Location = new System.Drawing.Point(25, 81);
             this.SystemInformation_Group.Name = "SystemInformation_Group";
             this.SystemInformation_Group.Size = new System.Drawing.Size(377, 200);
             this.SystemInformation_Group.TabIndex = 18;
@@ -258,7 +260,7 @@
             this.BatteryInformation_Group.Controls.Add(this.label12);
             this.BatteryInformation_Group.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.BatteryInformation_Group.ForeColor = System.Drawing.Color.White;
-            this.BatteryInformation_Group.Location = new System.Drawing.Point(433, 83);
+            this.BatteryInformation_Group.Location = new System.Drawing.Point(433, 81);
             this.BatteryInformation_Group.Name = "BatteryInformation_Group";
             this.BatteryInformation_Group.Size = new System.Drawing.Size(377, 200);
             this.BatteryInformation_Group.TabIndex = 19;
@@ -416,7 +418,7 @@
             this.DisplayInformation_Group.Controls.Add(this.label22);
             this.DisplayInformation_Group.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.DisplayInformation_Group.ForeColor = System.Drawing.Color.White;
-            this.DisplayInformation_Group.Location = new System.Drawing.Point(433, 314);
+            this.DisplayInformation_Group.Location = new System.Drawing.Point(433, 306);
             this.DisplayInformation_Group.Name = "DisplayInformation_Group";
             this.DisplayInformation_Group.Size = new System.Drawing.Size(377, 183);
             this.DisplayInformation_Group.TabIndex = 20;
@@ -533,11 +535,59 @@
             this.label22.TabIndex = 9;
             this.label22.Text = "Resolution:";
             // 
+            // ApplyButton
+            // 
+            this.ApplyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ApplyButton.Animated = true;
+            this.ApplyButton.BorderColor = System.Drawing.Color.White;
+            this.ApplyButton.BorderRadius = 12;
+            this.ApplyButton.BorderThickness = 2;
+            this.ApplyButton.CheckedState.Parent = this.ApplyButton;
+            this.ApplyButton.CustomImages.Parent = this.ApplyButton;
+            this.ApplyButton.FillColor = System.Drawing.Color.Transparent;
+            this.ApplyButton.FillColor2 = System.Drawing.Color.Transparent;
+            this.ApplyButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.ApplyButton.ForeColor = System.Drawing.Color.White;
+            this.ApplyButton.HoverState.Parent = this.ApplyButton;
+            this.ApplyButton.Location = new System.Drawing.Point(433, 527);
+            this.ApplyButton.Margin = new System.Windows.Forms.Padding(0);
+            this.ApplyButton.Name = "ApplyButton";
+            this.ApplyButton.ShadowDecoration.Parent = this.ApplyButton;
+            this.ApplyButton.Size = new System.Drawing.Size(377, 65);
+            this.ApplyButton.TabIndex = 20;
+            this.ApplyButton.Text = "ABOUT THIS APP";
+            this.ApplyButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            // 
+            // guna2GradientButton1
+            // 
+            this.guna2GradientButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2GradientButton1.Animated = true;
+            this.guna2GradientButton1.BorderColor = System.Drawing.Color.White;
+            this.guna2GradientButton1.BorderRadius = 12;
+            this.guna2GradientButton1.BorderThickness = 2;
+            this.guna2GradientButton1.CheckedState.Parent = this.guna2GradientButton1;
+            this.guna2GradientButton1.CustomImages.Parent = this.guna2GradientButton1;
+            this.guna2GradientButton1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2GradientButton1.FillColor2 = System.Drawing.Color.Transparent;
+            this.guna2GradientButton1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
+            this.guna2GradientButton1.HoverState.Parent = this.guna2GradientButton1;
+            this.guna2GradientButton1.Location = new System.Drawing.Point(25, 527);
+            this.guna2GradientButton1.Margin = new System.Windows.Forms.Padding(0);
+            this.guna2GradientButton1.Name = "guna2GradientButton1";
+            this.guna2GradientButton1.ShadowDecoration.Parent = this.guna2GradientButton1;
+            this.guna2GradientButton1.Size = new System.Drawing.Size(377, 65);
+            this.guna2GradientButton1.TabIndex = 21;
+            this.guna2GradientButton1.Text = "ABOUT THE DEVELOPER";
+            this.guna2GradientButton1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            // 
             // HomeTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.Controls.Add(this.guna2GradientButton1);
+            this.Controls.Add(this.ApplyButton);
             this.Controls.Add(this.DisplayInformation_Group);
             this.Controls.Add(this.BatteryInformation_Group);
             this.Controls.Add(this.SystemInformation_Group);
@@ -597,5 +647,7 @@
         private System.Windows.Forms.Label Brightness;
         private System.Windows.Forms.Label RefreshRate;
         private System.Windows.Forms.Label Resolution;
+        private Guna.UI2.WinForms.Guna2GradientButton ApplyButton;
+        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
     }
 }
