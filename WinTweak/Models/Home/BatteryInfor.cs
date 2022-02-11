@@ -23,84 +23,132 @@ namespace WinTweak
 
         string get_BatteryLifeRemaining()
         {
-            PowerStatus status = SystemInformation.PowerStatus;
-            if (status.BatteryLifeRemaining != -1)
+            try
             {
-                if (status.BatteryLifeRemaining / 3600 > 0)
+                PowerStatus status = SystemInformation.PowerStatus;
+                if (status.BatteryLifeRemaining != -1)
                 {
-                    return String.Format("{0} hours and {1} minutes", status.BatteryLifeRemaining / 3600, status.BatteryLifeRemaining / 60 - (status.BatteryLifeRemaining / 3600) * 60);
+                    if (status.BatteryLifeRemaining / 3600 > 0)
+                    {
+                        return String.Format("{0} hours and {1} minutes", status.BatteryLifeRemaining / 3600, status.BatteryLifeRemaining / 60 - (status.BatteryLifeRemaining / 3600) * 60);
+                    }
+                    else
+                    {
+                        return String.Format("About {0} minutes", status.BatteryLifeRemaining / 60);
+                    }
                 }
-                else
-                {
-                    return String.Format("About {0} minutes", status.BatteryLifeRemaining / 60);
-                }
+                return "Unlimited";
             }
-            return "Unlimited";
+            catch (Exception ex)
+            {
+                MessageBox.Show("Cannot estimate battery life remaining.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return "Cannot estimate";
         }
         string get_BatteryLifePercent()
         {
-            PowerStatus status = SystemInformation.PowerStatus;
-            if (status.BatteryLifePercent < 1)
+            try
             {
-                return String.Format("About {0}%", status.BatteryLifePercent * 100);
+                PowerStatus status = SystemInformation.PowerStatus;
+                if (status.BatteryLifePercent < 1)
+                {
+                    return String.Format("About {0}%", status.BatteryLifePercent * 100);
+                }
+                return "100%";
             }
-            return "100%";
+            catch (Exception ex)
+            {
+                MessageBox.Show("Cannot estimate battery life percent.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return "Cannot estimate";
         }
         string get_PowerStatus()
         {
-            PowerStatus status = SystemInformation.PowerStatus;
-            if (status.PowerLineStatus == PowerLineStatus.Offline)
+            try
             {
-                return "Running on battery";
+                PowerStatus status = SystemInformation.PowerStatus;
+                if (status.PowerLineStatus == PowerLineStatus.Offline)
+                {
+                    return "Running on battery";
+                }
+                else if (status.PowerLineStatus == PowerLineStatus.Online)
+                {
+                    return "Plugged in";
+                }
+                return "Cannot identify";
             }
-            else if (status.PowerLineStatus == PowerLineStatus.Online)
+            catch (Exception ex)
             {
-                return "Plugged in";
+                MessageBox.Show("Cannot identify power status.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return "Cannot identify";
         }
         string get_WearLevel()
         {
-            ManagementObjectSearcher mos;
-            string DesignedCapacity = "";
-            string FullChargedCapacity = "";
-
-            mos = new ManagementObjectSearcher(@"\\localhost\root\wmi", "Select FullChargedCapacity From BatteryFullChargedCapacity");
-            foreach (ManagementObject mo in mos.Get())
+            try
             {
-                FullChargedCapacity = mo["FullChargedCapacity"].ToString();
+                ManagementObjectSearcher mos;
+                string DesignedCapacity = "";
+                string FullChargedCapacity = "";
+
+                mos = new ManagementObjectSearcher(@"\\localhost\root\wmi", "Select FullChargedCapacity From BatteryFullChargedCapacity");
+                foreach (ManagementObject mo in mos.Get())
+                {
+                    FullChargedCapacity = mo["FullChargedCapacity"].ToString();
+                }
+
+                mos = new ManagementObjectSearcher(@"\\localhost\root\wmi", "Select DesignedCapacity From BatteryStaticData");
+                foreach (ManagementObject mo in mos.Get())
+                {
+                    DesignedCapacity = mo["DesignedCapacity"].ToString();
+                }
+                double res = double.Parse(FullChargedCapacity) / double.Parse(DesignedCapacity) * 100;
+
+                return Math.Round(100 - res).ToString();
             }
-
-            mos = new ManagementObjectSearcher(@"\\localhost\root\wmi", "Select DesignedCapacity From BatteryStaticData");
-            foreach (ManagementObject mo in mos.Get())
+            catch (Exception ex)
             {
-                DesignedCapacity = mo["DesignedCapacity"].ToString();
-            }
-            double res = double.Parse(FullChargedCapacity) / double.Parse(DesignedCapacity) * 100;
-
-            return Math.Round(100 - res).ToString();
-        }
-        string get_DesignedCapacity()
-        {
-            ManagementObjectSearcher mos = new ManagementObjectSearcher(@"\\localhost\root\wmi", "Select DesignedCapacity From BatteryStaticData");
-            foreach (ManagementObject mo in mos.Get())
-            {
-                double res = double.Parse(mo["DesignedCapacity"].ToString());
-                return String.Format("{0} Wh", Math.Round(res / 1000));
+                MessageBox.Show("Cannot estimate battery weal level.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return "Cannot estimate";
         }
+        string get_DesignedCapacity()
+        {
+            try
+            {
+                ManagementObjectSearcher mos = new ManagementObjectSearcher(@"\\localhost\root\wmi", "Select DesignedCapacity From BatteryStaticData");
+                foreach (ManagementObject mo in mos.Get())
+                {
+                    double res = double.Parse(mo["DesignedCapacity"].ToString());
+                    return String.Format("{0} Wh", Math.Round(res / 1000));
+                }
+                return "Cannot identify";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Cannot identify designed capacity of the battery.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "Cannot identify";
+            }
+        }
         string get_Health()
         {
-            if (double.Parse(get_WearLevel()) <= 15)
+            try
             {
-                return "Excellent";
+                if (double.Parse(get_WearLevel()) <= 15)
+                {
+                    return "Excellent";
+                }
+                else if (double.Parse(get_WearLevel()) > 15 && double.Parse(get_WearLevel()) < 40)
+                {
+                    return "Good";
+                }
+                return "Bad";
             }
-            else if (double.Parse(get_WearLevel()) > 15 && double.Parse(get_WearLevel()) < 40)
+            catch (Exception ex)
             {
-                return "Good";
+                MessageBox.Show("Cannot identify battery health.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            return "Bad";
+            return "Unknown";
         }
     }
 }

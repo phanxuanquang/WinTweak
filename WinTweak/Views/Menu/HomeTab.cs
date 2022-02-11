@@ -57,19 +57,9 @@ namespace WinTweak
             LoadDataFrom(new SystemInfor(), new BatteryInfor(), new DisplayInfor());
         }
 
-        private void DisplayInformation_Group_Enter(object sender, EventArgs e)
+        private void OpenActivation_Button_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void BatteryInformation_Group_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ApplyButton_Click(object sender, EventArgs e)
-        {
-
+            Program.runCommand_Advanced("explorer ms-settings:activation");
         }
     }
 }

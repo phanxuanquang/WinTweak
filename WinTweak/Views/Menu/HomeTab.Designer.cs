@@ -56,6 +56,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.DisplayInformation_Group = new System.Windows.Forms.GroupBox();
+            this.HDR = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.NightLight = new System.Windows.Forms.Label();
             this.ScreenScale = new System.Windows.Forms.Label();
             this.Brightness = new System.Windows.Forms.Label();
@@ -68,7 +70,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.ApplyButton = new Guna.UI2.WinForms.Guna2GradientButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.OpenActivation_Button = new Guna.UI2.WinForms.Guna2GradientButton();
             this.label10 = new System.Windows.Forms.Label();
             this.UpdateStatus = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -81,8 +83,6 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.RefreshInformation_Button = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.label14 = new System.Windows.Forms.Label();
-            this.HDR = new System.Windows.Forms.Label();
             this.SystemInformation_Group.SuspendLayout();
             this.BatteryInformation_Group.SuspendLayout();
             this.DisplayInformation_Group.SuspendLayout();
@@ -133,9 +133,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label1.Location = new System.Drawing.Point(22, 160);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 13);
+            this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 13;
-            this.label1.Text = "Hard Disc Size:";
+            this.label1.Text = "Hard Drive Size:";
             // 
             // label2
             // 
@@ -280,7 +280,6 @@
             this.BatteryInformation_Group.TabIndex = 19;
             this.BatteryInformation_Group.TabStop = false;
             this.BatteryInformation_Group.Text = "Battery";
-            this.BatteryInformation_Group.Enter += new System.EventHandler(this.BatteryInformation_Group_Enter);
             // 
             // Health
             // 
@@ -436,7 +435,28 @@
             this.DisplayInformation_Group.TabIndex = 20;
             this.DisplayInformation_Group.TabStop = false;
             this.DisplayInformation_Group.Text = "Display";
-            this.DisplayInformation_Group.Enter += new System.EventHandler(this.DisplayInformation_Group_Enter);
+            // 
+            // HDR
+            // 
+            this.HDR.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.HDR.AutoSize = true;
+            this.HDR.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.HDR.Location = new System.Drawing.Point(179, 167);
+            this.HDR.Name = "HDR";
+            this.HDR.Size = new System.Drawing.Size(77, 13);
+            this.HDR.TabIndex = 21;
+            this.HDR.Text = "Cannot identify";
+            // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label14.Location = new System.Drawing.Point(22, 167);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(112, 13);
+            this.label14.TabIndex = 20;
+            this.label14.Text = "HDR for playback:";
             // 
             // NightLight
             // 
@@ -570,12 +590,11 @@
             this.ApplyButton.TabIndex = 20;
             this.ApplyButton.Text = "ABOUT THIS APP";
             this.ApplyButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-            this.ApplyButton.Click += new System.EventHandler(this.ApplyButton_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.groupBox1.Controls.Add(this.guna2GradientButton1);
+            this.groupBox1.Controls.Add(this.OpenActivation_Button);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.UpdateStatus);
             this.groupBox1.Controls.Add(this.label13);
@@ -596,28 +615,29 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Windows";
             // 
-            // guna2GradientButton1
+            // OpenActivation_Button
             // 
-            this.guna2GradientButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2GradientButton1.Animated = true;
-            this.guna2GradientButton1.BorderColor = System.Drawing.Color.White;
-            this.guna2GradientButton1.BorderRadius = 10;
-            this.guna2GradientButton1.BorderThickness = 1;
-            this.guna2GradientButton1.CheckedState.Parent = this.guna2GradientButton1;
-            this.guna2GradientButton1.CustomImages.Parent = this.guna2GradientButton1;
-            this.guna2GradientButton1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2GradientButton1.FillColor2 = System.Drawing.Color.Transparent;
-            this.guna2GradientButton1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton1.HoverState.Parent = this.guna2GradientButton1;
-            this.guna2GradientButton1.Location = new System.Drawing.Point(195, 169);
-            this.guna2GradientButton1.Margin = new System.Windows.Forms.Padding(0);
-            this.guna2GradientButton1.Name = "guna2GradientButton1";
-            this.guna2GradientButton1.ShadowDecoration.Parent = this.guna2GradientButton1;
-            this.guna2GradientButton1.Size = new System.Drawing.Size(150, 30);
-            this.guna2GradientButton1.TabIndex = 27;
-            this.guna2GradientButton1.Text = "Activation";
-            this.guna2GradientButton1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            this.OpenActivation_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.OpenActivation_Button.Animated = true;
+            this.OpenActivation_Button.BorderColor = System.Drawing.Color.White;
+            this.OpenActivation_Button.BorderRadius = 10;
+            this.OpenActivation_Button.BorderThickness = 1;
+            this.OpenActivation_Button.CheckedState.Parent = this.OpenActivation_Button;
+            this.OpenActivation_Button.CustomImages.Parent = this.OpenActivation_Button;
+            this.OpenActivation_Button.FillColor = System.Drawing.Color.Transparent;
+            this.OpenActivation_Button.FillColor2 = System.Drawing.Color.Transparent;
+            this.OpenActivation_Button.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.OpenActivation_Button.ForeColor = System.Drawing.Color.White;
+            this.OpenActivation_Button.HoverState.Parent = this.OpenActivation_Button;
+            this.OpenActivation_Button.Location = new System.Drawing.Point(195, 169);
+            this.OpenActivation_Button.Margin = new System.Windows.Forms.Padding(0);
+            this.OpenActivation_Button.Name = "OpenActivation_Button";
+            this.OpenActivation_Button.ShadowDecoration.Parent = this.OpenActivation_Button;
+            this.OpenActivation_Button.Size = new System.Drawing.Size(150, 30);
+            this.OpenActivation_Button.TabIndex = 27;
+            this.OpenActivation_Button.Text = "Activation";
+            this.OpenActivation_Button.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            this.OpenActivation_Button.Click += new System.EventHandler(this.OpenActivation_Button_Click);
             // 
             // label10
             // 
@@ -777,28 +797,6 @@
             this.RefreshInformation_Button.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             this.RefreshInformation_Button.Click += new System.EventHandler(this.RefreshInformation_Button_Click);
             // 
-            // label14
-            // 
-            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label14.Location = new System.Drawing.Point(22, 167);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(112, 13);
-            this.label14.TabIndex = 20;
-            this.label14.Text = "HDR for playback:";
-            // 
-            // HDR
-            // 
-            this.HDR.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.HDR.AutoSize = true;
-            this.HDR.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.HDR.Location = new System.Drawing.Point(179, 167);
-            this.HDR.Name = "HDR";
-            this.HDR.Size = new System.Drawing.Size(77, 13);
-            this.HDR.TabIndex = 21;
-            this.HDR.Text = "Cannot identify";
-            // 
             // HomeTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -881,7 +879,7 @@
         private Guna.UI2.WinForms.Guna2GradientButton RefreshInformation_Button;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label13;
-        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
+        private Guna.UI2.WinForms.Guna2GradientButton OpenActivation_Button;
         private System.Windows.Forms.Label HDR;
         private System.Windows.Forms.Label label14;
     }

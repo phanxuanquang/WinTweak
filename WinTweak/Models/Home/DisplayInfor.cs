@@ -23,16 +23,32 @@ namespace WinTweak
         }
         string get_Resolution()
         {
-            int screenHeight = Screen.PrimaryScreen.Bounds.Height;
-            int screenWidth = Screen.PrimaryScreen.Bounds.Width;
-            return String.Format("{0}  x {1}", screenWidth, screenHeight);
+            try
+            {
+                int screenHeight = Screen.PrimaryScreen.Bounds.Height;
+                int screenWidth = Screen.PrimaryScreen.Bounds.Width;
+                return String.Format("{0}  x {1}", screenWidth, screenHeight);
+            }
+            catch (Exception ex)
+            {;
+                MessageBox.Show("Cannot identify resolution of the monitor.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return "Cannot identify";
         }
         string get_RefreshRate()
         {
-            ManagementObjectSearcher mos = new ManagementObjectSearcher("SELECT * FROM Win32_VideoController");
-            foreach (ManagementObject mo in mos.Get())
+            try
             {
-                return mo["CurrentRefreshRate"].ToString() + "Hz";
+                ManagementObjectSearcher mos = new ManagementObjectSearcher("SELECT * FROM Win32_VideoController");
+                foreach (ManagementObject mo in mos.Get())
+                {
+                    return mo["CurrentRefreshRate"].ToString() + "Hz";
+                }
+                return "Cannot identify";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Cannot identify refresh rate of the monitor.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return "Cannot identify";
         }
@@ -53,7 +69,7 @@ namespace WinTweak
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Cannot identify brightness level.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return 0;
         }
@@ -65,17 +81,25 @@ namespace WinTweak
         }
         string get_NightLightStatus()
         {
-            const string BlueLightReductionStateKey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\CloudStore\Store\DefaultAccount\Current\default$windows.data.bluelightreduction.bluelightreductionstate\windows.data.bluelightreduction.bluelightreductionstate";
-            using (var key = Registry.CurrentUser.OpenSubKey(BlueLightReductionStateKey))
+            try
             {
-                var data = key?.GetValue("Data");
-                if (data is null)
+                const string BlueLightReductionStateKey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\CloudStore\Store\DefaultAccount\Current\default$windows.data.bluelightreduction.bluelightreductionstate\windows.data.bluelightreduction.bluelightreductionstate";
+                using (var key = Registry.CurrentUser.OpenSubKey(BlueLightReductionStateKey))
+                {
+                    var data = key?.GetValue("Data");
+                    if (data is null)
+                        return "Disable";
+                    var byteData = (byte[])data;
+                    if (byteData.Length > 24 && byteData[23] == 0x10 && byteData[24] == 0x00)
+                        return "Enable";
                     return "Disable";
-                var byteData = (byte[])data;
-                if (byteData.Length > 24 && byteData[23] == 0x10 && byteData[24] == 0x00)
-                    return "Enable";
-                return "Disable";
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Cannot identify Night Light status.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return "Cannot identify";
         }
         string get_HDRforPlayback()
         {
@@ -91,7 +115,7 @@ namespace WinTweak
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Cannot identify HDR support.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return "Cannot identify";
         }

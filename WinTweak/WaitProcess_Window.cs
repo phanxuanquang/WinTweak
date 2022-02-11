@@ -13,17 +13,12 @@ namespace WinTweak
     public partial class WaitProcess_Window : Form
     {
         public Action Worker { get; set; }
+
         public WaitProcess_Window(Action worker)
         {
-            InitializeComponent(); 
-
-            ShadowForm.SetShadowForm(this);
-            WindowBadge.BackColor = ControlPaint.Light(WindowsColor.GetAccentColor());
-
-            if(worker == null)
-            {
+            InitializeComponent();
+            if (worker == null)
                 throw new ArgumentNullException();
-            }
             Worker = worker;
         }
         protected override void OnLoad(EventArgs e)

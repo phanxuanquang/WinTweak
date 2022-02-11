@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -25,15 +26,12 @@ namespace WinTweak
         {
             InitializeComponent();
 
-            homeTab = new HomeTab();    
-            appearanceTab = new AppearanceTab();    
+            homeTab = new HomeTab();
+            appearanceTab = new AppearanceTab();
             systemTab = new SystemTab();
-            applicationsTab = new ApplycationsTab();   
+            applicationsTab = new ApplycationsTab();
             automationTab = new AutomationTab();
 
-            loadTab(appearanceTab);
-            loadTab(applicationsTab);
-            loadTab(automationTab);
             loadTab(homeTab);
 
             ApplyTheme();
@@ -95,11 +93,6 @@ namespace WinTweak
         {
             loadTab(homeTab);
             ButtonBadge.Top = Home_MenuButton.Top - 2;
-            //using (WaitProcess_Window x = new WaitProcess_Window(() => loadTab(homeTab)))
-            //{
-            //    x.ShowDialog(this);
-            //}
-            //ButtonBadge.Top = Home_MenuButton.Top - 2;
         }
         private void Appearance_MenuButton_Click(object sender, EventArgs e)
         {

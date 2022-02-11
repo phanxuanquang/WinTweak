@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Management;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,11 +37,8 @@ namespace WinTweak
 
         private void ApplyButton_Click(object sender, EventArgs e)
         {
-            DialogResult confirmation = MessageBox.Show("These actions need Administrator right to apply changes.\nDo you want to continue?", "CONFIRMATION", MessageBoxButtons.YesNo);
-            if (confirmation == DialogResult.Yes)
+            try
             {
-                Program.p.StartInfo.Verb = "runas";
-
                 Taskbar taskbarActions = new Taskbar();
                 StartMenu startMenuActions = new StartMenu();
                 Personalize personalizeActions = new Personalize();
@@ -83,51 +82,57 @@ namespace WinTweak
                         break;
                 }
 
-                Task applyChanges_Taskbar = Task.Factory.StartNew(() => taskbarActions.ApplyAction(
-                        TaskbarAlign_Center.Checked,
-                        TaskbarSize_Small.Checked,
-                        SmallSearchIcon.Checked,
-                        HideTaskViewIcon.Checked,
-                        TurnOffMeetNow.Checked,
-                        RemoveCortanaIcon.Checked,
-                        RemoveBingWeather.Checked,
-                        HideMSStoreIcon.Checked)
-                );
-
-                Task applyChanges_StartMenu = Task.Factory.StartNew(() => startMenuActions.ApplyAction(
-                        TurnOffAppSuggestions.Checked,
-                        TurnOffRecentApps.Checked,
-                        ApplyAccentColor.Checked)
-                );
-                double scaleRatio = double.Parse(Display_ZoomComboBox.Text);
-                Task applyChanges_Personalize = Task.Factory.StartNew(() => personalizeActions.ApplyAction(
-                        PersonalizeColorMode_Dark.Checked,
-                        PersonalizeTransparentEffect_Enable.Checked,
-                        PersonalizeDesktopIconArrange_Auto.Checked,
-                        scaleRatio,
-                        PersonalizeAccentColor_Enable.Checked,
-                        EnableChangeResolutionScale.Checked)
-                );
-                Task.WaitAll(applyChanges_Taskbar, applyChanges_StartMenu, applyChanges_Personalize);
-
-                Task restartExplorer = Task.Factory.StartNew(() => Program.runCommand_Advanced("stop-process -name explorer –force"));
-                restartExplorer.Wait();
-
-                Thread.Sleep(1000);
-
-                DialogResult dialogResult = MessageBox.Show("To apply changes completely. You need to restart your computer.\nRestart now?", "Restart computer", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
+                DialogResult confirmation = MessageBox.Show("Do you want to continue?", "CONFIRMATION", MessageBoxButtons.YesNo);
+                if (confirmation == DialogResult.Yes)
                 {
-                    Program.runCommand_Advanced("Restart-Computer -Force");
-                }
-                else
-                {
-                    MessageBox.Show("Remember to restart your computer to apply changes completely.");
+                    Task applyChanges_Taskbar = Task.Factory.StartNew(() => taskbarActions.ApplyAction(
+                            TaskbarAlign_Center.Checked,
+                            TaskbarSize_Small.Checked,
+                            SmallSearchIcon.Checked,
+                            HideTaskViewIcon.Checked,
+                            TurnOffMeetNow.Checked,
+                            RemoveCortanaIcon.Checked,
+                            RemoveBingWeather.Checked,
+                            HideMSStoreIcon.Checked)
+                    );
+
+                    Task applyChanges_StartMenu = Task.Factory.StartNew(() => startMenuActions.ApplyAction(
+                            TurnOffAppSuggestions.Checked,
+                            TurnOffRecentApps.Checked,
+                            ApplyAccentColor.Checked)
+                    );
+
+                    double scaleRatio = double.Parse(Display_ZoomComboBox.Text);
+                    Task applyChanges_Personalize = Task.Factory.StartNew(() => personalizeActions.ApplyAction(
+                            PersonalizeColorMode_Dark.Checked,
+                            PersonalizeTransparentEffect_Enable.Checked,
+                            PersonalizeDesktopIconArrange_Auto.Checked,
+                            scaleRatio,
+                            PersonalizeAccentColor_Enable.Checked,
+                            EnableChangeResolutionScale.Checked)
+                    );
+
+                    Task.WaitAll(applyChanges_Taskbar, applyChanges_StartMenu, applyChanges_Personalize);
+
+                    Task restartExplorer = Task.Factory.StartNew(() => Program.runCommand_Advanced("stop-process -name explorer –force"));
+                    restartExplorer.Wait();
+
+                    Thread.Sleep(1000);
+
+                    DialogResult dialogResult = MessageBox.Show("To apply changes completely. You need to restart your computer.\nRestart now?", "Restart computer", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        Program.runCommand_Advanced("Restart-Computer -Force");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Remember to restart your computer to apply changes completely.");
+                    }
                 }
             }
-            else if (confirmation == DialogResult.No)
+            catch (Exception ex)
             {
-                MessageBox.Show("Cannot apply changes due to the lack of Administrator right.\nPlease try again!");
+                MessageBox.Show("Cannot apply changes.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -169,9 +174,9 @@ namespace WinTweak
                     Display_ResolutionComboBox.Items.Remove("4K");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Cannot adjust Resolution combo box.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -193,7 +198,7 @@ namespace WinTweak
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Cannot identify brightness level.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return 0;
         }
@@ -201,20 +206,11 @@ namespace WinTweak
         {
             try
             {
-                var mclass = new ManagementClass("WmiMonitorBrightnessMethods")
-                {
-                    Scope = new ManagementScope(@"\\.\root\wmi")
-                };
-                var args = new object[] { 1, level };
-
-                foreach (ManagementObject instance in mclass.GetInstances())
-                {
-                    instance.InvokeMethod("WmiSetBrightness", args);
-                }
+                Program.runCommand_Advanced(String.Format("(Get-WmiObject -Namespace root/WMI -Class WmiMonitorBrightnessMethods).WmiSetBrightness(1,{0})", level));
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Cannot change brightness");
+                MessageBox.Show("Cannot change brightness.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void BrightnessTrackBar_ValueChanged(object sender, EventArgs e)

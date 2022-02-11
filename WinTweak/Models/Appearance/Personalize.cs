@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,77 +28,114 @@ namespace WinTweak
         }
         private void DarkMode_Activate(bool enable)
         {
-            commandReg = "Set-ItemProperty";
-            pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize";
-            nameReg = "AppsUseLightTheme";
+            try
+            {
+                commandReg = "Set-ItemProperty";
+                pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize";
+                nameReg = "AppsUseLightTheme";
 
-            if (enable)
-            {
-                Program.runCommand(commandReg, pathReg, nameReg, "-Value 0");
+                if (enable)
+                {
+                    SetWallpaper("DarkMode_Wall.jpg");
+                    Program.runCommand(commandReg, pathReg, nameReg, "-Value 0");
+                }
+                else
+                {
+                    SetWallpaper("LightMode_Wall.jpg");
+                    Program.runCommand(commandReg, pathReg, nameReg, "-Value 1");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Program.runCommand(commandReg, pathReg, nameReg, "-Value 1");
+                MessageBox.Show("Cannot change Windows Mode.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void AccentColor(bool enable)
         {
-            commandReg = "Set-ItemProperty";
-            nameReg = "ColorPrevalence";
-            pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\DWM";
+            try
+            {
+                commandReg = "Set-ItemProperty";
+                nameReg = "ColorPrevalence";
+                pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\DWM";
 
-            if (enable)
-            {
-                Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 1");
+                if (enable)
+                {
+                    Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 1");
+                }
+                else
+                {
+                    Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 0");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 0");
+                MessageBox.Show("Cannot apply Accent Color.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void TransparentEffect(bool enable)
         {
-            commandReg = "Set-ItemProperty";
-            pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize";
-            nameReg = "EnableTransparency";
+            try
+            {
+                commandReg = "Set-ItemProperty";
+                pathReg = @"HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize";
+                nameReg = "EnableTransparency";
 
-            if (enable)
-            {
-                Program.runCommand(commandReg, pathReg, nameReg, "-Value 1");
+                if (enable)
+                {
+                    Program.runCommand(commandReg, pathReg, nameReg, "-Value 1");
+                }
+                else
+                {
+                    Program.runCommand(commandReg, pathReg, nameReg, "-Value 0");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Program.runCommand(commandReg, pathReg, nameReg, "-Value 0");
+                MessageBox.Show("Cannot apply Transparent effect.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void Change_DesktopIconSize()
         {
-            commandReg = "Set-ItemProperty";
-            pathReg = @"HKCU:\Software\Microsoft\Windows\Shell\Bags\1\Desktop";
-            nameReg = "IconSize";
-
-            switch (desktopIconSize)
+            try
             {
-                case DesktopIconSize.small:
-                    Program.runCommand(commandReg, pathReg, nameReg, "-Value 20");
-                    break;
-                case DesktopIconSize.medium:
-                    Program.runCommand(commandReg, pathReg, nameReg, "-Value 30");
-                    break;
-                case DesktopIconSize.large:
-                    Program.runCommand(commandReg, pathReg, nameReg, "-Value 60");
-                    break;
+                commandReg = "Set-ItemProperty";
+                pathReg = @"HKCU:\Software\Microsoft\Windows\Shell\Bags\1\Desktop";
+                nameReg = "IconSize";
+
+                switch (desktopIconSize)
+                {
+                    case DesktopIconSize.small:
+                        Program.runCommand(commandReg, pathReg, nameReg, "-Value 20");
+                        break;
+                    case DesktopIconSize.medium:
+                        Program.runCommand(commandReg, pathReg, nameReg, "-Value 30");
+                        break;
+                    case DesktopIconSize.large:
+                        Program.runCommand(commandReg, pathReg, nameReg, "-Value 60");
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Cannot change Desktop icon size.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void PersonalizeDesktopIconArrange_Auto(bool enable)
         {
-            if (enable)
+            try
             {
-                commandReg = "Set-ItemProperty";
-                pathReg = @"HKCU:\Software\Microsoft\Windows\Shell\Bags\1\Desktop";
-                nameReg = "FFlags";
+                if (enable)
+                {
+                    commandReg = "Set-ItemProperty";
+                    pathReg = @"HKCU:\Software\Microsoft\Windows\Shell\Bags\1\Desktop";
+                    nameReg = "FFlags";
 
-                Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 1075839525");
+                    Program.runCommand(commandReg, pathReg, nameReg, "-Type DWord -Value 1075839525");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Cannot arrange Desktop icons.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -115,7 +153,7 @@ namespace WinTweak
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Cannot adjust Resolution.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void Set_DesktopScale(double ratio, bool enable)
@@ -135,8 +173,23 @@ namespace WinTweak
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Cannot adjust monitor scale.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern Int32 SystemParametersInfo(UInt32 action, UInt32 uParam, String vParam, UInt32 winIni);
+
+        private static readonly UInt32 SPI_SETDESKWALLPAPER = 0x14;
+        private static readonly UInt32 SPIF_UPDATEINIFILE = 0x01;
+        private static readonly UInt32 SPIF_SENDWININICHANGE = 0x02;
+        static public void SetWallpaper(String path)
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
+            key.SetValue(@"WallpaperStyle", 0.ToString()); // 2 is stretched
+            key.SetValue(@"TileWallpaper", 0.ToString());
+
+            SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, path, SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
         }
     }
 }

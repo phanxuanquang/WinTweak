@@ -56,46 +56,60 @@ namespace WinTweak
         }
         public static void CheckAll_CheckBox(Control control)
         {
-            Guna.UI2.WinForms.Guna2CheckBox checkBox = control as Guna.UI2.WinForms.Guna2CheckBox;
-            if (checkBox == null)
+            try
             {
-                foreach (Control child in control.Controls)
+                Guna.UI2.WinForms.Guna2CheckBox checkBox = control as Guna.UI2.WinForms.Guna2CheckBox;
+                if (checkBox == null)
                 {
-                    CheckAll_CheckBox(child);
+                    foreach (Control child in control.Controls)
+                    {
+                        CheckAll_CheckBox(child);
+                    }
+                }
+                else
+                {
+                    checkBox.Checked = true;
                 }
             }
-            else
+            catch (Exception ex)
             {
-                checkBox.Checked = true;
+                MessageBox.Show("Cannot restore checkboxes to normal.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public static void ApplyThemeColor_CheckButtons(Control control)
         {
-            Guna.UI2.WinForms.Guna2CheckBox checkBox = control as Guna.UI2.WinForms.Guna2CheckBox;
-            Guna.UI2.WinForms.Guna2RadioButton radioButton = control as Guna.UI2.WinForms.Guna2RadioButton;
-
-            if (checkBox == null)
+            try
             {
-                foreach (Control child in control.Controls)
+                Guna.UI2.WinForms.Guna2CheckBox checkBox = control as Guna.UI2.WinForms.Guna2CheckBox;
+                Guna.UI2.WinForms.Guna2RadioButton radioButton = control as Guna.UI2.WinForms.Guna2RadioButton;
+
+                if (checkBox == null)
                 {
-                    ApplyThemeColor_CheckButtons(child);
+                    foreach (Control child in control.Controls)
+                    {
+                        ApplyThemeColor_CheckButtons(child);
+                    }
+                }
+                else
+                {
+                    checkBox.CheckedState.FillColor = ControlPaint.Light(WindowsColor.GetAccentColor());
+                }
+
+                if (radioButton == null)
+                {
+                    foreach (Control child in control.Controls)
+                    {
+                        ApplyThemeColor_CheckButtons(child);
+                    }
+                }
+                else
+                {
+                    radioButton.CheckedState.FillColor = ControlPaint.Light(WindowsColor.GetAccentColor());
                 }
             }
-            else
+            catch (Exception ex)
             {
-                checkBox.CheckedState.FillColor = ControlPaint.Light(WindowsColor.GetAccentColor());
-            }
-
-            if (radioButton == null)
-            {
-                foreach (Control child in control.Controls)
-                {
-                    ApplyThemeColor_CheckButtons(child);
-                }
-            }
-            else
-            {
-                radioButton.CheckedState.FillColor = ControlPaint.Light(WindowsColor.GetAccentColor());
+                MessageBox.Show("Cannot apply theme color for check buttons.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
@@ -110,20 +124,36 @@ namespace WinTweak
 
         private static Color ConvertDWordColorToRGB(uint colorSetEx)
         {
-            byte redColor = (byte)((0x000000FF & colorSetEx) >> 0);
-            byte greenColor = (byte)((0x0000FF00 & colorSetEx) >> 8);
-            byte blueColor = (byte)((0x00FF0000 & colorSetEx) >> 16);
+            try
+            {
+                byte redColor = (byte)((0x000000FF & colorSetEx) >> 0);
+                byte greenColor = (byte)((0x0000FF00 & colorSetEx) >> 8);
+                byte blueColor = (byte)((0x00FF0000 & colorSetEx) >> 16);
 
-            return Color.FromArgb(redColor, greenColor, blueColor);
+                return Color.FromArgb(redColor, greenColor, blueColor);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Cannot convert dword color to RGB color.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return Color.White;
         }
 
         public static Color GetAccentColor()
         {
-            var userColorSet = GetImmersiveUserColorSetPreference(false, false);
-            var colorType = GetImmersiveColorTypeFromName(Marshal.StringToHGlobalUni("ImmersiveStartSelectionBackground"));
-            var colorSetEx = GetImmersiveColorFromColorSetEx((uint)userColorSet, colorType, false, 0);
+            try
+            {
+                var userColorSet = GetImmersiveUserColorSetPreference(false, false);
+                var colorType = GetImmersiveColorTypeFromName(Marshal.StringToHGlobalUni("ImmersiveStartSelectionBackground"));
+                var colorSetEx = GetImmersiveColorFromColorSetEx((uint)userColorSet, colorType, false, 0);
 
-            return ConvertDWordColorToRGB(colorSetEx);
+                return ConvertDWordColorToRGB(colorSetEx);
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show("Cannot identify accent color.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return Color.White;
         }
     }
 }
