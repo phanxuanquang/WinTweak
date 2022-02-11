@@ -25,12 +25,15 @@ namespace WinTweak
         {
             InitializeComponent();
 
-            homeTab = new HomeTab();
+            homeTab = new HomeTab();    
             appearanceTab = new AppearanceTab();    
             systemTab = new SystemTab();
             applicationsTab = new ApplycationsTab();   
             automationTab = new AutomationTab();
 
+            loadTab(appearanceTab);
+            loadTab(applicationsTab);
+            loadTab(automationTab);
             loadTab(homeTab);
 
             ApplyTheme();
@@ -92,11 +95,17 @@ namespace WinTweak
         {
             loadTab(homeTab);
             ButtonBadge.Top = Home_MenuButton.Top - 2;
+            //using (WaitProcess_Window x = new WaitProcess_Window(() => loadTab(homeTab)))
+            //{
+            //    x.ShowDialog(this);
+            //}
+            //ButtonBadge.Top = Home_MenuButton.Top - 2;
         }
         private void Appearance_MenuButton_Click(object sender, EventArgs e)
         {
             loadTab(appearanceTab);
             ButtonBadge.Top = Appearance_MenuButton.Top - 2;
+            appearanceTab.UpdateBrightnessValue();
         }
         private void System_MenuButton_Click(object sender, EventArgs e)
         {

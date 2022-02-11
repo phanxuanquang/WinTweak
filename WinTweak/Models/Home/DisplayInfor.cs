@@ -11,7 +11,7 @@ namespace WinTweak
 {
     internal class DisplayInfor
     {
-        public string Resolution, RefreshRate, Brightness, scale, NightLight;
+        public string Resolution, RefreshRate, Brightness, scale, NightLight, HDRforPlayback;
         public DisplayInfor()
         {
             Resolution = get_Resolution();
@@ -19,6 +19,7 @@ namespace WinTweak
             Brightness = get_Brightness().ToString() + "%";
             scale = get_Scale();
             NightLight = get_NightLightStatus();
+            HDRforPlayback = get_HDRforPlayback();
         }
         string get_Resolution()
         {
@@ -37,14 +38,22 @@ namespace WinTweak
         }
         int get_Brightness()
         {
-            var mclass = new ManagementClass("WmiMonitorBrightness")
+            try
             {
-                Scope = new ManagementScope(@"\\.\root\wmi")
-            };
+                var mclass = new ManagementClass("WmiMonitorBrightness")
+                {
+                    Scope = new ManagementScope(@"\\.\root\wmi")
+                };
 
-            foreach (ManagementObject instance in mclass.GetInstances())
+                foreach (ManagementObject instance in mclass.GetInstances())
+                {
+                    return (byte)instance["CurrentBrightness"];
+                }
+                return 0;
+            }
+            catch (Exception ex)
             {
-                return (byte)instance["CurrentBrightness"];
+                MessageBox.Show(ex.Message);
             }
             return 0;
         }
@@ -67,6 +76,24 @@ namespace WinTweak
                     return "Enable";
                 return "Disable";
             }
+        }
+        string get_HDRforPlayback()
+        {
+            try
+            {
+                var key = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\VideoSettings", "EnableHDRForPlayback", null);
+                if (key != null)
+                {
+                    if (key.ToString() == "1")
+                        return "Enable";
+                }
+                return "Disable";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return "Cannot identify";
         }
     }
 }

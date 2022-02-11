@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,13 +16,12 @@ namespace WinTweak
         public HomeTab()
         {
             InitializeComponent();
-            clock.Start();
         }
 
         private void HomeTab_Load(object sender, EventArgs e)
         {
             LoadDataFrom(new SystemInfor(), new BatteryInfor(), new DisplayInfor()); 
-            var themeColor = WindowsColor.GetAccentColor(); 
+            var themeColor = WindowsColor.GetAccentColor();
         }
         private void LoadDataFrom(SystemInfor systemInfor, BatteryInfor batteryInfor, DisplayInfor displayInfor)
         {
@@ -35,7 +35,7 @@ namespace WinTweak
             this.DesignedCapacity.Text = batteryInfor.DesignedCapacity;
             this.WearLevel.Text = batteryInfor.WearLevel;
             this.BatteryLifeRemaining.Text = batteryInfor.BatteryLifeRemaining;
-            this.FullChargeRemaining.Text = batteryInfor.BatteryFullLifetime;
+            this.PowerStatus.Text = batteryInfor.PowerStatus;
             this.CurrentPercent.Text = batteryInfor.BatteryLifePercent;
             this.Health.Text = batteryInfor.Health;
 
@@ -44,11 +44,32 @@ namespace WinTweak
             this.Brightness.Text = displayInfor.Brightness;
             this.ScreenScale.Text = displayInfor.scale;
             this.NightLight.Text = displayInfor.NightLight;
+            this.HDR.Text = displayInfor.HDRforPlayback;
         }
 
-        private void clock_Tick(object sender, EventArgs e)
+        private void OpenWindowsUpdate_Button_Click(object sender, EventArgs e)
         {
-            this.Refresh();
+            Program.runCommand_Advanced("explorer ms-settings:windowsupdate");
+        }
+
+        private void RefreshInformation_Button_Click(object sender, EventArgs e)
+        {
+            LoadDataFrom(new SystemInfor(), new BatteryInfor(), new DisplayInfor());
+        }
+
+        private void DisplayInformation_Group_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BatteryInformation_Group_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ApplyButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

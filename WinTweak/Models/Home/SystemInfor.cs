@@ -56,12 +56,12 @@ namespace WinTweak
         string get_RAM()
         {
             ComputerInfo computerInfo = new ComputerInfo();
-            var RAM = (long)(computerInfo.TotalPhysicalMemory as UInt64? / 1048576000);
-            return String.Format("{0} GB", RAM.ToString());
+            var RAM = (double)(computerInfo.TotalPhysicalMemory as UInt64?);
+            return String.Format("{0} GB", Math.Round(RAM / 1048576000, 2));
         }
         string get_HardDiskSpace()
         {
-            long totalSize = 0;
+            double totalSize = 0;
             foreach (DriveInfo disc in DriveInfo.GetDrives())
             {
                 if (disc.DriveType == DriveType.Fixed)
@@ -69,7 +69,7 @@ namespace WinTweak
                     totalSize += disc.TotalSize;
                 }
             }
-            return String.Format("{0} GB", (totalSize /= 1048576000).ToString());
+            return String.Format("{0} GB", Math.Round(totalSize / 1048576000, 2));
         }
     }
 }

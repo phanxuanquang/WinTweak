@@ -27,6 +27,11 @@ namespace WinTweak
             BrightnessTrackBar.Value = get_CurrentBrightnessLevel();
             ajustResolutionComboBox();
         }
+        public void UpdateBrightnessValue()
+        {
+            BrightnessTrackBar.Value = get_CurrentBrightnessLevel();
+            BrightnessPercent.Text = String.Format("Brightness: {0}%", BrightnessTrackBar.Value.ToString());
+        }
 
         private void ApplyButton_Click(object sender, EventArgs e)
         {
@@ -146,34 +151,49 @@ namespace WinTweak
 
         private void ajustResolutionComboBox()
         {
-            if (Screen.PrimaryScreen.Bounds.Width < 1920)
+            try
             {
-                Display_ResolutionComboBox.Items.RemoveAt(1);
-                Display_ResolutionComboBox.Items.RemoveAt(2);
-                Display_ResolutionComboBox.Items.RemoveAt(3);
+                if (Screen.PrimaryScreen.Bounds.Width < 1920)
+                {
+                    Display_ResolutionComboBox.Items.Remove("Full HD");
+                    Display_ResolutionComboBox.Items.Remove("2K");
+                    Display_ResolutionComboBox.Items.Remove("4K");
+                }
+                else if (Screen.PrimaryScreen.Bounds.Width < 2560)
+                {
+                    Display_ResolutionComboBox.Items.Remove("2K");
+                    Display_ResolutionComboBox.Items.Remove("4K");
+                }
+                else if (Screen.PrimaryScreen.Bounds.Width < 3840)
+                {
+                    Display_ResolutionComboBox.Items.Remove("4K");
+                }
             }
-            else if (Screen.PrimaryScreen.Bounds.Width < 2560)
+            catch(Exception ex)
             {
-                Display_ResolutionComboBox.Items.RemoveAt(2);
-                Display_ResolutionComboBox.Items.RemoveAt(3);
-            }
-            else if (Screen.PrimaryScreen.Bounds.Width < 3840)
-            {
-                Display_ResolutionComboBox.Items.RemoveAt(3);
+                MessageBox.Show(ex.Message);
             }
         }
 
         #region Change brightness directly
         int get_CurrentBrightnessLevel()
         {
-            var mclass = new ManagementClass("WmiMonitorBrightness")
+            try
             {
-                Scope = new ManagementScope(@"\\.\root\wmi")
-            };
+                var mclass = new ManagementClass("WmiMonitorBrightness")
+                {
+                    Scope = new ManagementScope(@"\\.\root\wmi")
+                };
 
-            foreach (ManagementObject instance in mclass.GetInstances())
+                foreach (ManagementObject instance in mclass.GetInstances())
+                {
+                    return (byte)instance["CurrentBrightness"];
+                }
+                return 0;
+            }
+            catch (Exception ex)
             {
-                return (byte)instance["CurrentBrightness"];
+                MessageBox.Show(ex.Message);
             }
             return 0;
         }

@@ -680,6 +680,7 @@
             this.BrightnessTrackBar.Name = "BrightnessTrackBar";
             this.BrightnessTrackBar.Size = new System.Drawing.Size(201, 21);
             this.BrightnessTrackBar.TabIndex = 4;
+            this.BrightnessTrackBar.Tag = "1";
             this.BrightnessTrackBar.ThumbColor = System.Drawing.Color.White;
             this.BrightnessTrackBar.ValueChanged += new System.EventHandler(this.BrightnessTrackBar_ValueChanged);
             // 
@@ -901,7 +902,7 @@
             this.ApplyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ApplyButton.Animated = true;
             this.ApplyButton.BorderColor = System.Drawing.Color.White;
-            this.ApplyButton.BorderRadius = 12;
+            this.ApplyButton.BorderRadius = 22;
             this.ApplyButton.BorderThickness = 2;
             this.ApplyButton.CheckedState.Parent = this.ApplyButton;
             this.ApplyButton.CustomImages.Parent = this.ApplyButton;
@@ -914,7 +915,7 @@
             this.ApplyButton.Margin = new System.Windows.Forms.Padding(0);
             this.ApplyButton.Name = "ApplyButton";
             this.ApplyButton.ShadowDecoration.Parent = this.ApplyButton;
-            this.ApplyButton.Size = new System.Drawing.Size(345, 45);
+            this.ApplyButton.Size = new System.Drawing.Size(345, 51);
             this.ApplyButton.TabIndex = 8;
             this.ApplyButton.Text = "APPLY";
             this.ApplyButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
@@ -925,7 +926,7 @@
             this.DefaultButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.DefaultButton.Animated = true;
             this.DefaultButton.BorderColor = System.Drawing.Color.White;
-            this.DefaultButton.BorderRadius = 12;
+            this.DefaultButton.BorderRadius = 22;
             this.DefaultButton.BorderThickness = 2;
             this.DefaultButton.CheckedState.Parent = this.DefaultButton;
             this.DefaultButton.CustomImages.Parent = this.DefaultButton;
@@ -940,7 +941,7 @@
             this.DefaultButton.Margin = new System.Windows.Forms.Padding(0);
             this.DefaultButton.Name = "DefaultButton";
             this.DefaultButton.ShadowDecoration.Parent = this.DefaultButton;
-            this.DefaultButton.Size = new System.Drawing.Size(360, 45);
+            this.DefaultButton.Size = new System.Drawing.Size(360, 51);
             this.DefaultButton.TabIndex = 9;
             this.DefaultButton.Text = "Default";
             this.DefaultButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
@@ -1062,7 +1063,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Transparent;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.Controls.Add(this.tittle);
             this.Controls.Add(this.StartMenu);
             this.Controls.Add(this.DefaultButton);

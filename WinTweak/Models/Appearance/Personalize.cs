@@ -23,7 +23,7 @@ namespace WinTweak
             TransparentEffect(TransparentEffect_Enable);
             PersonalizeDesktopIconArrange_Auto(PersonalizeDesktopIconArrange_Auto_Enable);
             Set_DesktopResolution(EnableChangeResolutionScale);
-            //Set_DesktopScale(scaleRatio, EnableChangeResolutionScale);
+            Set_DesktopScale(scaleRatio, EnableChangeResolutionScale);
         }
         private void DarkMode_Activate(bool enable)
         {

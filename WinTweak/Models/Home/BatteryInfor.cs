@@ -10,12 +10,12 @@ namespace WinTweak
 {
     internal class BatteryInfor
     {
-        public string BatteryLifeRemaining, BatteryLifePercent, BatteryFullLifetime, WearLevel, DesignedCapacity, Health;
+        public string BatteryLifeRemaining, BatteryLifePercent, PowerStatus, WearLevel, DesignedCapacity, Health;
         public BatteryInfor()
         {
             BatteryLifeRemaining = get_BatteryLifeRemaining();
-            BatteryLifePercent = get_BatteryLifePercent();  
-            BatteryFullLifetime = get_BatteryFullLifetime();    
+            BatteryLifePercent = get_BatteryLifePercent();
+            PowerStatus = get_PowerStatus();
             WearLevel = String.Format("About {0}%", get_WearLevel());
             DesignedCapacity = get_DesignedCapacity();
             Health = get_Health();
@@ -26,23 +26,38 @@ namespace WinTweak
             PowerStatus status = SystemInformation.PowerStatus;
             if (status.BatteryLifeRemaining != -1)
             {
-                return String.Format("About {0} minutes", status.BatteryLifeRemaining);
+                if (status.BatteryLifeRemaining / 3600 > 0)
+                {
+                    return String.Format("{0} hours and {1} minutes", status.BatteryLifeRemaining / 3600, status.BatteryLifeRemaining / 60 - (status.BatteryLifeRemaining / 3600) * 60);
+                }
+                else
+                {
+                    return String.Format("About {0} minutes", status.BatteryLifeRemaining / 60);
+                }
             }
-            return "Cannot estimate";
+            return "Unlimited";
         }
         string get_BatteryLifePercent()
         {
             PowerStatus status = SystemInformation.PowerStatus;
-            return String.Format("About {0}%", status.BatteryLifePercent * 100);
+            if (status.BatteryLifePercent < 1)
+            {
+                return String.Format("About {0}%", status.BatteryLifePercent * 100);
+            }
+            return "100%";
         }
-        string get_BatteryFullLifetime()
+        string get_PowerStatus()
         {
             PowerStatus status = SystemInformation.PowerStatus;
-            if (status.BatteryFullLifetime != -1)
+            if (status.PowerLineStatus == PowerLineStatus.Offline)
             {
-                return String.Format("About {0} minutes", status.BatteryFullLifetime / 60);
+                return "Running on battery";
             }
-            return "0 minute";
+            else if (status.PowerLineStatus == PowerLineStatus.Online)
+            {
+                return "Plugged in";
+            }
+            return "Cannot identify";
         }
         string get_WearLevel()
         {
