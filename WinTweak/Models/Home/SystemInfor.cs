@@ -26,7 +26,7 @@ namespace WinTweak
         {
             try
             {
-                ManagementObjectSearcher mos = new ManagementObjectSearcher("SELECT * FROM Win32_ComputerSystem");
+                ManagementObjectSearcher mos = new ManagementObjectSearcher("SELECT Model FROM Win32_ComputerSystem");
                 foreach (ManagementObject mo in mos.Get())
                 {
                     return mo["Model"].ToString();
@@ -43,14 +43,14 @@ namespace WinTweak
         {
             try
             {
-                ManagementObjectSearcher mos = new ManagementObjectSearcher("SELECT * FROM Win32_Processor");
+                ManagementObjectSearcher mos = new ManagementObjectSearcher("SELECT Name FROM Win32_Processor");
                 foreach (ManagementObject mo in mos.Get())
                 {
                     return mo["Name"].ToString();
                 }
                 return "Cannot identify";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("CPU information not found.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -73,7 +73,7 @@ namespace WinTweak
         {
             try
             {
-                ManagementObjectSearcher mos = new ManagementObjectSearcher("SELECT * FROM Win32_VideoController");
+                ManagementObjectSearcher mos = new ManagementObjectSearcher("SELECT Name FROM Win32_VideoController");
                 foreach (ManagementObject mo in mos.Get())
                 {
                     return mo["Name"].ToString();
@@ -82,7 +82,7 @@ namespace WinTweak
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Dedicated graphic card information not found.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Dedicated GPU information not found.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return "Cannot identify";
         }
@@ -92,7 +92,8 @@ namespace WinTweak
             {
                 ComputerInfo computerInfo = new ComputerInfo();
                 var RAM = (double)(computerInfo.TotalPhysicalMemory as UInt64?);
-                return String.Format("{0} GB", Math.Round(RAM / 1048576000, 2));
+                var availableRAM = (double)(computerInfo.AvailablePhysicalMemory as UInt64?);
+                return String.Format("{0} GB with {1} GB available at present", Math.Round(RAM / 1048576000, 2), Math.Round(availableRAM / 1048576000, 2));
             }
             catch (Exception ex)
             {
@@ -105,14 +106,16 @@ namespace WinTweak
             try
             {
                 double totalSize = 0;
+                double freeSpace = 0;
                 foreach (DriveInfo disc in DriveInfo.GetDrives())
                 {
                     if (disc.DriveType == DriveType.Fixed)
                     {
                         totalSize += disc.TotalSize;
+                        freeSpace += disc.AvailableFreeSpace;
                     }
                 }
-                return String.Format("{0} GB", Math.Round(totalSize / 1048576000, 2));
+                return String.Format("{0} GB with {1} GB available", Math.Round(totalSize / 1048576000, 2), Math.Round(freeSpace / 1048576000, 2));
             }
             catch (Exception ex)
             {

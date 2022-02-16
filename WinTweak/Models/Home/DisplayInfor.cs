@@ -1,8 +1,10 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Management;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,43 +14,76 @@ namespace WinTweak
     internal class DisplayInfor
     {
         public string Resolution, RefreshRate, Brightness, scale, NightLight, HDRforPlayback;
-        public DisplayInfor()
+        public DisplayInfor(string BatteryDesignedCapacity)
         {
-            Resolution = get_Resolution();
             RefreshRate = get_RefreshRate();
-            Brightness = get_Brightness().ToString() + "%";
-            scale = get_Scale();
+            Resolution = get_Resolution();
+            scale = get_Scale() + "%";
             NightLight = get_NightLightStatus();
             HDRforPlayback = get_HDRforPlayback();
+
+            if (BatteryDesignedCapacity != "Cannot identify")
+            {
+                Brightness = get_Brightness().ToString() + "%";
+            }
+            else
+            {
+                Brightness = "100%";
+            }
         }
+        private enum ProcessDPIAwareness
+        {
+            ProcessDPIUnaware = 0,
+            ProcessSystemDPIAware = 1,
+            ProcessPerMonitorDPIAware = 2
+        }
+        [DllImport("shcore.dll")]
+        private static extern int SetProcessDpiAwareness(ProcessDPIAwareness value);
+        private static void SetDpiAwareness()
+        {
+            if (Environment.OSVersion.Version.Major >= 6)
+            {
+                SetProcessDpiAwareness(ProcessDPIAwareness.ProcessPerMonitorDPIAware);
+            }
+        }
+
         string get_Resolution()
         {
             try
             {
-                int screenHeight = Screen.PrimaryScreen.Bounds.Height;
-                int screenWidth = Screen.PrimaryScreen.Bounds.Width;
+                SetDpiAwareness();
+                var screenHeight = Screen.PrimaryScreen.Bounds.Height;
+                var screenWidth = Screen.PrimaryScreen.Bounds.Width;
                 return String.Format("{0}  x {1}", screenWidth, screenHeight);
             }
             catch (Exception ex)
-            {;
-                MessageBox.Show("Cannot identify resolution of the monitor.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            {
+                MessageBox.Show("Cannot detect resolution of the monitor.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return "Cannot identify";
         }
         string get_RefreshRate()
         {
+            int RefreshRatecount = 1;
             try
             {
-                ManagementObjectSearcher mos = new ManagementObjectSearcher("SELECT * FROM Win32_VideoController");
+                ManagementObjectSearcher mos = new ManagementObjectSearcher("SELECT CurrentRefreshRate FROM Win32_VideoController");
                 foreach (ManagementObject mo in mos.Get())
                 {
-                    return mo["CurrentRefreshRate"].ToString() + "Hz";
+                    if (mo["CurrentRefreshRate"] != null)
+                    {
+                        RefreshRatecount++;
+                    }
+                    if (mo["CurrentRefreshRate"] != null && RefreshRatecount > 1 && mo["CurrentRefreshRate"].ToString() != "1")
+                    {
+                        return mo["CurrentRefreshRate"].ToString() + "Hz";
+                    }
                 }
                 return "Cannot identify";
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Cannot identify refresh rate of the monitor.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Dedicated graphic card information not found.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return "Cannot identify";
         }
@@ -56,14 +91,10 @@ namespace WinTweak
         {
             try
             {
-                var mclass = new ManagementClass("WmiMonitorBrightness")
+                ManagementObjectSearcher mos = new ManagementObjectSearcher(@"\\.\root\wmi", "Select CurrentBrightness From WmiMonitorBrightness");
+                foreach (ManagementObject mo in mos.Get())
                 {
-                    Scope = new ManagementScope(@"\\.\root\wmi")
-                };
-
-                foreach (ManagementObject instance in mclass.GetInstances())
-                {
-                    return (byte)instance["CurrentBrightness"];
+                    return (byte)mo["CurrentBrightness"];
                 }
                 return 0;
             }
@@ -73,11 +104,11 @@ namespace WinTweak
             }
             return 0;
         }
-        string get_Scale()
+        double get_Scale()
         {
             var currentDPI = (int)Registry.GetValue("HKEY_CURRENT_USER\\Control Panel\\Desktop", "LogPixels", 96);
-            var scale = (float)currentDPI / 96 * 100;
-            return scale.ToString() + "%";
+            double scale = Math.Round((double)currentDPI / 96 * 100, 0);
+            return scale;
         }
         string get_NightLightStatus()
         {

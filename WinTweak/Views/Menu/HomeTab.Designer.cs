@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tittle = new System.Windows.Forms.Label();
             this.SystemInformation_Group = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -70,19 +71,20 @@
             this.label22 = new System.Windows.Forms.Label();
             this.ApplyButton = new Guna.UI2.WinForms.Guna2GradientButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.OpenActivation_Button = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.label10 = new System.Windows.Forms.Label();
-            this.UpdateStatus = new System.Windows.Forms.Label();
+            this.InstallTime = new System.Windows.Forms.Label();
+            this.Architechture = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.Activation = new System.Windows.Forms.Label();
+            this.DefenderStatus = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.Language = new System.Windows.Forms.Label();
             this.WindowsVersion = new System.Windows.Forms.Label();
-            this.PlatformID = new System.Windows.Forms.Label();
-            this.OpenWindowsUpdate_Button = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.ComputerName = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.RefreshInformation_Button = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SystemInformation_Group.SuspendLayout();
             this.BatteryInformation_Group.SuspendLayout();
             this.DisplayInformation_Group.SuspendLayout();
@@ -121,7 +123,7 @@
             this.SystemInformation_Group.ForeColor = System.Drawing.Color.White;
             this.SystemInformation_Group.Location = new System.Drawing.Point(25, 81);
             this.SystemInformation_Group.Name = "SystemInformation_Group";
-            this.SystemInformation_Group.Size = new System.Drawing.Size(377, 200);
+            this.SystemInformation_Group.Size = new System.Drawing.Size(377, 207);
             this.SystemInformation_Group.TabIndex = 18;
             this.SystemInformation_Group.TabStop = false;
             this.SystemInformation_Group.Text = "System";
@@ -131,7 +133,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(22, 160);
+            this.label1.Location = new System.Drawing.Point(20, 163);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 13;
@@ -142,7 +144,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.Location = new System.Drawing.Point(22, 136);
+            this.label2.Location = new System.Drawing.Point(20, 139);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 12;
@@ -153,7 +155,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.Location = new System.Drawing.Point(22, 112);
+            this.label3.Location = new System.Drawing.Point(20, 115);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 13);
             this.label3.TabIndex = 11;
@@ -164,7 +166,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(22, 88);
+            this.label4.Location = new System.Drawing.Point(20, 91);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 10;
@@ -175,18 +177,18 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label5.Location = new System.Drawing.Point(22, 40);
+            this.label5.Location = new System.Drawing.Point(20, 43);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 13);
+            this.label5.Size = new System.Drawing.Size(79, 13);
             this.label5.TabIndex = 9;
-            this.label5.Text = "System Model:";
+            this.label5.Text = "Model name:";
             // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label6.Location = new System.Drawing.Point(22, 64);
+            this.label6.Location = new System.Drawing.Point(20, 67);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(114, 13);
             this.label6.TabIndex = 8;
@@ -197,7 +199,7 @@
             this.HardDiscSpace.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.HardDiscSpace.AutoSize = true;
             this.HardDiscSpace.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.HardDiscSpace.Location = new System.Drawing.Point(142, 160);
+            this.HardDiscSpace.Location = new System.Drawing.Point(136, 163);
             this.HardDiscSpace.Name = "HardDiscSpace";
             this.HardDiscSpace.Size = new System.Drawing.Size(77, 13);
             this.HardDiscSpace.TabIndex = 7;
@@ -208,7 +210,7 @@
             this.RAM.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RAM.AutoSize = true;
             this.RAM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.RAM.Location = new System.Drawing.Point(142, 136);
+            this.RAM.Location = new System.Drawing.Point(136, 139);
             this.RAM.Name = "RAM";
             this.RAM.Size = new System.Drawing.Size(77, 13);
             this.RAM.TabIndex = 6;
@@ -218,45 +220,57 @@
             // 
             this.GraphicCard.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.GraphicCard.AutoSize = true;
+            this.GraphicCard.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GraphicCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.GraphicCard.Location = new System.Drawing.Point(142, 112);
+            this.GraphicCard.Location = new System.Drawing.Point(136, 115);
             this.GraphicCard.Name = "GraphicCard";
             this.GraphicCard.Size = new System.Drawing.Size(77, 13);
             this.GraphicCard.TabIndex = 5;
             this.GraphicCard.Text = "Cannot identify";
+            this.toolTip.SetToolTip(this.GraphicCard, "Click for more information");
+            this.GraphicCard.Click += new System.EventHandler(this.GraphicCard_Click);
             // 
             // CPU
             // 
             this.CPU.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CPU.AutoSize = true;
+            this.CPU.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CPU.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.CPU.Location = new System.Drawing.Point(142, 88);
+            this.CPU.Location = new System.Drawing.Point(136, 91);
             this.CPU.Name = "CPU";
             this.CPU.Size = new System.Drawing.Size(77, 13);
             this.CPU.TabIndex = 3;
             this.CPU.Text = "Cannot identify";
+            this.toolTip.SetToolTip(this.CPU, "Click for more information");
+            this.CPU.Click += new System.EventHandler(this.CPU_Click);
             // 
             // SystemModel
             // 
             this.SystemModel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SystemModel.AutoSize = true;
+            this.SystemModel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SystemModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.SystemModel.Location = new System.Drawing.Point(142, 40);
+            this.SystemModel.Location = new System.Drawing.Point(136, 43);
             this.SystemModel.Name = "SystemModel";
             this.SystemModel.Size = new System.Drawing.Size(77, 13);
             this.SystemModel.TabIndex = 2;
             this.SystemModel.Text = "Cannot identify";
+            this.toolTip.SetToolTip(this.SystemModel, "Click for more information");
+            this.SystemModel.Click += new System.EventHandler(this.SystemModel_Click);
             // 
             // OperatingSystem
             // 
             this.OperatingSystem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OperatingSystem.AutoSize = true;
+            this.OperatingSystem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.OperatingSystem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.OperatingSystem.Location = new System.Drawing.Point(142, 64);
+            this.OperatingSystem.Location = new System.Drawing.Point(136, 67);
             this.OperatingSystem.Name = "OperatingSystem";
             this.OperatingSystem.Size = new System.Drawing.Size(77, 13);
             this.OperatingSystem.TabIndex = 1;
             this.OperatingSystem.Text = "Cannot identify";
+            this.toolTip.SetToolTip(this.OperatingSystem, "Click for more information");
+            this.OperatingSystem.Click += new System.EventHandler(this.OperatingSystem_Click);
             // 
             // BatteryInformation_Group
             // 
@@ -276,7 +290,7 @@
             this.BatteryInformation_Group.ForeColor = System.Drawing.Color.White;
             this.BatteryInformation_Group.Location = new System.Drawing.Point(431, 81);
             this.BatteryInformation_Group.Name = "BatteryInformation_Group";
-            this.BatteryInformation_Group.Size = new System.Drawing.Size(377, 200);
+            this.BatteryInformation_Group.Size = new System.Drawing.Size(377, 207);
             this.BatteryInformation_Group.TabIndex = 19;
             this.BatteryInformation_Group.TabStop = false;
             this.BatteryInformation_Group.Text = "Battery";
@@ -286,7 +300,7 @@
             this.Health.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Health.AutoSize = true;
             this.Health.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.Health.Location = new System.Drawing.Point(179, 160);
+            this.Health.Location = new System.Drawing.Point(179, 163);
             this.Health.Name = "Health";
             this.Health.Size = new System.Drawing.Size(77, 13);
             this.Health.TabIndex = 19;
@@ -297,7 +311,7 @@
             this.CurrentPercent.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CurrentPercent.AutoSize = true;
             this.CurrentPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.CurrentPercent.Location = new System.Drawing.Point(179, 136);
+            this.CurrentPercent.Location = new System.Drawing.Point(179, 139);
             this.CurrentPercent.Name = "CurrentPercent";
             this.CurrentPercent.Size = new System.Drawing.Size(77, 13);
             this.CurrentPercent.TabIndex = 18;
@@ -308,7 +322,7 @@
             this.PowerStatus.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PowerStatus.AutoSize = true;
             this.PowerStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.PowerStatus.Location = new System.Drawing.Point(179, 112);
+            this.PowerStatus.Location = new System.Drawing.Point(179, 115);
             this.PowerStatus.Name = "PowerStatus";
             this.PowerStatus.Size = new System.Drawing.Size(77, 13);
             this.PowerStatus.TabIndex = 17;
@@ -319,7 +333,7 @@
             this.BatteryLifeRemaining.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BatteryLifeRemaining.AutoSize = true;
             this.BatteryLifeRemaining.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.BatteryLifeRemaining.Location = new System.Drawing.Point(179, 88);
+            this.BatteryLifeRemaining.Location = new System.Drawing.Point(179, 91);
             this.BatteryLifeRemaining.Name = "BatteryLifeRemaining";
             this.BatteryLifeRemaining.Size = new System.Drawing.Size(77, 13);
             this.BatteryLifeRemaining.TabIndex = 16;
@@ -330,7 +344,7 @@
             this.DesignedCapacity.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DesignedCapacity.AutoSize = true;
             this.DesignedCapacity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.DesignedCapacity.Location = new System.Drawing.Point(179, 40);
+            this.DesignedCapacity.Location = new System.Drawing.Point(179, 43);
             this.DesignedCapacity.Name = "DesignedCapacity";
             this.DesignedCapacity.Size = new System.Drawing.Size(77, 13);
             this.DesignedCapacity.TabIndex = 15;
@@ -341,7 +355,7 @@
             this.WearLevel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.WearLevel.AutoSize = true;
             this.WearLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.WearLevel.Location = new System.Drawing.Point(179, 64);
+            this.WearLevel.Location = new System.Drawing.Point(179, 67);
             this.WearLevel.Name = "WearLevel";
             this.WearLevel.Size = new System.Drawing.Size(77, 13);
             this.WearLevel.TabIndex = 14;
@@ -352,7 +366,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label7.Location = new System.Drawing.Point(22, 160);
+            this.label7.Location = new System.Drawing.Point(22, 163);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 13);
             this.label7.TabIndex = 13;
@@ -363,7 +377,7 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label8.Location = new System.Drawing.Point(22, 136);
+            this.label8.Location = new System.Drawing.Point(22, 139);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(99, 13);
             this.label8.TabIndex = 12;
@@ -374,7 +388,7 @@
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label9.Location = new System.Drawing.Point(22, 112);
+            this.label9.Location = new System.Drawing.Point(22, 115);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(84, 13);
             this.label9.TabIndex = 11;
@@ -385,7 +399,7 @@
             this.label0.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label0.AutoSize = true;
             this.label0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label0.Location = new System.Drawing.Point(22, 88);
+            this.label0.Location = new System.Drawing.Point(22, 91);
             this.label0.Name = "label0";
             this.label0.Size = new System.Drawing.Size(151, 13);
             this.label0.TabIndex = 10;
@@ -396,7 +410,7 @@
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label11.Location = new System.Drawing.Point(22, 40);
+            this.label11.Location = new System.Drawing.Point(22, 43);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(117, 13);
             this.label11.TabIndex = 9;
@@ -407,7 +421,7 @@
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label12.Location = new System.Drawing.Point(22, 64);
+            this.label12.Location = new System.Drawing.Point(22, 67);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(72, 13);
             this.label12.TabIndex = 8;
@@ -577,10 +591,14 @@
             this.ApplyButton.BorderThickness = 2;
             this.ApplyButton.CheckedState.Parent = this.ApplyButton;
             this.ApplyButton.CustomImages.Parent = this.ApplyButton;
-            this.ApplyButton.FillColor = System.Drawing.Color.Transparent;
-            this.ApplyButton.FillColor2 = System.Drawing.Color.Transparent;
+            this.ApplyButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(17)))), ((int)(((byte)(23)))));
+            this.ApplyButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(17)))), ((int)(((byte)(23)))));
             this.ApplyButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.ApplyButton.ForeColor = System.Drawing.Color.White;
+            this.ApplyButton.HoverState.BorderColor = System.Drawing.Color.White;
+            this.ApplyButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(54)))), ((int)(((byte)(61)))));
+            this.ApplyButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(54)))), ((int)(((byte)(61)))));
+            this.ApplyButton.HoverState.ForeColor = System.Drawing.Color.White;
             this.ApplyButton.HoverState.Parent = this.ApplyButton;
             this.ApplyButton.Location = new System.Drawing.Point(446, 551);
             this.ApplyButton.Margin = new System.Windows.Forms.Padding(0);
@@ -594,14 +612,14 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.groupBox1.Controls.Add(this.OpenActivation_Button);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.UpdateStatus);
+            this.groupBox1.Controls.Add(this.InstallTime);
+            this.groupBox1.Controls.Add(this.Architechture);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.Activation);
+            this.groupBox1.Controls.Add(this.DefenderStatus);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.Language);
             this.groupBox1.Controls.Add(this.WindowsVersion);
-            this.groupBox1.Controls.Add(this.PlatformID);
-            this.groupBox1.Controls.Add(this.OpenWindowsUpdate_Button);
+            this.groupBox1.Controls.Add(this.ComputerName);
             this.groupBox1.Controls.Add(this.label23);
             this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Controls.Add(this.label25);
@@ -615,148 +633,130 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Windows";
             // 
-            // OpenActivation_Button
+            // InstallTime
             // 
-            this.OpenActivation_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.OpenActivation_Button.Animated = true;
-            this.OpenActivation_Button.BorderColor = System.Drawing.Color.White;
-            this.OpenActivation_Button.BorderRadius = 10;
-            this.OpenActivation_Button.BorderThickness = 1;
-            this.OpenActivation_Button.CheckedState.Parent = this.OpenActivation_Button;
-            this.OpenActivation_Button.CustomImages.Parent = this.OpenActivation_Button;
-            this.OpenActivation_Button.FillColor = System.Drawing.Color.Transparent;
-            this.OpenActivation_Button.FillColor2 = System.Drawing.Color.Transparent;
-            this.OpenActivation_Button.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.OpenActivation_Button.ForeColor = System.Drawing.Color.White;
-            this.OpenActivation_Button.HoverState.Parent = this.OpenActivation_Button;
-            this.OpenActivation_Button.Location = new System.Drawing.Point(195, 169);
-            this.OpenActivation_Button.Margin = new System.Windows.Forms.Padding(0);
-            this.OpenActivation_Button.Name = "OpenActivation_Button";
-            this.OpenActivation_Button.ShadowDecoration.Parent = this.OpenActivation_Button;
-            this.OpenActivation_Button.Size = new System.Drawing.Size(150, 30);
-            this.OpenActivation_Button.TabIndex = 27;
-            this.OpenActivation_Button.Text = "Activation";
-            this.OpenActivation_Button.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-            this.OpenActivation_Button.Click += new System.EventHandler(this.OpenActivation_Button_Click);
+            this.InstallTime.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.InstallTime.AutoSize = true;
+            this.InstallTime.Cursor = System.Windows.Forms.Cursors.Default;
+            this.InstallTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.InstallTime.Location = new System.Drawing.Point(136, 167);
+            this.InstallTime.Name = "InstallTime";
+            this.InstallTime.Size = new System.Drawing.Size(77, 13);
+            this.InstallTime.TabIndex = 29;
+            this.InstallTime.Text = "Cannot identify";
+            this.toolTip.SetToolTip(this.InstallTime, "Open Activation setting");
             // 
-            // label10
+            // Architechture
             // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label10.Location = new System.Drawing.Point(142, 142);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(77, 13);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "Cannot identify";
+            this.Architechture.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Architechture.AutoSize = true;
+            this.Architechture.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Architechture.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.Architechture.Location = new System.Drawing.Point(136, 94);
+            this.Architechture.Name = "Architechture";
+            this.Architechture.Size = new System.Drawing.Size(77, 13);
+            this.Architechture.TabIndex = 28;
+            this.Architechture.Text = "Cannot identify";
             // 
-            // UpdateStatus
+            // label16
             // 
-            this.UpdateStatus.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.UpdateStatus.AutoSize = true;
-            this.UpdateStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.UpdateStatus.Location = new System.Drawing.Point(142, 118);
-            this.UpdateStatus.Name = "UpdateStatus";
-            this.UpdateStatus.Size = new System.Drawing.Size(77, 13);
-            this.UpdateStatus.TabIndex = 26;
-            this.UpdateStatus.Text = "Cannot identify";
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label16.Location = new System.Drawing.Point(20, 94);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(80, 13);
+            this.label16.TabIndex = 27;
+            this.label16.Text = "Architecture:";
+            // 
+            // Activation
+            // 
+            this.Activation.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Activation.AutoSize = true;
+            this.Activation.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Activation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.Activation.Location = new System.Drawing.Point(136, 142);
+            this.Activation.Name = "Activation";
+            this.Activation.Size = new System.Drawing.Size(77, 13);
+            this.Activation.TabIndex = 21;
+            this.Activation.Text = "Cannot identify";
+            this.toolTip.SetToolTip(this.Activation, "Open Activation setting");
+            // 
+            // DefenderStatus
+            // 
+            this.DefenderStatus.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.DefenderStatus.AutoSize = true;
+            this.DefenderStatus.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DefenderStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.DefenderStatus.Location = new System.Drawing.Point(136, 118);
+            this.DefenderStatus.Name = "DefenderStatus";
+            this.DefenderStatus.Size = new System.Drawing.Size(77, 13);
+            this.DefenderStatus.TabIndex = 26;
+            this.DefenderStatus.Text = "Cannot identify";
             // 
             // label13
             // 
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label13.Location = new System.Drawing.Point(22, 142);
+            this.label13.Location = new System.Drawing.Point(20, 142);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(68, 13);
             this.label13.TabIndex = 20;
             this.label13.Text = "Activation:";
             // 
-            // Language
-            // 
-            this.Language.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Language.AutoSize = true;
-            this.Language.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.Language.Location = new System.Drawing.Point(142, 94);
-            this.Language.Name = "Language";
-            this.Language.Size = new System.Drawing.Size(77, 13);
-            this.Language.TabIndex = 25;
-            this.Language.Text = "Cannot identify";
-            // 
             // WindowsVersion
             // 
             this.WindowsVersion.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.WindowsVersion.AutoSize = true;
+            this.WindowsVersion.Cursor = System.Windows.Forms.Cursors.Default;
             this.WindowsVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.WindowsVersion.Location = new System.Drawing.Point(142, 70);
+            this.WindowsVersion.Location = new System.Drawing.Point(136, 70);
             this.WindowsVersion.Name = "WindowsVersion";
             this.WindowsVersion.Size = new System.Drawing.Size(77, 13);
             this.WindowsVersion.TabIndex = 24;
             this.WindowsVersion.Text = "Cannot identify";
             // 
-            // PlatformID
+            // ComputerName
             // 
-            this.PlatformID.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.PlatformID.AutoSize = true;
-            this.PlatformID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.PlatformID.Location = new System.Drawing.Point(142, 47);
-            this.PlatformID.Name = "PlatformID";
-            this.PlatformID.Size = new System.Drawing.Size(77, 13);
-            this.PlatformID.TabIndex = 23;
-            this.PlatformID.Text = "Cannot identify";
-            // 
-            // OpenWindowsUpdate_Button
-            // 
-            this.OpenWindowsUpdate_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.OpenWindowsUpdate_Button.Animated = true;
-            this.OpenWindowsUpdate_Button.BorderColor = System.Drawing.Color.White;
-            this.OpenWindowsUpdate_Button.BorderRadius = 10;
-            this.OpenWindowsUpdate_Button.BorderThickness = 1;
-            this.OpenWindowsUpdate_Button.CheckedState.Parent = this.OpenWindowsUpdate_Button;
-            this.OpenWindowsUpdate_Button.CustomImages.Parent = this.OpenWindowsUpdate_Button;
-            this.OpenWindowsUpdate_Button.FillColor = System.Drawing.Color.Transparent;
-            this.OpenWindowsUpdate_Button.FillColor2 = System.Drawing.Color.Transparent;
-            this.OpenWindowsUpdate_Button.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.OpenWindowsUpdate_Button.ForeColor = System.Drawing.Color.White;
-            this.OpenWindowsUpdate_Button.HoverState.Parent = this.OpenWindowsUpdate_Button;
-            this.OpenWindowsUpdate_Button.Location = new System.Drawing.Point(31, 169);
-            this.OpenWindowsUpdate_Button.Margin = new System.Windows.Forms.Padding(0);
-            this.OpenWindowsUpdate_Button.Name = "OpenWindowsUpdate_Button";
-            this.OpenWindowsUpdate_Button.ShadowDecoration.Parent = this.OpenWindowsUpdate_Button;
-            this.OpenWindowsUpdate_Button.Size = new System.Drawing.Size(150, 30);
-            this.OpenWindowsUpdate_Button.TabIndex = 22;
-            this.OpenWindowsUpdate_Button.Text = "Windows Update";
-            this.OpenWindowsUpdate_Button.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-            this.OpenWindowsUpdate_Button.Click += new System.EventHandler(this.OpenWindowsUpdate_Button_Click);
+            this.ComputerName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ComputerName.AutoSize = true;
+            this.ComputerName.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ComputerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.ComputerName.Location = new System.Drawing.Point(136, 47);
+            this.ComputerName.Name = "ComputerName";
+            this.ComputerName.Size = new System.Drawing.Size(77, 13);
+            this.ComputerName.TabIndex = 23;
+            this.ComputerName.Text = "Cannot identify";
             // 
             // label23
             // 
             this.label23.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label23.Location = new System.Drawing.Point(22, 118);
+            this.label23.Location = new System.Drawing.Point(20, 118);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(90, 13);
+            this.label23.Size = new System.Drawing.Size(63, 13);
             this.label23.TabIndex = 12;
-            this.label23.Text = "Update status:";
+            this.label23.Text = "Defender:";
             // 
             // label24
             // 
             this.label24.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label24.Location = new System.Drawing.Point(22, 94);
+            this.label24.Location = new System.Drawing.Point(20, 167);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(67, 13);
+            this.label24.Size = new System.Drawing.Size(72, 13);
             this.label24.TabIndex = 11;
-            this.label24.Text = "Language:";
+            this.label24.Text = "Install time:";
             // 
             // label25
             // 
             this.label25.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label25.Location = new System.Drawing.Point(22, 70);
+            this.label25.Location = new System.Drawing.Point(20, 70);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(53, 13);
             this.label25.TabIndex = 10;
@@ -767,11 +767,11 @@
             this.label26.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label26.Location = new System.Drawing.Point(22, 47);
+            this.label26.Location = new System.Drawing.Point(20, 47);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(74, 13);
+            this.label26.Size = new System.Drawing.Size(98, 13);
             this.label26.TabIndex = 9;
-            this.label26.Text = "Platform ID:";
+            this.label26.Text = "Computer name:";
             // 
             // RefreshInformation_Button
             // 
@@ -781,18 +781,21 @@
             this.RefreshInformation_Button.BorderRadius = 22;
             this.RefreshInformation_Button.BorderThickness = 2;
             this.RefreshInformation_Button.CheckedState.Parent = this.RefreshInformation_Button;
+            this.RefreshInformation_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RefreshInformation_Button.CustomImages.Parent = this.RefreshInformation_Button;
-            this.RefreshInformation_Button.FillColor = System.Drawing.Color.Transparent;
-            this.RefreshInformation_Button.FillColor2 = System.Drawing.Color.Transparent;
+            this.RefreshInformation_Button.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(206)))));
+            this.RefreshInformation_Button.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(206)))));
             this.RefreshInformation_Button.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.RefreshInformation_Button.ForeColor = System.Drawing.Color.White;
+            this.RefreshInformation_Button.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(135)))), ((int)(((byte)(244)))));
+            this.RefreshInformation_Button.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(135)))), ((int)(((byte)(244)))));
             this.RefreshInformation_Button.HoverState.Parent = this.RefreshInformation_Button;
-            this.RefreshInformation_Button.Location = new System.Drawing.Point(43, 551);
-            this.RefreshInformation_Button.Margin = new System.Windows.Forms.Padding(0);
+            this.RefreshInformation_Button.Location = new System.Drawing.Point(25, 551);
             this.RefreshInformation_Button.Name = "RefreshInformation_Button";
             this.RefreshInformation_Button.ShadowDecoration.Parent = this.RefreshInformation_Button;
-            this.RefreshInformation_Button.Size = new System.Drawing.Size(360, 51);
-            this.RefreshInformation_Button.TabIndex = 23;
+            this.RefreshInformation_Button.Size = new System.Drawing.Size(377, 51);
+            this.RefreshInformation_Button.TabIndex = 0;
+            this.RefreshInformation_Button.Tag = "";
             this.RefreshInformation_Button.Text = "Refresh Information";
             this.RefreshInformation_Button.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             this.RefreshInformation_Button.Click += new System.EventHandler(this.RefreshInformation_Button_Click);
@@ -871,16 +874,17 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
-        private Guna.UI2.WinForms.Guna2GradientButton OpenWindowsUpdate_Button;
-        private System.Windows.Forms.Label UpdateStatus;
-        private System.Windows.Forms.Label Language;
+        private System.Windows.Forms.Label DefenderStatus;
         private System.Windows.Forms.Label WindowsVersion;
-        private System.Windows.Forms.Label PlatformID;
+        private System.Windows.Forms.Label ComputerName;
         private Guna.UI2.WinForms.Guna2GradientButton RefreshInformation_Button;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label Activation;
         private System.Windows.Forms.Label label13;
-        private Guna.UI2.WinForms.Guna2GradientButton OpenActivation_Button;
         private System.Windows.Forms.Label HDR;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label Architechture;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.Label InstallTime;
     }
 }

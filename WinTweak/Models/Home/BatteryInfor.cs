@@ -10,22 +10,34 @@ namespace WinTweak
 {
     internal class BatteryInfor
     {
-        public string BatteryLifeRemaining, BatteryLifePercent, PowerStatus, WearLevel, DesignedCapacity, Health;
+        public string BatteryLifeRemaining, BatteryLifePercent, PowerStatus, WearLevel = "0", DesignedCapacity = "Cannot identify", Health;
+        PowerStatus status = SystemInformation.PowerStatus;
         public BatteryInfor()
         {
-            BatteryLifeRemaining = get_BatteryLifeRemaining();
-            BatteryLifePercent = get_BatteryLifePercent();
-            PowerStatus = get_PowerStatus();
-            WearLevel = String.Format("About {0}%", get_WearLevel());
             DesignedCapacity = get_DesignedCapacity();
-            Health = get_Health();
+            if (DesignedCapacity == "Cannot identify")
+            {
+                BatteryLifeRemaining = "Unlimited";
+                BatteryLifePercent = "100%";
+                PowerStatus = get_PowerStatus();
+                WearLevel = "0%";
+                Health = "Unknown";
+            }
+            else
+            {
+                BatteryLifeRemaining = get_BatteryLifeRemaining();
+                BatteryLifePercent = get_BatteryLifePercent();
+                PowerStatus = get_PowerStatus();
+                Health = get_Health();
+                WearLevel = String.Format("About {0}%", get_WearLevel());
+                DesignedCapacity += " Wh";
+            }
         }
-
         string get_BatteryLifeRemaining()
         {
             try
             {
-                PowerStatus status = SystemInformation.PowerStatus;
+
                 if (status.BatteryLifeRemaining != -1)
                 {
                     if (status.BatteryLifeRemaining / 3600 > 0)
@@ -49,7 +61,6 @@ namespace WinTweak
         {
             try
             {
-                PowerStatus status = SystemInformation.PowerStatus;
                 if (status.BatteryLifePercent < 1)
                 {
                     return String.Format("About {0}%", status.BatteryLifePercent * 100);
@@ -66,7 +77,6 @@ namespace WinTweak
         {
             try
             {
-                PowerStatus status = SystemInformation.PowerStatus;
                 if (status.PowerLineStatus == PowerLineStatus.Offline)
                 {
                     return "Running on battery";
@@ -87,30 +97,21 @@ namespace WinTweak
         {
             try
             {
-                ManagementObjectSearcher mos;
-                string DesignedCapacity = "";
-                string FullChargedCapacity = "";
 
-                mos = new ManagementObjectSearcher(@"\\localhost\root\wmi", "Select FullChargedCapacity From BatteryFullChargedCapacity");
+                double res = 0;
+                ManagementObjectSearcher mos = new ManagementObjectSearcher(@"\\localhost\root\wmi", "Select FullChargedCapacity From BatteryFullChargedCapacity");
                 foreach (ManagementObject mo in mos.Get())
                 {
-                    FullChargedCapacity = mo["FullChargedCapacity"].ToString();
+                    res = double.Parse(mo["FullChargedCapacity"].ToString()) / double.Parse(DesignedCapacity) / 1000 * 100;
+                    break;
                 }
-
-                mos = new ManagementObjectSearcher(@"\\localhost\root\wmi", "Select DesignedCapacity From BatteryStaticData");
-                foreach (ManagementObject mo in mos.Get())
-                {
-                    DesignedCapacity = mo["DesignedCapacity"].ToString();
-                }
-                double res = double.Parse(FullChargedCapacity) / double.Parse(DesignedCapacity) * 100;
-
                 return Math.Round(100 - res).ToString();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Cannot estimate battery weal level.\nError: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            return "Cannot estimate";
+            return "0";
         }
         string get_DesignedCapacity()
         {
@@ -120,7 +121,7 @@ namespace WinTweak
                 foreach (ManagementObject mo in mos.Get())
                 {
                     double res = double.Parse(mo["DesignedCapacity"].ToString());
-                    return String.Format("{0} Wh", Math.Round(res / 1000));
+                    return Math.Round(res / 1000).ToString();
                 }
                 return "Cannot identify";
             }
@@ -132,13 +133,14 @@ namespace WinTweak
         }
         string get_Health()
         {
+            double wearLevel = double.Parse(get_WearLevel());
             try
             {
-                if (double.Parse(get_WearLevel()) <= 15)
+                if (wearLevel <= 15)
                 {
                     return "Excellent";
                 }
-                else if (double.Parse(get_WearLevel()) > 15 && double.Parse(get_WearLevel()) < 40)
+                else if (wearLevel > 15 && wearLevel < 40)
                 {
                     return "Good";
                 }

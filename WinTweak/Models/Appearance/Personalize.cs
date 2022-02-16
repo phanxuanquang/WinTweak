@@ -36,12 +36,10 @@ namespace WinTweak
 
                 if (enable)
                 {
-                    SetWallpaper("DarkMode_Wall.jpg");
                     Program.runCommand(commandReg, pathReg, nameReg, "-Value 0");
                 }
                 else
                 {
-                    SetWallpaper("LightMode_Wall.jpg");
                     Program.runCommand(commandReg, pathReg, nameReg, "-Value 1");
                 }
             }
