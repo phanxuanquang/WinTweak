@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,11 +16,14 @@ namespace WinTweak
 {
     public partial class HomeTab : UserControl
     {
+        Stopwatch watch = new Stopwatch();
+
         BatteryInfor battery = new BatteryInfor();
         public HomeTab()
         {
             this.AutoScaleDimensions = new SizeF(6F, 13F);
             InitializeComponent();
+            
         }
 
         void checkUpdate()
@@ -60,12 +64,15 @@ namespace WinTweak
         #region Data loading
         private void HomeTab_Load(object sender, EventArgs e)
         {
+            watch.Start();
             checkUpdate();
             this.DesignedCapacity.Text = battery.DesignedCapacity;
             LoadDataFrom(new SystemInfor(), battery, new DisplayInfor(this.DesignedCapacity.Text), new WindowsInfor());
             var themeColor = WindowsColor.GetAccentColor();
+            watch.Stop();
+            MessageBox.Show($"Execution Time: {watch.ElapsedMilliseconds} ms");
         }
-        
+
         private void LoadDataFrom(SystemInfor systemInfor, BatteryInfor batteryInfor, DisplayInfor displayInfor, WindowsInfor windowsInfor)
         {
             this.SystemModel.Text = systemInfor.SystemModel;
